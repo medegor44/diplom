@@ -1,0 +1,1455 @@
+\section{Кольца и идеалы}
+    \subsection{Определение кольца. Основные свойства}
+    Дадим определение кольца:
+    \begin{Def}
+        \textit{Коммутативным, ассоциативным кольцом с единицей} $A$ называется абелева группа $A$ 
+        с операцией $\cdot : A \times A \rightarrow A$, которая удовлетворяет следующим свойствам для всех $x, y, z \in A$:
+        \begin{enumerate}
+            \item Дистрибутивность --- $x \cdot (y + x) = x\cdot y + x\cdot z$;
+            \item Коммутативность --- $x \cdot y = y \cdot x$;
+            \item Ассоциативность --- $x\cdot(y \cdot z) = (x \cdot y) \cdot z$;
+            \item Существует нейтральный по умножению элемент $1$.
+        \end{enumerate}
+    \end{Def}
+    Далее в тексте $x \cdot y$ будем записывать как $xy$. Под кольцом далее будем понимать коммутативное, ассоциативное кольцо с единицей. 
+    
+    \begin{Def}
+        \textit{Идеалом} $\mf{a}$ в кольце $A$ называется подгруппа в $A$, такая что $A\mf{a} \subseteq \mf{a}$.
+    \end{Def}
+
+    \begin{Def}
+        Пусть задано некотрое подмножество $E \subseteq A$. Будем говорить, что \textit{ идеал $\mf{a}$ порожден множеством $E$}, если $\mf{a}$ предстваляет собой множество
+        конечных $A$-линейных комбинаций элементов $E$.
+    \end{Def}
+
+    \begin{Def}
+        \textit{Полем} называется кольцо, в котором $1 \neq 0$ и всякий ненулевой элемент имеет обратный.
+    \end{Def}
+
+    Сформулируем теорему, с помощью которой можно установить, является кольцо полем или нет.
+    \begin{Theorem}\cite{A-M}
+        Пусть $A$ --- ненулевое кольцо. Следующие утверждения эквивалентны:
+        \begin{enumerate}
+            \item $A$ --- поле;
+            \item В $A$ нет идеалов, кроме $0$ и $(1)$;
+            \item Любой гомоморфизм $A \rightarrow B$, где $B$ ненулевое кольцо, инъективен.
+        \end{enumerate}
+    \end{Theorem}
+
+    \subsection{Простые идеалы и максимальные идеалы}
+    Среди множества всех идеалов кольца $A$ выделяют особые типы идеалов: простые и максимальные.
+    \begin{Def}
+        Идеал $\mf{p}$ в кольце $A$ называется \textit{простым}, если $\mf{p} \neq (1)$ и из включения $xy \in \mf{p}$ следует, что либо $x \in \mf{p}$, либо $y \in \mf{p}$.
+    \end{Def}
+    \begin{Def}
+        Идеал $\mf{m}$ в кольце $A$ называется \textit{максимальным}, если $\mf{m} \neq (1)$ и не существует идеала $\mf{a}$, удовлетворяющего условиям $\mf{m} \subsetneq \mf{a} \subsetneq (1)$.
+    \end{Def}
+
+    Данные выше определения можно сформулировать иначе:
+    \begin{center}
+        $\mf{p}$ --- простой $\Leftrightarrow A/\mf{p}$ --- область целостности. 
+    \end{center}
+
+    Действительно, из определения простого идеала следует, что $\bar{x}\bar{y} = \bar{0}$ только в том случае,
+    когда $x \in \mf{p}$ или $y \in \mf{p}$, где $x$, $y$ --- представители классов $\bar{x}$ и $\bar{y}$ соответственно.
+
+    С другой стороны, так как $A/\mf{p}$ область целостности, значит из равенства $\bar{x}\bar{y} = \bar{0}$ следует что
+    либо $\bar{x} = \bar{0}$, либо $\bar{y} = \bar{0}$, то есть либо $x \in \mf{p}$, либо $y \in \mf{p}$.
+
+    \begin{center}
+        $\mf{m}$ --- максимальный $\Leftrightarrow A/\mf{m}$ --- поле.
+    \end{center}
+
+    Так как все идеалы, содержащие $\mf{m}$ находятся во взаимнооднозначном соответствии с идеалами в $A/\mf{m}$ \cite{A-M}, 
+    то сразу получаем что $A/\mf{m}$ --- поле, так как $\mf{m}$ максимальный. 
+
+    Так как $A/\mf{m}$ --- поле, следовательно оно не содержит идеалов кроме $\bar{0}$ и $(\bar{1})$, следовательно,
+    идеал $\mf{m}$ не содержат никакие другие идеалы, кроме $(1)$, по определению $\mf{m}$ максимален.
+
+    Так как любое поле является областью целостности, следовательно любой максимальный идеал прост.
+
+    Сформулируем важную теорему:
+    \begin{Theorem}{\cite{A-M}}
+        В каждом кольце $A \neq 0$ существует максимальный идеал.
+    \end{Theorem}
+    Из доказательства теоремы, приведенного в \cite{A-M} следует справедливость следующих утверждений:
+    \begin{Corollary} {\cite{A-M}} 
+        Всякий идеал $\mf{a} \neq (1)$ содержится в некотором максимальном идеале.
+    \end{Corollary}
+    \begin{Corollary} \cite{A-M}
+        Любой элемент из $A$, не являющийся обратимым элементом содержится в некотором максимальном идеале.
+    \end{Corollary}
+
+    Выделяют особый вид колец в которых существует только один максимальный идеал. Такие кольца называют \textit{локальными}.
+    
+    \begin{Theorem}{\cite{A-M}}
+        \begin{enumerate}
+            \item Пусть $A$ --- некоторое кольцо, $\mf{m} \neq (1)$ --- такой идеал в $A$, что любой элемент $x \in A \backslash \mf{m}$ обратим. 
+            Тогда $A$ --- локальное кольцо, а $\mf{m}$ --- его максимальный идеал.
+            \item Пусть $A$ --- некоторое кольцо, $\mf{m}$ --- его максимальный идеал и пусть любой элемент из $1 + \mf{m}$ обратим в $A$. Тогда $A$ --- локальное кольцо.
+        \end{enumerate}
+    \end{Theorem}
+
+    \subsection{Нильрадикал и радикал Джекобсона}
+
+    \begin{Def}
+        Множество всех нильпотентов кольца $A$ называется \textit{нильрадикалом кольца $A$} и обозначается $\nil{A}$.
+    \end{Def}
+
+    \begin{Theorem}{\cite{A-M}}
+        \begin{enumerate}
+            \item Множество $\nil{A}$ является идеалом. В кольце $A/\nil{A}$ нет ненулевых нильпотентов.
+            \item $\nil{A}$ совпадает с пересечением всех простых идеалов в $A$.
+        \end{enumerate}
+    \end{Theorem}
+
+    \begin{Def}
+        \textit{Радикалом Джекобсона} кольца $A$ называется пересечение всех его максимальных идеалов и обозначается $\jac{A}$.
+    \end{Def}
+
+    \begin{Theorem}\label{jac_prop} \cite{A-M}
+        $x \in \jac{A} \Leftrightarrow 1 - xy$ --- обратим в $A$ для всех $y \in A$.
+    \end{Theorem}
+
+    \subsection{Операции над идеалами}
+
+    Пересечение идеалов определяется естественным образом как пересечение множеств. Пересечение любого семейства идеалов снова будет идеалом \cite{A-M}.
+
+    Определим операции суммы и произведения идеалов.
+
+    \begin{Def}
+        Пусть $\mf{a}$, $\mf{b}$ --- идеалы в кольце $A$. Их \textit{суммой $\mf{a} + \mf{b}$} называют множество всех сумм $x + y$, где
+        $x \in \mf{a}, y \in \mf{b}$.
+    \end{Def}
+
+    \noindent
+    \textbf{Замечание}. Можно определить сумму любого семейства идеалов $\mf{a}_i$, $i \in I$ как множество сумм вида $\sum_{i \in I} x_i$, где $x_i \in \mf{a}_i$, 
+    в которых конечное число членов отлично от нуля.
+
+    \begin{Def}
+        \textit{Произведением $\mf{ab}$ идеалов} $\mf{a}$ и $\mf{b}$ называется идеал, порожденный произведениями $xy$, $x \in \mf{a}, y \in \mf{b}$.
+    \end{Def}
+
+    \noindent
+    \textbf{Замечание}. Можно аналогичным образом определить произведение любого конечного числа идеалов. В частности, можно определить степень $\mf{a}^n$ идеала $\mf{a}$, как идеал,
+    порожденный всевозможными произведениями вида $x_1x_2\dots x_n$, $x_i \in \mf{a}$.
+
+    Справедлив ряд свойств для операций пересечения, суммы и произведения идеалов $\mf{a, b, c} \in A$ \cite{A-M}.
+
+    \begin{enumerate}
+        \item Коммутативность и ассоциативность суммы, произвдения и пересечения идеалов.
+        \item Дистрибутивный закон: $\mf{a}(\mf{b} + \mf{c}) = \mf{ab} + \mf{bc}$.
+        \item Модулярный закон: $\mf{a} \cap (\mf{b} + \mf{c}) = \mf{a} \cap \mf{b} + \mf{a} \cap \mf{c}$, при $\mf{a} \supseteq \mf{b}$ или $\mf{a} \supseteq \mf{c}$.
+        \item $\mf{a} \cap \mf{b} = \mf{ab}$, если $\mf{a} + \mf{b} = (1)$.
+    \end{enumerate}
+    Объединение идеалов в общем случае идеалом не является \cite{A-M}.
+    \begin{Def}
+        Пусть $\mf{a}, \mf{b}$ --- идеалы в $A$. Их \textit{частным} называется множество $$ (\mf{a} : \mf{b}) = \{x \in A \mid x\mf{b} \subseteq \mf{a}\},$$ которое само является идеалом \cite{A-M}.
+    \end{Def}
+
+    \begin{Def}
+        \textit{Аннулятором} $\ann{\mf{a}}$ идеала $\mf{a}$ называется множество $(0 : \mf{a})$, то есть множество таких элементов $x \in A$, что $x\mf{a} = 0$.
+    \end{Def}
+    Множество $D$ всех делителей нуля можно описать как 
+    $$
+        D = \bigcup_{x \in A \backslash 0} \ann{x},
+    $$
+    где под $\ann{x}$ мы понимаем аннулятор идеала $(x)$.
+    \begin{Ex}
+        Доказать следующие утверждения $\forall \mf{a}, \mf{b}, \mf{c}$ идеалов в кольце $A$.\footnote{\cite{A-M} Страница 18, упражнение 1.12.}
+        \begin{enumerate}
+            \item $\mathfrak{a} \subseteq (\mathfrak{a} : \mathfrak{b})$
+            \item $(\mf{a} : \mf{b})\mf{b} \subseteq \mf{a}$
+            \item $((\mf{a} : \mf{b}) : \mf{c}) = (\mf{a} : \mf{bc}) = ((\mf{a} : \mf{c}) : \mf{b})$
+            \item $\left( \bigcap_{i} \mf{a}_i : b \right) = \bigcap_i (\mf{a}_i : \mf{b})$
+            \item $\left( \mf{a} : \sum_i \mf{b}_i \right) = \bigcap_i (\mf{a} : \mf{b}_i)$
+        \end{enumerate}
+    \end{Ex}
+    \begin{Proof}
+        \begin{enumerate}
+            \item Так как $\mf{a}$ -- идеал и $\forall x \in \mf{a}$ справедливо $x\mf{b} \subseteq \mf{a} \Rightarrow x \in (\mf{a} : \mf{b})$.
+            \item $\forall x \in (\mf{a} : \mf{b})$ справедливо, что $x\mf{b} \in a \Rightarrow (\mf{a} : \mf{b})\mf{b} \subseteq \mf{a}$.
+            \item Выберем произвольный $x \in ((\mf{a} : \mf{b}) : \mf{c})$, тогда 
+                  
+                $x \in ((\mf{a} : \mf{b}) : \mf{c})\Leftrightarrow x\mf{c} \subseteq (\mf{a} : \mf{b}) \Leftrightarrow 
+                x\mf{bc} \subseteq \mf{a} \Leftrightarrow x(\mf{bc}) \subseteq \mf{a} \Leftrightarrow x \in (\mf{a} : \mf{bc})$.
+
+                Имеем $((\mf{a} : \mf{b}) : \mf{c}) = (\mf{a} : \mf{bc})$.
+                А так как $(\mf{a} : \mf{bc}) = (\mf{a} : \mf{cb})$, то получаем $((\mf{a} : \mf{b}) : \mf{c}) = \\ =((\mf{a} : \mf{c}) : \mf{b})$.
+            \item $\forall x \in \left(\bigcap_i \mf{a}_i : \mf{b}\right) \Leftrightarrow x\mf{b} \in \bigcap_i \mf{a}_i \Leftrightarrow
+                x\mf{b} \in \mf{a}_i\; \forall{i} \Leftrightarrow x \in (\mf{a}_i : \mf{b})\;\forall{i} \Leftrightarrow
+                x\in~\bigcap_i (\mf{a}_i : \mf{b})$.
+            \item $\forall x \in (\mf{a} : \sum_i \mf{b}_i) \Leftrightarrow x\sum_i{\mf{b}_i} \subseteq \mf{a} \Leftrightarrow
+                \sum_i{x\mf{b}_i} \subseteq \mf{a} \Leftrightarrow x\mf{b}_i \in \mf{a}\;\forall{i} \Leftrightarrow
+                x \in~\bigcap_i(\mf{a} : \mf{b}_i)$.
+        \end{enumerate}
+    \end{Proof}
+
+    \begin{Def}
+        Пусть $\mf{a}$ --- идеал в кольце $A$. Его \textit{радикалом} называется множество 
+        $$
+            \sqrt{\mf{a}} = \{x \in A \mid \exists n > 0 : x^n \in \mf{a}\}.
+        $$
+    \end{Def}
+
+    \begin{Ex}
+        Доказать следующие утверждения для любых $\mf{a}, \mf{b}$ идеалов в кольце $A$.\footnote{\cite{A-M} Страница 19, упражнение 1.13.}
+        \begin{enumerate}
+            \item $\mf{a} \subseteq \sqrt{\mf{a}}$
+            \item $\sqrt{\sqrt{\mf{a}}} = \sqrt{\mf{a}}$
+            \item $\sqrt{\mf{ab}} = \sqrt{\mf{a} \cap \mf{b}} = \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$
+            \item $\sqrt{\mf{a}} = (1) \Leftrightarrow \mf{a} = (1)$
+            \item $\sqrt{\mf{a} + \mf{b}} = \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}}$
+            \item $\mf{p}$ -- простой $\Rightarrow \sqrt{\mf{p}^n} = \sqrt{\mf{p}}$
+        \end{enumerate}
+    \end{Ex}
+
+    \begin{Proof}
+        \begin{enumerate}
+            \item $\forall x \in \mf{a}$, $x^1 \in \mf{a} \Rightarrow x \in \sqrt{\mf{a}}$.
+            \item Докажем $\sqrt{\sqrt{\mf{a}}} \subseteq \sqrt{a}$. 
+            
+            $\forall x \in \sqrt{\sqrt{\mf{a}}} \Rightarrow \exists n > 0 : x^n \in \sqrt{\mf{a}}$
+            $\Rightarrow \exists m > 0 : x^{nm} \in \mf{a} \Rightarrow x \in \sqrt{\mf{a}}$.
+
+            Из пункта 1 данного упражнения вытекает $\sqrt{\mf{a}} \subseteq \sqrt{\sqrt{\mf{a}}}$.
+
+            Таким образом $\sqrt{\sqrt{\mf{a}}} = \sqrt{\mf{a}}$.
+
+            \item Сперва докажем что $\sqrt{\mf{ab}} \subseteq \sqrt{\mf{a} \cap \mf{b}}$.
+            
+                $\forall x \in \sqrt{\mf{ab}} \Rightarrow \exists n > 0 : x^n \in \mf{ab}$. Учтем, что $\mf{ab} \subseteq \mf{a} \cap \mf{b}$.
+                Тогда из того, что $x^n \in \mf{ab}$, следует, что $x^n \in \mf{a} \cap \mf{b}$. Значит, $x \in \sqrt{\mf{a} \cap \mf{b}}$.
+
+                Теперь докажем, что $\sqrt{\mf{a} \cap \mf{b}} = \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$.
+
+                $\forall x \in \sqrt{\mf{a} \cap \mf{b}} \Leftrightarrow \exists n > 0 :  x^n \in \mf{a} \cap \mf{b} \Leftrightarrow$
+                \newline
+                $\Leftrightarrow x^n \in \mf{a} \wedge x^n \in \mf{b} \Leftrightarrow$
+                $x \in \sqrt{\mf{a}} \wedge x \in \sqrt{\mf{b}} \Leftrightarrow x \in \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$.
+
+                Докажем что $\sqrt{\mf{a} \cap \mf{b}} \subseteq \sqrt{\mf{ab}}$.
+
+                $\forall x \in \sqrt{\mf{a} \cap \mf{b}} \Rightarrow \exists n > 0 : x^n \in \mf{a} \wedge x^n \in \mf{b}$
+                $\Rightarrow x^{2n} \in \mf{ab} \Rightarrow x \in \sqrt{\mf{ab}}$.
+            
+            \item $\mf{a} = (1) \Leftrightarrow 1 \in \mf{a} \Leftrightarrow 1 \in \sqrt{\mf{a}} \Leftrightarrow \sqrt{\mf{a}} = (1)$.
+            \item Докажем $\sqrt{\mf{a} + \mf{b}} \subseteq \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}}$. 
+             
+                $\forall x \in \sqrt{\mf{a} + \mf{b}} \Rightarrow \exists n > 0 : x^n \in \mf{a} + \mf{b}$. 
+                Из $\mf{a} \subseteq \sqrt{\mf{a}}$ следует \newline $x^n \in \sqrt{\mf{a}} + \sqrt{\mf{b}} \Rightarrow x \in \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}} }$.
+
+                Теперь докажем $\sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}} \subseteq \sqrt{\mf{a} + \mf{b}}$.
+
+                $\forall x \in \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}} \Rightarrow \exists n > 0 : x^n \in \sqrt{\mf{a}} + \sqrt{\mf{b}}$. 
+                Значит найдутся такие $y \in \sqrt{\mf{a}}$ и $z \in \sqrt{\mf{b}}$ такие что $x^n = y + z$. 
+                
+                Заметим, что $\exists m > 0 : y^m \in \mf{a}$ и $\exists l > 0 : z^l \in \mf{b}$.
+
+                Тогда $x^{n(m + l - 1)} = \sum_{s = 0}^{n(m + l - 1)} C_{n(m + l - 1)}^s y^sz^r$, где $s + r = n(m + l - 1)$. Отсюда 
+                $x^{n(m + l - 1)}  \in \mf{a} + \mf{b} \Rightarrow x \in \sqrt{\mf{a} + \mf{b}}$.
+            \item Докажем $\sqrt{\mf{p}^n} \subseteq \sqrt{\mf{p}}$.
+            
+                $\forall x \in \sqrt{\mf{p}^n} \Rightarrow x^m \in \mf{p}^n$. Заметим $\mf{p}^n \subseteq \mf{p}$. 
+                Отсюда $x^m \in \mf{p} \Rightarrow x \in \sqrt{\mf{p}}$.
+
+                Докажем $\sqrt{\mf{p}} \subseteq \sqrt{\mf{p}^n}$. 
+                
+                Пусть $x \in \sqrt{\mf{p}} \Rightarrow x^m \in \mf{p}$. Отсюда $x \in \mf{p} \Rightarrow x^n \in \mf{p}^n \Rightarrow x \in \sqrt{\mf{p}^n}$.
+        \end{enumerate}
+    \end{Proof}
+
+    \begin{Theorem} {\cite{A-M}}
+        Радикал идеала $\mf{a}$ совпадает с пересечением всех простых идеалов, содержащих $\mf{a}$.
+    \end{Theorem}
+    \begin{Proof}
+        Рассмотрим факторкольцо $A/\mf{a}$. Все $x$, такие что $x^n \in \mf{a}$ будут содржаться в нильрадикале
+        $\nil{A/\mf{a}}$ кольца $A/\mf{a}$. Так как нильрадикал совпадает с пересечением всех простых идеалов $\bar{\mf{p}}$
+        в кольце $A/\mf{a}$ и имеется взаимнооднозначное соответствие между идеалами в $A/\mf{a}$ и идеалами, содержащими $\mf{a}$, 
+        то получаем что $\sqrt{\mf{a}}$ совпадает с пересеением всех простых идеалов, содержащих $\mf{a}$.
+    \end{Proof}
+    \subsection{Расширение и сужение идеалов}
+    Пусть $f : A \rightarrow B$ --- некоторый гомоморфизм колец. Если $\mf{a}$ --- идеал в $A$, то его образ $f(\mf{a})$ не обязательно будет идеалом.
+
+    \begin{Def}
+        \textit{Расширением} идеала $\mf{a}$ кольца $A$ называется идеал, порожденный множеством $f(\mf{a})$, то есть идеал $Bf(\mf{a})$. Обозначается как $\mf{a}^e$.
+    \end{Def}
+    Расширение идеала $\mf{a}$ совпадает с множеством всевозможных конечных сумм вида $\sum_i y_if(x_i)$, где $x_i \in \mf{a}, y_i \in B$.
+    \begin{Def}
+        \textit{Сужением} идеала $\mf{b}$ кольца $B$ называется его прообраз $f^{-1}(\mf{b})$ и обозначается $\mf{b}^c$.
+    \end{Def}
+
+    \begin{Theorem}{\cite{A-M}}
+        Пусть $\mf{a, b}$ идеал в кольцах $A$ и $B$ соответственно, $f : A \rightarrow B$ --- гомоморфизм колец. Тогда
+        \begin{enumerate}
+            \item $\mf{a} \subseteq \mf{a}^{ec}$, $\mf{b} \supseteq \mf{b}^{ce}$.
+            \item $\mf{b}^c = \mf{b}^{cec}$, $\mf{a}^e = \mf{a}^{ece}$.
+            \item Пусть $C$ --- множество идеалов в $A$, являющихся сужениями, а $E$ --- множество идеалов в $B$, являющихся расширениями. Тогда 
+            $$
+                C = \{\mf{a} \mid \mf{a}^{ce} = \mf{a}\}, \mspace{72mu} E = \{\mf{b} \mid \mf{b}^{ce} = \mf{b}\}
+            $$
+            и $\mf{a} \mapsto \mf{a}^e$ --- биективное отображение $C$ на $E$, обратное к которому имеет вид $\mf{b} \mapsto \mf{b}^c$.
+        \end{enumerate}
+    \end{Theorem}
+    
+    \begin{Ex} 
+        Пусть $\mf{a}_1, \mf{a}_2 \subset A$ -- идеалы в кольце $A$, $\mf{b}_1, \mf{b}_2 \subset B$ идеалы в кольце $B$ и 
+        $f : A \rightarrow B$ гомоморфизм колец. Доказать следующие утверждения.\footnote{\cite{A-M} Страница 21, упражнение 1.18.}
+        
+        \begin{enumerate}
+            \item $(\mf{a}_1 + \mf{a}_2)^e = \mf{a}_1^e + \mf{a}_2^e$
+            \item $(\mf{a}_1 \cap \mf{a}_2)^e \subseteq \mf{a}_1^e \cap \mf{a}_2^e$
+            \item $(\mf{a}_1\mf{a}_2)^e = \mf{a}_1^e\mf{a}_2^e$
+            \item $(\mf{a}_1 : \mf{a}_2)^e \subseteq (\mf{a}_1^e : \mf{a}_2^e)$
+            \item $(\sqrt{\mf{a}})^e \subseteq \sqrt{\mf{a}^e}$
+            \item $(\mf{b}_1 + \mf{b}_2)^c \supseteq \mf{b}_1^c + \mf{b}_2^c$
+            \item $(\mf{b}_1 \cap \mf{b}_2)^c = \mf{b}_1^c \cap \mf{b}_2^c$
+            \item $(\mf{b}_1\mf{b}_2)^c \supseteq \mf{b}_1^c\mf{b}_2^c$
+            \item $(\mf{b}_1 : \mf{b}_2)^c \subseteq (\mf{b}_1^c : \mf{b}_2^c)$
+            \item $(\sqrt{\mf{b}})^c = \sqrt{\mf{b}^c}$
+        \end{enumerate}
+    \end{Ex}
+
+    \begin{Proof}
+        \begin{enumerate}
+            \item $(\mf{a}_1 + \mf{a}_2)^e = Bf(\mf{a}_1 + \mf{a}_2) = Bf(\mf{a}_1) + Bf(\mf{a}_2) = \mf{a}_1^e + \mf{a}_2^e.$
+            \item $x \in \mf{a}_1 \cap \mf{a}_2 \Rightarrow Bf(x) \subseteq \mf{a}_1^e \cap \mf{a}_2^e \Rightarrow (\mf{a}_1 \cap \mf{a}_2) \subseteq (\mf{a}_1 \cap \mf{a}_2)^e.$
+            \item $(\mf{a}_1\mf{a}_2)^e = Bf(\mf{a}_1\mf{a}_2) = Bf(\mf{a}_1)Bf(\mf{a}_2) = \mf{a}_1^e\mf{a}_2^e.$
+            \item Выберем произвольный $y \in (\mf{a}_1 : \mf{a}_2)^e = \{Bf(x) \mid \mf{a}_2x \subseteq \mf{a}_2 \}.$ \newline
+                Следовательно, $\exists x_0 \in (\mf{a}_1 : \mf{a}_2)$ такой что $y \in Bf(x_0).$ 
+                Заметим, $\mf{a}_2^ey \subseteq Bf(\mf{a}_2)Bf(x_0) = Bf(\mf{a}_2x_0)$. \newline
+                Так как $\mf{a}_2x_0 \subseteq \mf{a}_2$, значит $Bf(\mf{a}_2x_0) \subseteq Bf(\mf{a}_1) = \mf{a}_1^e$. 
+                Из $\mf{a}_2^ey \subseteq \mf{a}_1^e$ следует $y \in (\mf{a}_1^e : \mf{a}_2^e).$
+            \item Выберем произвольный $y \in (\sqrt{\mf{a}})^e \Rightarrow y \in Bf(x_0)$ для некоторого $x_0^n \in \mf{a}$.
+                Заметим $y^n \in B^n(f(x_0)^n) = Bf(x_0^n) \subseteq Bf(\mf{a}) = \mf{a}^e$. Отсюда $y \in \sqrt{\mf{a}^e}$.
+            \item $\mf{b}_1^c + \mf{b}_2^c \subseteq (\left(\mf{b}_1^c + \mf{b}_2^c)^e\right)^c = (\mf{b}_1^{ce} + \mf{b}_2^{ce})^c \subseteq (\mf{b}_1 + \mf{b}_2)^c.$
+            \item Выберем произвольный $x \in (\mf{b}_1 \cap \mf{b}_2)^c = f^{-1}(\mf{b}_1 \cap \mf{b}_2)$, что равносильно
+                $$
+                    f(x) \in \mf{b}_1 \cap \mf{b}_2 \Leftrightarrow f(x) \in \mf{b}_1 \wedge f(x) \in \mf{b}_2 \Leftrightarrow x \in f^{-1}(\mf{b}_1) \wedge x \in f^{-1}(\mf{b}_2).
+                $$
+                Отсюда $x \in f^{-1}(\mf{b}_1) \cap f^{-1}(\mf{b}_1) = \mf{b}_1^c \cap \mf{b}_2^c$.
+            \item $\mf{b}_1^c\mf{b}_2^c \subseteq (\mf{b}_1^c\mf{b}_2^c)^{ec} = (\mf{b}_1^{ce}\mf{b}_2^{ce})^c \subseteq (\mf{b}_1\mf{b}_2)^c.$
+            \item Выберем произвольный $y \in (\mf{b}_1 : \mf{b}_2)^c$. Это значит что $y \in f^{-1}(x_0)$, где $x_0\mf{b}_2 \subseteq \mf{b}_1$.
+            
+                Заметим, что
+                $$
+                    f^{-1}(\mf{b}_2)y \subseteq f^{-1}(\mf{b}_2)f^{-1}(x_0) \subseteq f^{-1}(\mf{b}_2x_0) \subseteq f^{-1}(\mf{b}_1).
+                $$
+
+                Отсюда $y \in (\mf{b}_1^c : \mf{b}_2^c)$.
+            \item Докажем, что $(\sqrt{\mf{b}})^c \subseteq \sqrt{\mf{b}^c}$. 
+            
+                Выберем произвольный $y \in (\sqrt{\mf{b}})^c = f^{-1}(\sqrt{\mf{b}})$. Это равносильно тому, что
+                $$
+                    \exists n > 0 : y \in f^{-1}(x_0), \text{где } x_0^n \in \mf{b}.
+                $$
+
+                Отсюда 
+
+                $$
+                    y^n \in f^{-1}(x_0^n) \subseteq f^{-1}(\mf{b}) \Rightarrow y \in \sqrt{\mf{b}^c}.
+                $$
+
+                Докажем $(\sqrt{\mf{b}})^c \supseteq \sqrt{\mf{b}^c}$.
+
+                Выберем произвольный $y \in \sqrt{\mf{b}^c}$. Из этого следует $\exists n > 0$ такое, что $y^n \in \mf{b}^c = f^{-1}(\mf{b})$. Тогда имеем
+
+                $$
+                    f(y^n) = \left(f(y)\right)^n \in \mf{b} \Rightarrow f(y) \in \sqrt{\mf{b}} \Rightarrow y \in f^{-1}(\sqrt{\mf{b}}) = (\sqrt{\mf{b}})^c.
+                $$
+        \end{enumerate}
+    \end{Proof}
+
+    \subsection{Решения упражнений в конце главы}
+    Теперь рассмотрим некоторые упражнения после главы. 
+
+    \begin{Ex} \label{ex_1}
+        Доказать, что $x \in \nil A \Leftrightarrow 1 + x \in U(A)$, где $x \in A$, $A$ --- кольцо; $\nil A, U(A)$ --- множество нильпотентов и 
+        обратимых элементов кольца $A$ соответственно.
+        \footnote{\cite{A-M} Страница 21, упражнение 1}
+    \end{Ex}
+    \begin{Proof}
+
+        Докажем, что $x \in \nil A \Rightarrow 1+x \in U(A)$.
+        Пусть $n$ --- такое число, что $x^n = 0$. Тогда
+        $$
+            1 - (-x)^n = 1 = (1 - (-x))(1 + (-x) + \dots + (-x)^{n-1}).
+        $$
+        Обозначим $S = 1 + (-x) + \dots + (-x)^{n-1}$. Имеем 
+        $$
+            1 = (1 + x)S \Rightarrow 1 + x \in U(A).
+        $$
+
+        Теперь докажем более общее утверждение: 
+        $$
+            x \in \nil A, u_0 \in U(A) \Rightarrow u_0 + x \in U(A).
+        $$
+        Умножим $u_0 + x$ на $u_0^{-1}$:
+        $$
+            u_0^{-1}(u_0 + x) = 1 + u_0^{-1}x = 1 + y, \text{где } y := u_0^{-1}x.
+        $$
+        Заметим
+        $$
+            1 = (1 + y)(1 + (-y) + (-y)^2 + \dots + (-y)^{n-1}),
+        $$
+        обозначим $S = 1 + (-y) + (-y)^2 + \dots + (-y)^{n-1}$ и умножим на $u_0$. Имеем
+        $$
+            u_0 = (u_0 + x)S \Rightarrow u_0 + x \in U(A).
+        $$
+        Теперь, полагая $u_0 = 1$, получаем требуемое доказательство.
+    \end{Proof}
+
+    
+    \begin{Ex} \label{ex_2}
+        Пусть $A$ --- некоторое кольцо, а $A[x]$ --- кольцо многочленов от переменной $x$ с коэффициентами из $A$. Пусть
+        $$
+            f = a_0 + a_1x + \dots + a_nx^n \in A[x].
+        $$
+        Доказать следующие утверждения: \footnote{\cite{A-M} Страница 21, упражнение 2.}
+    \begin{enumerate}
+            \item $f$ --- обратимый элемент в $A[x]$ $\Leftrightarrow$ $a_0$ --- обратимый элемент в $A$, а $a_1, \dots, a_n$ --- нильпотенты.
+            \item $f$ --- нильпотент $\Leftrightarrow$ $a_0, \dots, a_n$ --- нильпотенты.
+            \item $f$ --- делитель нуля $\Leftrightarrow$ существует ненулевой элемент $a \in A$ такой, что $af = 0$.
+            \item Многочлен $f$ называется примитивным, если $(a_0, \dots, a_n) = 1$. Пусть $f, g \in A[x]$. Показать, что примититвность
+                $fg$ равносильна примитивности $f$ и $g$. 
+        \end{enumerate}
+    \end{Ex}
+    \underline{Докажем 1.}
+
+    \begin{Proof}
+
+        $\Leftarrow$: Заметим, если $a \in A$ --- нильпотент, то и $ax^k \in A[x]$ тоже нильпотент. Так же отметим, если $a \in A$ --- обратим, 
+        то и $a \in A[x]$ обратим как многочлен нулевой степени.
+        Воспользуемся результатом упражнения \ref{ex_1}. Так как $a_0$ --- обратим, а $\sum_{k = 1}^n a_kx^k$ --- нильпотент (множество всех нильпотентов кольца является идеалом \cite{A-M}), то получаем, что
+        $f$ --- обратим как сумма обратимого элемента и нильпотента.
+
+        $\Rightarrow$: Докажем следующее 
+        \begin{Statement}
+            Пусть $g = b_0 + b_1x + \dots + b_mx^m$ --- обратный к $f$ многочлен, тогда $a_n^{r + 1}b_{m - r} = 0$.
+        \end{Statement}
+        \begin{Proof}
+            Рассмотрим коэффициенты произведения $fg$. Коэффициент при $x^k$ обозначим как $[x^k]$:
+            \begin{align*}
+                [x^{n + m}]&=a_nb_m = 0\\
+                [x^{n + m - 1}]&= a_{n - 1}b_m + a_nb_{m - 1} = 0 \\
+                [x^{n + m - 2}]&= a_{n - 2}b_m + a_{n - 1}b_{m - 1} + a_nb_{m - 2} = 0\\
+                \vdots\\
+                [x^2]&= a_0b_2 + a_1b_1 + a_2b_0 = 0\\
+                [x^1]&=a_0b_1 + a_1b_0 = 0 \\
+                [x^0]&=a_0b_0 = 1.
+            \end{align*}
+            $i$-ую сверху строчку умножим на $a_n^i$. Получим:
+            \begin{align*}
+                [x^{n + m}]&=a_nb_m = 0\\
+                [x^{n + m - 1}]a_n&= a_{n - 1}b_ma_n + a_n^2b_{m - 1} = 0 \\
+                [x^{n + m - 2}]a_n^2&= a_{n - 2}b_ma_n^2 + a_{n - 1}b_{m - 1}a_n^2 + a_n^3b_{m - 2} = 0\\
+                \vdots\\
+                [x^2]a_n^{n + m - 2}&= a_0b_2a_n^{n + m - 2} + a_1b_1a_n^{n + m - 2} + a_2b_0a_n^{n + m - 2} = 0\\
+                [x^1]a_n^{n + m - 1}&=a_0b_1a_n^{n + m - 1} + a_1b_0a_n^{n + m - 1} = 0 \\
+                [x^0]a_n^{n + m}&=a_0b_0a_n^{n + m} = 1.
+            \end{align*}
+
+            Из первой строчки $a_nb_m = 0$. Подставляя это во вторую, получаем, что $a_n^2b_{m - 1} = 0$. Подставляя эти оба равенства в третью,
+            получаем, что $a_n^3b_{m - 2} = 0$ и так далее, по индукции, получаем что $a_n^{r + 1}b_{m - r} = 0$.
+        \end{Proof}
+        
+        Воспользуемся доказанным утверждением при $r = m$: $a_n^{m + 1}b_0 = 0$. Так как $b_0$ обратим, получаем что $a_n^{m + 1} = 0$, следовательно $a_n$ --- нильпотент.
+
+        Обозначим $\tilde{f} = f - a_nx^n$. Так как $f$ --- обратимый элемент, а $a_nx^n$ --- нильпотент, то $\tilde{f}$ тоже будет обратим. Теперь, повторяя аналогичное доказательство для $\tilde{f}$,
+        получим, что $a_{n - 1}$ --- нильпотент, и так до тех пор, пока $\deg f > 0$. При $\deg f = 0$ имеем $f = a_0$, откуда сразу получаем что $a_0$ --- обратимый элемент. 
+    \end{Proof}
+    \underline{Докажем 2.}
+
+    \begin{Proof}
+
+        $\Leftarrow$: Так как $a_k \in A$ --- нильпотенты для всех $k = \overline{0,n}$, то и $a_kx^k \in A[x]$ тоже будут нильпотентами, следовательно, и их сумма 
+        $f = \sum_{k=0}^n a_kx^k$ будет нильпотентом.
+
+        $\Rightarrow$: Так как $f$ --- нильпотент, следовательно, существует такое $n_0 > 0$, что $f^{n_0} = 0$:
+        $$
+            f^{n_0} = \underbrace{(a_0 + \dots )(a_0 + \dots )\dots (a_0 + \dots )}_{n_0 \text{ скобок}} = a_0^{n_0} + \dots = 0.
+        $$
+
+        Отсюда получаем, что $a_0^{n_0} = 0$, значит $a_0$ --- нильпотент.
+        Обозначим $\tilde{f} = f - a_0$. Так как $f, a_0 \in A[x]$ нильпотенты, следовательно, и $\tilde{f}$ тоже будет нильпотентом. Проведем для $\tilde{f}$ аналогичные 
+        действия, по индукции получим, что $a_k$ --- нильпотенты для всех $k = \overline{0, n}$.
+    \end{Proof}
+    \underline{Докажем 3.}
+    \begin{Proof}
+
+        $\Leftarrow$: Будем смотреть на $a$ как на элемент кольца $A[x]$. Отсюда сразу получаем, что $f$ --- нильпотент.
+
+        $\Rightarrow$: Среди всех многочленов $g$ таких, что $fg = 0$, выберем многочлен минимальной степени. Пусть это $g = b_0 + b_1x + \dots + b_mx^m$.
+
+        Докажем следующее
+        \begin{Statement}
+            $a_{n - r}g = 0$  при всех $r = \overline{0, n}$.
+        \end{Statement}
+        \begin{Proof}
+            Проведем индукцию по $r$.
+
+            $r = 0$: $a_ng = 0$, в противном случае степень $m$ не была бы наименьшей и $a_ngf = 0$.
+            
+            Пусть при $r = k$ утверждение было доказано. Докажем его при $r = k + 1$.
+            Обозначим 
+            $$
+                \tilde{f} = f - \sum_{i=0}^{k} a_{n-i}x^{n-i}.
+            $$ 
+            Умножим $\tilde{f}$ на $g$:
+            $$
+                \tilde{f}g = fg - \sum_{i=0}^{k} a_{n-i}gx^{n-i} = 0,
+            $$
+            так как $fg = 0$ и при всех $i = \overline{0, k}$ $a_{n-i}g = 0$. Рассмотрим коэффициенты в произведении $\tilde{f}g$:
+            \begin{align*}
+                [x^0] &= a_0b_0 = 0\\
+                [x^1] &= a_0b_1 + a_1b_0 = 0\\
+                \vdots\\
+                [x^{n - k - 1}] &= a_{n - k - 1}b_0 = 0.
+            \end{align*}
+            Откуда получаем, что $a_{n - k - 1}g = 0$, иначе степень $m$ не была бы наименьшей и \\ $a_{n-k-1}gf = 0$. 
+        \end{Proof}
+
+        Для всех $i = \overline{0, n}$ имеем $a_ig = 0$, откуда следует $a_ib_m = 0$, следовательно, $b_mf = 0$. Искомый $a$ положим равным $b_m$.
+    \end{Proof}
+    \underline{Докажем 4.}
+    \begin{Proof}
+        Пусть 
+        $$
+            f = a_0 + a_1x + \dots + a_nx^n, \qquad g = b_0 + b_1x + \dots + b_mx^m.
+        $$
+
+        $\Rightarrow$: Предположим, что $fg$ примитивен, но $f$ не является примитивным, то есть $\exists d \neq 1, 0$ такой, что $ d \mid a_i$ при всех $i = \overline{0, n}$.
+        Рассмотрим коэффициенты произведения $fg$:
+        \begin{align*}
+            [x^0] &= c_0 = a_0b_0\\
+            [x^1] &= c_1 = a_0b_1 + a_1b_0 \\
+            \vdots\\
+            [x^{n + m - 1}] &= c_{n + m-1} = a_{n-1}b_m + a_nb_{m-1}\\
+            [x^{n + m}] &= c_{n + m} = a_nb_m.
+        \end{align*}
+        Так как $d$ делит все $a_i$, следовательно, $d$ будет делить все $c_j$, следовательно, многочлен $fg$ уже не будет примитивным. Значит предположение было неверно и $f$ является примитивным.
+        Аналогично доказывается примитивность $g$.
+
+        $\Leftarrow$: Предположим, что $f$, $g$ примитивны, а $fg$ не является примитивным. Пусть $fg$ имеет следующий вид
+        $$
+            fg = \sum_{j = 0}^{n + m} c_jx^j.
+        $$
+        Многочлен $fg$ не примитивен, значит $\exists \mf{p}$ --- простой идеал, такой что $c_j \in \mf{p}$ для всех $j = \overline{0, n+m}$. 
+        \begin{align*}
+            [x^0] &= c_0 = a_0b_0 \in \mf{p}\\
+            [x^1] &= c_1 = a_0b_1 + a_1b_0 \in \mf{p} \\
+            \vdots\\
+            [x^{n + m - 1}] &= c_{n + m-1} = a_{n-1}b_m + a_nb_{m-1} \in \mf{p}\\
+            [x^{n + m}] &= c_{n + m} = a_nb_m \in \mf{p}.
+        \end{align*}
+        Так как $f, g$ --- примитивны, значит не все $a_i$ и не все $b_j$ не принадлежат $\mf{p}$.
+        Предположим, что найдутся такие $a_i$ и $b_j$, что $a_ib_j \not \in \mf{p}$, причем все $a_s$ при $s < i$ и все $b_t$ при $t < j$ принадлежат $\mf{p}$, но 
+        $$
+            c_{i + j} = \dots + a_ib_j + \dots \in \mf{p},
+        $$ 
+        следовательно, либо $a_i \in \mf{p}$, либо $b_j \in \mf{p}$. Таким образом, получили противоречие, значит либо $f$, либо $g$ --- не является примитивным.
+    \end{Proof}
+
+    \begin{Ex}
+        Доказать, что в кольце $A[x]$ радикал Джекобсона совпадает с нильрадикалом.\footnote{\cite{A-M} Страница 21, упражнение 4.}
+    \end{Ex}
+    \begin{Proof}
+
+        Докажем $\nil{A[x]} \subseteq \jac{A[x]}$.
+
+        Выберем произвольные $f, g \in \nil{A[x]}$. Так как нильрадикал является идеалом, следовательно $fg \in \nil{A[x]}$. Из упражнения \ref{ex_1} следует, что $1 - fg \in U(A[x])$,
+        значит, из теоремы \ref{jac_prop} $f \in \jac{A[x]}$.
+
+        Докажем $\jac{A[x]} \subseteq \nil{A[x]}$
+
+        Выберем произвольный $f \in \jac{A[x]}$. Из предлжения 1.9\cite{A-M} следует, что для всех $g \in A[x]$ выполнено $1 - fg \in U(A[x])$. Положим $g = x$. То есть $1 - xf \in U(A[x])$. Пусть
+        многочлен $f$ имеет следующий вид:
+        $$
+            f = a_0 + a_1x + \dots + a_nx^n,
+        $$
+        тогда $1 - xf$ будет иметь вид:
+        $$
+            1 - xf = 1 - (a_0x + a_1x^2 + \dots + a_nx^{n + 1}).
+        $$
+        Воспользовавшись упражнением \ref{ex_1} получаем, что $a_0x + a_1x^2 + \dots + a_nx^{n + 1}$ --- нильпотент. 
+        Из упражнения \ref{ex_2} пункта 2 вытекает, что $a_i \in \nil{A[x]}$ для $i = \overline{1, n}$. 
+        Снова воспользовавшись результатом упражнения \ref{ex_2} пункт 2 получаем, что $f$ --- нильпотент, то есть $f \in \nil{A[x]}$.
+        Таким образом $\nil{A[x]} = \jac{A[x]}$.
+    \end{Proof}
+
+    \begin{Ex}
+        Пусть $A$ --- некоторое кольцо, $A[[x]]$ --- кольцо формальных степенных рядов 
+        $$
+            f = \sum_{n=0}^\infty a_nx^n
+        $$ 
+        с коэффициентами в $A$. Доказать следующие 
+        утверждения: \footnote{\cite{A-M} Страница 21, упражнение 5.}
+        \begin{enumerate}
+            \item $f$ --- обратимый элемент в $A[[x]]$ $\Leftrightarrow$ $a_0$ --- обратимый элемент в $A$.
+            \item Если $f \in \nil{A[[x]]}$ $\Rightarrow$ $a_n \in \nil{A}$ при всех $n \geqslant 0$.
+            \item $f \in \jac{A[[x]]}$ $\Leftrightarrow$ $a_0 \in \jac{A}$
+        \end{enumerate}
+    \end{Ex}
+    \underline{Докажем 1.}
+    \begin{Proof}
+        
+        $\Rightarrow$: Так как $f \in U(A[[x]])$, значит, существует элемент $g \in A[[x]]$ такой, что $fg = 1$. Выпишем несколько первых коэффициентов произведения:
+        \begin{align*}
+            [x^0] &= a_0b_0 = 1\\
+            [x^1] &= a_0b_1 + a_1b_0 = 0\\
+            [x^2] &= a_0b_2 + a_1b_1 + a_2b_0 = 0\\
+            \vdots\\
+            [x^m] &= \sum_{i + j = m}a_ib_j\\
+            \vdots
+        \end{align*}
+        Из $a_0b_0 = 1$  сразу следует, что $a_0 \in U(A)$.
+
+        $\Leftarrow$: Пусть $a_0 \in U(A)$. Построим формальный степенной ряд $g$ такой, что $fg = 1$. Пусть $g$ имеет вид
+        $$ 
+            g = \sum_{n=0}^\infty b_nx^n.
+        $$
+        Рассмотрим коэффициенты произведения $fg$:
+        \begin{align*}
+            [x^0] &= a_0b_0 = 1 \Rightarrow b_0 = a_0^{-1}\\
+            [x^1] &= a_0b_1 + a_1b_0 = 0 \Rightarrow b_1 = a_0^{-1}(-a_1b_0)\\
+            [x^2] &= a_0b_2 + a_1b_1 + a_2b_0 = 0 \Rightarrow b_2 = a_0^{-1}(-a_1b_1 - a_2b_0)\\
+            \vdots\\
+            [x^m] &= \sum_{i + j = m}a_ib_j = 0 \Rightarrow b_m = a_0^{-1}\left(-\sum_{i = 1}^{m} a_ib_{m-i}\right)\\
+            \vdots
+        \end{align*}
+        Таким образом, для любого $m$ за конечное число шагов мы сможем получить коэффициент $b_m$ формального степенного ряда $g$. 
+    \end{Proof}
+    \underline{Докажем 2.}
+    \begin{Proof}
+        
+        Проведем доказательство, аналогичное доказательству упражнения \ref{ex_2} пункт 2. Так как $f$ --- нильпотент, следовательно найдется такое 
+        натуральное число $n_0$, что $f^{n_0} = 0$. Имеем 
+        $$
+            f^{n_0} = \underbrace{(a_0 + \dots )(a_0 + \dots )\dots (a_0 + \dots )}_{n_0 \text{ скобок}} = a_0^{n_0} + \dots = 0,
+        $$
+        откуда следует $a_0^{n_0} = 0$. Выполним замену $\tilde{f} = f - a_0$. Тогда $\tilde{f}$ снова будет нильпотентом, значит, найдется целое $n_1 > 0 : \tilde{f}^{n_1} = 0$. Имеем
+        $$
+            \tilde{f}^{n_1} = \underbrace{(a_1x + \dots )(a_1x + \dots )\dots (a_1x + \dots )}_{n_1 \text{ скобок}} = (a_1x)^{n_1} + \dots = 0,
+        $$
+        откуда получаем $a_1^{n_1} = 0$, и сделаем замени $\tilde{\tilde{f}} = \tilde{f} - a_1x$. Для $\tilde{\tilde{f}}$ снова проведем аналогичные рассуждения. 
+        Таким образом, за конечное число шагов, получим последовательно $a_0$ --- нильпотент, $a_1$ --- нильпотент, и так далее.
+    \end{Proof}
+    \underline{Докажем 3.}
+    \begin{Proof}
+
+        Из теоремы \ref{jac_prop} $f \in \jac{A[[x]]}$ $\Leftrightarrow$ $1 - fg \in U(A[[x]])$ при всех $g \in A[[x]]$. Пусть $f$ и $g$ имеют следующий вид:
+        \begin{align*}
+            f = \sum_{n=0}^\infty a_nx^n,\\
+            g = \sum_{n=0}^\infty b_nx^n.
+        \end{align*}
+        Тогда условие $1 - fg \in U(A[[x]])$ запишется следующим образом:
+        \begin{equation} \label{jac_proof}
+            1 - fg = (1 - a_0b_0) + (a_0b_1 + a_1b_0)x + (a_0b_2 + a_1b_1 + a_2b_0)x^2 + \dots \in U(A[[x]]).
+        \end{equation}
+        Воспользовавшись пунктом 1 данного упражнения получим $1 - a_0b_0 \in U(A)$. Так как $g$ выбирался произвольно, следовательно $b_0$ --- произвольный элемент кольца $A$.
+        Откуда вытекает, что $a_0 \in \jac{A}$.
+
+        С другой стороны, из того, что $a_0 \in \jac{A}$, следует, что при всех $b_0$ будет выполнено $1 - a_0b_0 \in U(A)$, значит ряд \eqref{jac_proof} 
+        будет обратимым при всех $b_n$, $n \geqslant 0$, то есть при любых $g \in A[[x]]$. Отсюда, по теореме \ref{jac_prop}, получаем, что $f \in \jac{A[[x]]}$.
+    \end{Proof}
+    \begin{Ex} \label{closed_set_prop}
+        Пусть $A$ --- некоторое кольцо, $X$ --- множество всех его простых идеалов. Для вского подмножества $E \subset A$ обозначим $V(E)$ множество всех простых идеалов, содержащих 
+        $E$. Доказать следующие утверждения: \footnote{\cite{A-M} Страница 22, упражнение 15.}
+        \begin{enumerate}
+            \item Если $\mf{a}$ --- идеал, порожденный $E$, то $V(E) = V(\mf{a}) = V(\sqrt{\mf{a}})$.
+            \item $V(0) = X$, $V(1) = \emptyset$.
+            \item Пусть $(E_i)_{i \in I}$ --- любое семейство подмножеств $A$. Тогда 
+                $$
+                    V\left(\bigcup_{i \in I} E_i\right) = \bigcap_{i \in I} V(E_i).
+                $$
+            \item $V(\mf{a} \cap \mf{b}) = V(\mf{ab}) = V(\mf{a}) \cup V(\mf{b})$ для любых идеалов $\mf{a}, \mf{b}$ в $A$.
+        \end{enumerate}
+    \end{Ex}
+    \underline{Докажем 1.}
+    \begin{Proof}
+        \begin{enumerate}
+            \item Доказательство $V(E) = V(\mf{a})$.
+            
+                То, что $\mf{a}$ порожден множеством $E$, означает, что $\mf{a}$ имеет вид 
+                $$
+                    \mf{a} = \left\{\sum_i a_ix_i \;\Bigg |\; a_i \in A, x_i \in E\right\},
+                $$
+                причем все суммы конечные.
+
+                Покажем $V(E) \subseteq V(\mf{a})$,
+
+                Выберем произвольный простой идеал $\mf{p} \in V(E)$. Для всех $x \in E$ будет выполнено $x \in \mf{p}$, следовательно, любая $A$-линейная комбинация 
+                $
+                    \sum_{i = 1}^n a_ix_i
+                $ 
+                принадлежит $\mf{p}$,
+                где $a_i \in A$, $x_i \in E$, откуда получаем $\mf{a} \subseteq \mf{p}$, следовательно, $\mf{p} \in V(\mf{a})$.
+        
+                Покажем $V(\mf{a}) \subseteq V(E)$.
+        
+                Выберем произвольный $x \in E$. Очевидно $x \in \mf{a}$. Так как для всех $\mf{p} \in V(\mf{a})$ выполнено $\mf{a} \subseteq \mf{p}$, следовательно,
+                $x \in \mf{p}$. В силу произвольности выбора $x$ получаем, что $E \subseteq \mf{p}$, откуда $\mf{p} \in V(E)$.
+            \item Доказательство $V(\mf{a}) = V(\sqrt{\mf{a}})$.
+
+                Пусть $x \in \sqrt{\mf{a}}$ --- произвольный элемент $\sqrt{\mf{a}}$. Это означает, что существует $n > 0$ такое, что $x^n \in \mf{a}$. 
+                Теперь выберем произвольный простой идеал $\mf{p} \in V(\mf{a})$. По определению, выполнено $\mf{a} \subseteq \mf{p}$. Значит $x^n \in \mf{p}$, а следовательно и
+                $x \in \mf{p}$. В силу произвольности выбора $x$ получаем, что $\mf{p} \in V(\sqrt{\mf{a}})$. Таким образом, доказано, что $V(\mf{a}) \subseteq V(\sqrt{\mf{a}})$. 
+                
+                Так как $\mf{a} \subseteq \sqrt{\mf{a}}$, то для всех $\mf{p} \in V(\sqrt{\mf{a}})$ будет выполнено 
+                $$
+                    \mf{a} \subseteq \sqrt{\mf{a}} \subseteq \mf{p},
+                $$
+                значит, $\mf{a} \subseteq \mf{p}$, откуда $V(\sqrt{\mf{a}}) \subseteq V(\mf{a})$.
+        \end{enumerate}
+    \end{Proof}
+    \underline{Докажем 2.}
+    \begin{Proof}
+
+        Так как $\forall \mf{p} \in X$ справедливо $0 \in \mf{p}$, следовательно $V(0) = X$.
+
+        Так как $A = (1)$ и не существует такого простого идеала $\mf{p}$, что выполнено $(1) \subset \mf{p}$, то $V(1) = \emptyset$.
+    \end{Proof}
+    \underline{Докажем 3.}
+    \begin{Proof}
+        
+        Покажем что $V\left(\bigcup_{i \in I} E_i\right) \subseteq \bigcap_{i \in I} V(E_i)$.
+
+        Выберем произвольный $\mf{p} \in V\left(\bigcup_{i \in I} E_i\right)$. По определению $\bigcup_{i \in I} E_i \subseteq \mf{p}$, что равносильно 
+        $E_i \subseteq \mf{p}$ для всех $i \in I$, откуда следует $\mf{p} \in \bigcap_{i \in I} V(E_i)$.
+
+        Для доказательства $V\left(\bigcup_{i \in I} E_i\right) \supseteq \bigcap_{i \in I} V(E_i)$ достаточно провести предыдущее рассуждение в обратном порядке.
+    \end{Proof}
+    \underline{Докажем 4.}
+    \begin{Proof}
+        
+        Воспользовавшись свойствами радикалов сразу получаем
+        $$
+            V(\mf{a} \cap \mf{b}) = V\left(\sqrt{\mf{a} \cap \mf{b}}\right) = V\left(\sqrt{\mf{ab}}\right) = V(\mf{ab}).
+        $$
+        Осталось доказать равенство $V(\mf{ab}) = V(\mf{a}) \cup V(\mf{b})$.
+
+        Покажем, что $V(\mf{ab}) \subseteq V(\mf{a}) \cup V(\mf{b})$.
+
+        Выберем произвольный $\mf{p} \in V(\mf{ab})$. По определению $\mf{ab} \subseteq \mf{p}$. Это означает, что $\forall x \in \mf{a}$, $\forall y \in \mf{b}$
+        справедливо $xy \in \mf{p}$. Пусть существует некоторый $x_0 \in \mf{a}$ и $x_0 \not \in \mf{p}$. Однако при всех $y \in \mf{b}\;x_0y \in \mf{p}$.
+        Из определения простого идеала получаем $y \in \mf{p}$, то есть $\mf{b} \subseteq \mf{p}$, или, иными словами, $\mf{p} \in V(\mf{a}) \cup V(\mf{b})$.
+
+        Покажем, что $V(\mf{ab}) \supseteq V(\mf{a}) \cup V(\mf{b})$.
+
+        Пусть $\mf{p} \in V(\mf{a}) \cup V(\mf{b})$ и, для определенности, $\mf{b} \subseteq \mf{p}$, тогда $\forall x \in \mf{a}$ справедливо $x\mf{b} \subseteq \mf{p}$. Следовательно 
+        и $\mf{ab} \subseteq \mf{p}$, то есть $\mf{p} \in V(\mf{ab})$.
+    \end{Proof}
+
+    Таким образом, множества $V(E)$ удовлетворяют аксиомам замкнутых множеств в топологическом пространстве. Такая топология на $X$ называется топологией Зарисского,
+    а само пространство $X$ называается \textit{простым спектром кольца} и обозначается как $\textup{Spec}(A)$.
+
+    \begin{Ex}
+        Для вского элемнта $f \in A$ обозначим через $X_f$ дополнение к $V(f)$ в $X = \spec A$. Множества $X_f$ открыты. Доказать что они образуют базу в топологии Зарисского и обладают
+        следующими свойствами: \footnote{\cite{A-M} Страница 23, упражнение 17}
+        \begin{enumerate}
+            \item $X_f \cap X_g = X_{fg}$.
+            \item $X_f = \emptyset \Leftrightarrow f$ --- нильпотент.
+            \item $X_f = X \Leftrightarrow f$ --- обратимый элемент.
+            \item $X_f = X_g \Leftrightarrow \sqrt{(f)} = \sqrt{(g)}$.
+            \item $X$ --- квазикомпактно (т.е. у всякого открытого покрытия $X$ есть конечное подпокрытие).
+            \item Более общо, $X_f$ --- квазикомпактны.
+            \item Открытое подмножество в $X$ квазикомпактно тогда и только тогда, когда оно является конечным объединением множеств вида $X_f$.
+        \end{enumerate}
+    \end{Ex}
+    Здесь под $\bar Q$, где $Q \subset X$ будем понимать дополнение к множеству $Q$.
+
+    \begin{Def}
+        Cемейство множеств $B$ называется \textit{Базой} топологии, если любое открытое множество из топологического пространства $X$ представимо в виде объединения элементов из $B$.
+    \end{Def}
+
+    Докажем что $X_f$ образуют базу в топологии Зарисского.
+    \begin{Proof}
+        Выберем произвольное множество $E \subset A$. Ему будет соответствовать некоторое открытое множество $\bar{V(E)} = Y$. Тогда
+        $$
+            Y = \bar{V\left( \bigcup_{f \in E} \{f\} \right)} = \bar{\bigcap_{f \in E} V(f)} = \bigcup_{f \in E} \bar{V(f)} = \bigcup_{f \in E} X_f.
+        $$
+    \end{Proof}
+    \underline{Докажем 1.}
+    \begin{Proof}
+        Воспользуемся свойствами замкнутых множеств в топологии Зарисского из упражнения \ref{closed_set_prop}.
+        $$
+            X_f \cap X_g = \bar{V(f)} \cap \bar{V(g)} = \bar{V(f) \cup V(g)} = \bar{V(fg)} = X_{fg}.
+        $$
+    \end{Proof}
+    \underline{Докажем 2.}
+    \begin{Proof}
+        $X_f = \emptyset \Leftrightarrow V(f) = X$, то есть для любого простого идеала $\mf{p}$ выполнено $f \in \mf{p}$ или, другими словами, 
+        $$
+            f \in \bigcap_{\mf{p} \text{ --- прост}} \mf{p} = \nil{A},
+        $$
+        то есть $f$ --- нильпотент.
+    \end{Proof}
+    \underline{Докажем 3.}
+    \begin{Proof}
+
+        $X_f = X \Leftrightarrow V(f) = \emptyset$, то есть $f$ не принадлежит ни одному простому идеалу, в том числе ни одному максимальному, значит $f$ обратим.
+
+        С другой стороны, если бы $f$ не был обратим, то он содержался бы в некотором максимальном идеале $\mf{m}$, а значит $V(f) \neq \emptyset$.
+    \end{Proof}
+    \underline{Докажем 4.}
+    \begin{Proof}
+
+        $\Leftarrow$: Если $\sqrt{(f)} = \sqrt{(g)}$, то и $V(f) = V(g)$ (из свойств замкнутых множеств, упражнение \ref{closed_set_prop}). Откуда сразу получаем $X_f = X_g$.
+
+        $\Rightarrow$: По определению $V(g) = \{\mf{p} \mid \mf{p} \text{ --- прост в $A$} \wedge (g) \subseteq \mf{p}\}$. Так как \linebreak $X_f = X_g$, то и $V(\sqrt{(f)}) = V(\sqrt{(g)})$.
+        Тогда по свойствам замкнутых множеств (упражнение \ref{closed_set_prop}) имеем:
+        $$
+            \sqrt{(f)} = \bigcap_{\mf{p} : (f) \subseteq \mf{p}} \mf{p} = \bigcap_{\mf{p} \in V\left(\sqrt{(f)}\right)} \mf{p} 
+            = \bigcap_{\mf{p} \in V\left(\sqrt{(g)}\right)} \mf{p} = \bigcap_{\mf{p} : (g) \subseteq \mf{p}} \mf{p} = \sqrt{(g)}.
+        $$
+    \end{Proof}
+    \underline{Докажем 5.}
+    \begin{Proof}
+        Так как $\{X_f\}$ --- база топологии, то можно рассматривать покрытия главными открытыми множествами $X_{f_i}$, где $i \in I$. Так как $X = \bigcup_{i \in I} X_{f_i}$, то
+        $$
+            \emptyset = \bigcap_{i \in I} V(f_i) = V\left(\bigcup_{i \in I}\{f_i\}\right) = V(\left<f_i \right>_{i \in I}),
+        $$
+        где выражение $\left<f_i \right>_{i \in I}$ означает $A$-линейную оболочку множества $\{f_i \mid i \in I\}$.
+        Откуда получаем, что $A$-линейная оболочка $\left<f_i \right>_{i \in I} = (1)$, то есть существует такое конечное множество $J$, что 
+        $$
+            \sum_{j \in J} g_jf_j = 1, \text{ где $g_j \in A$.}
+        $$ 
+        Следовательно, $A$-линейная оболочка элементов $f_j$, $j \in J$ совпадает с кольцом $A$. Тогда
+        $$
+            \emptyset = V(\left<f_j\right>) = \bigcap_{j \in J} V(f_j),
+        $$
+        из чего следует
+        $$
+            X = \bigcup_{j \in J} X_{f_j}.
+        $$
+    \end{Proof}
+    \underline{Докажем 6.}
+    \begin{Proof}
+        
+        Рассмотрим некоторое покрытие главными открытыми множествами: $X_f \subset \bigcup_{i \in I} X_{f_i}$. Перейдем к дополнениям:
+        $$
+            V(f) \supset \bigcap_{i \in I} V(f_i) = V(\left<f_i\right>_{i \in I}).
+        $$
+        Аналогично пункту 4 можно показать, что 
+        $$
+            V(f) \supset V(\left<f_i\right>_{i \in I}) \Rightarrow \sqrt{(f)} \subset \sqrt{\left<f_i\right>_{i \in I}}.
+        $$
+        Откуда 
+        $$
+            \exists k > 0 : f^k = \sum_{j = 1}^n f_jg_j, \text{ где $g_j \in A$.}
+        $$
+        Иначе говоря, $f^k \in \left<f_j\right>_{j = \overline{1, n}}$. Так как, $V(f^k) = V(f)$ имеем:
+        $$
+            V(f) \supset V(\left<f_j\right>_{j = \overline{1, n}}) = \bigcap_{j = 1}^n V(f_j),
+        $$
+        переходя к дополнениям, получаем 
+        $$
+            X_f \subset \bigcup_{j = 1}^n X_{f_j}.
+        $$
+    \end{Proof}
+    \underline{Докажем 7.}
+    \begin{Proof}
+        Пусть $Y$ --- открытое множество.
+
+        $\Leftarrow$: Пусть $Y = \bigcup_{j = 1}^n X_{f_j} \subset \bigcup_{i \in I} X_i$. Следовательно, при всех $j$ имеют место включения
+        $X_{f_j} \subset \bigcup_{i \in I}X_i$. Так как $X_{f_j}$ квазикомпактно, то найдутся такие $i_k$ и $n_j$, что 
+        \begin{equation} \label{sets_coverage}
+            X_{f_j} \subset \bigcup_{k = 1}^{n_j} X_{i_k}.
+        \end{equation}
+        Теперь, объединяя выражения вида \eqref{sets_coverage} по $j = \bar{1, n}$, получаем:
+        $$
+            Y \subset \bigcup_{j = 1}^n \bigcup_{k = 1}^{n_j} X_{i_k}.
+        $$
+        Таким образом, множество $Y$ --- квазикомпактно.
+
+        $\Rightarrow$: Так как $\{X_f\}$ --- база топологии, то можно предстваить $Y$ в виде $Y = \bigcup_{i \in I} X_{f_i}$. Так как $Y$ --- квазикомпактно, значит среди $X_{f_i}$ можно выделить конечный набор подмножеств 
+         $X_{f_{i_j}}$ такой, что $Y = \bigcup_{j = 1}^n X_{f_{i_j}}$.
+    \end{Proof}
+
+    \section{Модули}
+
+    \subsection{Определение модуля}
+
+    Пусть $A$ --- некоторое кольцо, а $M$ --- некотороая абелева группа. 
+    \begin{Def}
+        \textit{Модулем над кольцом $A$} называется пара $(M, \mu)$, состоящая из абелевой группы $M$ и отображения $\mu : A \times M \rightarrow M$ (действия кольца $A$ на группе $M$), 
+        которое удовлетворяет следующим условиям:
+        \begin{enumerate}
+            \item $\mu(a, x + y) = \mu(a, x) + \mu(a, y)$,
+            \item $\mu(a + b, x) = \mu(a, x) + \mu(b, x)$,
+            \item $\mu(ab, x) = \mu(a, \mu(b, x))$,
+            \item $\mu(1, x) = x$.
+        \end{enumerate}
+        Где $a, b \in A$, $x, y \in M$.
+    \end{Def}
+
+    Далее $\mu(a, x)$ будем записывать как $ax$. 
+    
+    В случае, когда кольцо $A$ является полем, $A$-модулями будут векторные пространства над полем $A$.
+    
+    Отметим также, что любой идеал кольца $A$, в частности само кольцо $A$, является $A$-модулем. 
+    Поэтому к идеалам применимы все теоремы, которые формулирются для модулей.
+
+    Как в случае векторных пространств над полем $k$ выделают подпространства и факторпространства, в случае $A$-модулей можно выделять подмодули и фактормодули.
+
+    \begin{Def}
+        \textit{Подмодулем} $M' \subset M$ называется всякая подгруппа $M'$ группы $M$, замкнутая относительно действия кольца. Иными словами, $M'$ --- подмодуль $M$, 
+        если он включается следующую в коммутативную диаграмму.
+        $$
+        \xymatrix {
+            A \times M' \ar@{^{(}->}[r]^{1 \times i} \ar[d]^{\mu |_{M'}} & A \times M \ar[d]^{\mu} \\
+            M' \ar@{^{(}->}[r]^{i} & M
+        }
+        $$
+        При этом действие $\mu|_{M'}$ получается как ограничение отображения $\mu$ на подмножество $A \times M'$.
+    \end{Def}
+    
+    \begin{Def}
+        \textit{Фактормодулем} $M/M'$ $A$-модуля $M$ по подмодулю $M'$ называет факторгруппа $M/M'$ на которой действие $\mu'$ кольца $A$ определено следующим образом:
+        $$
+            \mu' : (a, x + M') \mapsto ax + M'.
+        $$
+    \end{Def}
+
+    \subsection{Гоморфизмы модулей}
+
+    \begin{Def}
+        \textit{Гомоморфизмом} $f : M \rightarrow N$ $A$-модулей $N$ и $M$ будем называть гомоморфизм абелевых групп $M$ и $N$, который коммутирует с действием $\mu$ кольца на группе.
+    \end{Def} 
+    Таким образом, гоморфизм $f$ абелевых групп является гомоморфизмом модулей, если он делает следующую диаграмму коммутативной.
+    $$
+    \xymatrix{
+        A \times M \ar[d]^{\mu_M} \ar[r]^{1 \times f} & A \times N  \ar[d]^{\mu_N} \\
+        M \ar[r]^f & N
+    }
+    $$
+    Где $\mu_M$, $\mu_N$ --- действия кольца $A$ на $M$ и $N$, наделяющие эти группы структурами $A$-модулей.
+
+    Если $M$, $N$ --- векторные пространства над полем $k$, то гомоморфизмы $k$-модулей  называются линейными отображениями.
+
+    \begin{Def}
+        \textit{Изоморфизмом} $A$-модулей называется такой гомоморфизм, который является биективным отображением модулей как множеств.
+    \end{Def}
+
+    Аналогично ядру, образу и коядру линейных отображений векторных пространств выделяют аналогичные подгруппы, связанные с гомоморфизмами $A$-модулей.
+
+    \begin{Def}
+        Пусть $f : M \rightarrow N$ --- гомоморфизм $A$-модулей $M$ и $N$. 
+
+        \begin{enumerate}
+            \item Ядром гомоморфизма $f$ называется подгруппа $\ker{f} = \{x \in M \mid f(x) = 0\} < M,$
+            \item Образом гомоморфизма $f$ называется подгруппа $\im{f} = f(M) < N,$
+            \item Коядром гомоморфизма $f$ называется $\coker{f} = N/\im{f}.$
+        \end{enumerate}
+        При этом ядро, образ и коядро наделены структурой $A$-модуля.
+    \end{Def}
+
+    Для модулей, как и для векторных пространств, справедливы три теоремы об изоморфизме.
+
+    \begin{Theorem}[Первая теорема об изоморфизме]{\cite{A-M}}
+        Пусть $f : M \rightarrow N$ --- гомоморфизм $A$-модулей. Тогда 
+        $$
+            \im{f} \simeq M / \ker{f}.
+        $$
+    \end{Theorem}
+    \begin{Theorem}[Вторая теорема об изоморфизме]{\cite{A-M}}
+        Пусть $M_1, M_2$ --- подмодули в $M$. Тогда
+        $$
+            (M_1 + M_2) / M_2 \simeq M_2 / (M_1 \cap M_2).
+        $$
+    \end{Theorem}
+    \begin{Theorem}[Третья теорема об изоморфизме]{\cite{A-M}}
+        Пусть $L \supseteq M \supseteq N$ --- некоторые $A$-модули. Тогда
+        $$
+            (L/N)/(M/N) \simeq L/M.
+        $$
+    \end{Theorem}
+
+    \subsection{Операции над модулями}
+
+    Аналогично операциям произведения и частного идеалов можно ввести операцию умножения идеала на модуль и 
+    частного двух модулей. В общем случае произведение двух модулей ввести невозможно \cite{A-M}.
+
+    \begin{Def}
+        Пусть $M$ --- $A$-модуль, $\mf{a} \subset A$ --- идеал. Тогда \textit{произведением $\mf{a}M$} назовем множество конечных сумм вида
+        $$
+            \sum_{i} a_ix_i, \text{где $a_i \in \mf{a}, x_i \in M.$}
+        $$
+        Произведение идеала на модуль $M$ является подмодулем в $M$ \cite{A-M}.
+    \end{Def}
+
+    \begin{Def}
+        \textit{Частным $(N : P)$} двух $A$-модулей $N$ и $P$ называется множество 
+        $$
+            (N : P) = \{a \in A \mid aP \subseteq N\}.
+        $$
+        Частное двух модулей является идеалом в $A$.
+    \end{Def}
+
+    \begin{Def}
+        \textit{Аннулятором $\ann{M}$} $A$-модуля $M$ называется частное $(0 : M)$.
+    \end{Def}
+
+    \begin{Ex}
+        Пусть $N, M$ --- $A$-модули. Доказать следующие утверждения:\footnote{\cite{A-M}, Страница 30, упражнение 2.2}
+        \begin{enumerate}
+            \item $\ann{M + N} = \ann{M} \cap \ann{M}$.
+            \item $(N : M) = \ann{(N + M) / N}$.
+        \end{enumerate}
+    \end{Ex}
+    \underline{Докажем 1.}
+    \begin{Proof}
+
+        Выберем произвольный $x \in \ann{M + N}$. По определению, $x(M + N) = 0$, следовательно $xN + xM = 0$. Так как $xN \cup xM \subseteq xN + xM = 0$, значит
+        $xN = xM = 0$, то есть $x \in \ann{M} \cap \ann{N}$.
+
+        Пусть теперь $x \in \ann{M} \cap \ann{N}$ это значит что $xM = xN = 0$, откуда $x(M + N) = 0$, следовательно $x \in \ann{M + N}$.
+    \end{Proof}
+    \underline{Докажем 2.}
+    \begin{Proof}
+
+        Пусть $x \in \ann{(N + M) / N}$. По определению $$x((N + M) / N) = \bar{0},$$ что равносильно $x(y + N) \subseteq N$ при всех $y = m + n$, где $m \in M, n \in N$. 
+        Подставим выражение для $y$.
+        $$x(m + n + N) \subseteq N \Leftrightarrow xm + N \subseteq N, \text{при всех $m \in M$.}$$ 
+        Откуда получаем, что $xM \subseteq N$, по определению $x \in (N : M)$.
+    \end{Proof}
+
+    \begin{Def}
+        Пусть $M, N$ --- $A$-модули. Их \textit{прямой суммой $M \oplus N$} называется множество всех пар $(x, y)$, где $x \in M, y \in N$,
+        на которых введены операции следующим образом:
+        \begin{align*}
+            (x_1, y_1) + (x_2, y_2) &= (x_1 + x_2, y_1 + y_2),\\
+            a(x, y) &= (ax, ay).
+        \end{align*}
+    \end{Def}
+
+    Данное определение прямой суммы двух $A$-модулей легко обобщить на прямую сумму произвольного семейства $A$-модулей:
+    \begin{Def}
+        \textit{Прямой суммой семейства $A$-модулей} $\{M_i\}_{i \in I}$ назовем множество 
+        $$
+            \bigoplus_{i \in I} M_i = \{(x_i)_{i \in I} \mid (x_i)_{i \in I} \text{--- финитная последовательность и } x_i \in M_i\},
+        $$
+        с покомпонентным сложением и действием кольца $A$, определеяемым следующей формулой
+        $$
+            \mu : (a, \dots, m_i, \dots) \mapsto (\dots, \mu_i(a, m_i), \dots),
+        $$
+        где $\mu_i$ --- действие кольца $A$ на $M_i$.
+    \end{Def}
+
+    Если отбросить условие финитности последовательностей, то получим множество, называемое \textit{прямым произведением}
+    $$
+        \prod_{i \in I} M_i,
+    $$ 
+    которое в случае конечного множества $I$ совпадает с прямой суммой.
+
+    \subsection{Конечно порожденные модули}
+
+    \begin{Def}
+        $A$-модуль $M$ называется свободным, если он изоморфен прямой сумме $\bigoplus_{i \in I} M_i$, где каждый $M_i$ изоморфен $A$ как $A$-модуль.
+    \end{Def}
+
+    Свободный $A$-модуль обозначается как $A^{(I)}$.
+
+    \begin{Def}
+        $A$-модуль $M$ порожден множеством $G \subset M$, если любой элемент $m \in M$ можно представить в виде финитной $A$-линейной комбинации элементо множества $G$.
+        То есть для любого $m \in M$ найдутся такие $n \in \mathbb{N}$, $g_1, \dots, g_n \in G$, $\lambda_1, \dots, \lambda_n \in A$, что $m = \sum_{i = 1}^n \lambda_i g_i$.
+    \end{Def}
+
+    Подмножество $G$ называется \textit{системой образующих} или \textit{системой порождающих элементов} $A$-модуля $M$.
+
+    Пусть $\oplus^{|G|}A$ --- свободный $A$-модуль. Тогда имеет место сюръективный гомоморфизм $\varphi : \oplus^{|G|}A \twoheadrightarrow M$, определенный следующей формулой.
+    $$
+        (\dots, \lambda_i, \dots) \mapsto \sum \lambda_ig_i,
+    $$
+    где последовательность $(\lambda_i)$ и $A$-линейная комбинация $\sum \lambda_ig_i$ финитны.
+
+    \begin{Def}
+        $A$-модуль \textit{конечно порожден}, если в нем можно выбрать конечную систему образующих $G$
+    \end{Def}
+
+    Вновь обратимся к векторным конечномерным пространствам над полем $k$. 
+    Так как любое векторное пространство $V$ размерности $n = \dim V$ изоморфно $k^n$, значит, по определнию, любой модуль над полем $k$ будет являться свободным.
+
+    Сформулируем критерий для конечно порожденных модулей.
+
+    \begin{Theorem}{\cite{A-M}}
+        $A$-модуль $M$ конечно порожден тогда и только тогда, когда он изоморфен некоторому фактормодулю модуля $A^n$ при некотором $n > 0$.
+    \end{Theorem}
+
+    \begin{Theorem}{\cite{A-M}}
+        Пусть $M$ --- некоторый конечно порожденный $A$-модуль, $\mf{a} \subset A$ --- идеал, $\varphi$ --- такой эндоморфизм $M$, что $\varphi(M) \subseteq \mf{a}M$.
+        Тогда $\varphi$ удовлетворяет уравнению вида
+        $$
+            \varphi^n + a_1\varphi^{n - 1} + \dots + a_n = 0,
+        $$
+        где все $a_i \in \mf{a}$.
+    \end{Theorem}
+
+    \begin{Theorem}[Лемма Накаямы]{\cite{A-M}}
+        Пусть $M$ --- конечно порожденный $A$-модуль, \linebreak $\mf{a} \subset \jac{A}$ --- идеал в $A$. 
+        Если $\mf{a}M = M$, то $M = 0$.
+    \end{Theorem}  
+
+    \begin{Corollary}{\cite{A-M}}
+        Пусть $M$ --- конечно порожденный $A$-модуль, $N \subset M$ --- его подмодуль, $\mf{a} \subseteq \jac{A}$ --- идеал.
+        Если $M = \mf{a}M + N$, то $M = N$.
+    \end{Corollary}
+
+    \subsection{Модули и точные последовательности}
+
+    Пусть имеется некоторый набор модулей $\{M_i\}$ и гомоморфизмы \linebreak $f_i : M_{i - 1} \rightarrow M_i$. 
+
+    \begin{Def}
+        Последовательность вида
+        $$
+            \dots \rightarrow M_{i - 1} \xrightarrow{f_i} M_i \xrightarrow{f_{i + 1}} M_{i + 1} \rightarrow \dots
+        $$
+        называется точной в члене $M_i$, если $\ker{f_{i + 1}} = \im{f_i}$.
+    \end{Def}
+    \begin{Def}
+        Последовательность $A$-модулей называется \textit{точной}, если она точна в каждом члене.
+    \end{Def}
+
+    В некоторых простых случаях можно сформулировать условия точности \cite{A-M}:
+    \begin{align}
+        0 \rightarrow M' \xrightarrow{f} M \text{ точна } &\Leftrightarrow f \text{ инъективен};\\
+        M \xrightarrow{g} M'' \rightarrow 0 \text{ точна } &\Leftrightarrow  g \text{ сюръективен};\\
+        0 \rightarrow M' \xrightarrow{f} M \xrightarrow{g} M'' \rightarrow 0 \text{ точна } &\Leftrightarrow \text{$f$ инъективен,  $g$ сюръективен,} \label{ses} \\ 
+        &\text{ $g$ индуцирует изоморфизм \coker{$f$} на $M''$.}\notag
+    \end{align}
+
+    \begin{Def}
+        Последовательность вида \eqref{ses} называется \textit{короткой точной последовательностью} или \textit{ точной тройкой}.
+    \end{Def}
+
+    Далее в тексте работы будут использоваться дополнительно следующие обозначения:\\
+    $(a, b)$ --- наибольший общий делитель двух чисел $a$ и $b$. \\
+    $[a, b]$ --- наименьшее общее кратное двух чисел $a$ и $b$.
+    \subsection{Понятие тензорного произведения модулей}
+
+    Рассмотрим два модуля $M$ и $N$ над кольцом $A$. За $C = A^{(M \times N)}$ обозначим свободный $A$-модуль, 
+    порожденный парами $(m, n) \in M \times N$. Рассмотрим в $C$ подмодуль $D$, порожденный элементами следующего вида:
+    \begin{equation}\label{gen_el}
+        \begin{split}
+            (x + x', y) - (x, y) - (x', y) \\
+            (x, y + y') - (x, y) - (x, y') \\ 
+            (ax, y) - a(x, y) \\
+            (x, ay) - a(x, y) 
+        \end{split}
+    \end{equation}
+
+    Положим $T := C/D$ и для каждого $(x, y) \in C$ обозначим за $x \otimes y$ его образ в $T$ при каноническом гомоморфизме $A$-модулей $C \rightarrow C/D$.
+    
+    \begin{Def}
+        \textit{Тензорным произведением} модулей $M$ и $N$ назовем построенный выше модуль $T$ и обозначим $$M \otimes_A N := T.$$
+    \end{Def}
+    
+    Из \eqref{gen_el} сразу следуют некоторые свойства элементов $T$:
+    \begin{equation*}\label{tensor_prop}
+        \begin{split}
+            (x + x') \otimes y = x \otimes y + x' \otimes y\\
+            x \otimes (y + y') = x \otimes y + x \otimes y' \\ 
+            (ax) \otimes y = a(x \otimes y) \\
+            x \otimes (ay) = a(x \otimes y)
+        \end{split}
+    \end{equation*}
+
+    Справедлива следующая теорема, носящая название универсального свойства тензорного произведения:
+    \begin{Theorem}{\cite{A-M}} Пусть $M$ и $N$ --- $A$-модули, тогда существует пара $(T, g)$, состоящая из $A$-модуля $T$ и $A$-билинейного 
+        отображения  $g: M \times N \rightarrow T$, со следующими свойствами:
+        \begin{enumerate}
+            \item Для любого $A$-модуля $P$ и $A$-билинейного отображения $f : M\times N \rightarrow P$ существует
+                единственное отображение $f' : T \rightarrow P$, такое, что $f = f' \circ g$.
+            \item Если $(T, g)$ и $(T', g')$ две пары с таким свойством, то существует изоморфизм $j : T \rightarrow T'$ для
+                которого $g' = j \circ g$.
+        \end{enumerate}
+    \end{Theorem}
+
+    \subsection{Свойства тензорного произведения модулей}
+
+    Для любых $A$-модулей $M, N, P$ справедлив ряд свойств \cite{A-M}:
+    \begin{gather}
+        M \otimes_A N \simeq N \otimes_A M.\\
+        M \otimes_A (N \otimes_A P) \simeq (M \otimes_A N) \otimes_A P \simeq M \otimes_A N \otimes_A P.\\
+        (M \oplus N) \otimes_A P \simeq (M \otimes_A P) \oplus (N \otimes_A P). \label{prod_distr}\\
+        M \otimes_A A \simeq M. \label{ring_mult}
+    \end{gather}
+    Больший интерес представляют свойства точности тензорного произведения. 
+    
+    % Пусть $f : M\times N \rightarrow P$ --- $A$-билинейное отображеие. 
+    % Для каждого $x \in M$, отображение $y \longmapsto f(x, y)$ $A$-линейно, а значит индуцирует отображение $M \rightarrow \Hom(N, P)$.
+    
+    % С другой стороны, любой гомоморфизм $\varphi : M \rightarrow \Hom(N, P)$ определяет $A$-билинейное отображение $(x, y) \longmapsto [\varphi(x)](y)$.
+
+    % Таким образом множество $S$ билинейных отображений $M \times N \rightarrow P$ находится во взаимнооднозначном соответствии с
+    % $\Hom(M, \Hom(N, P))$.
+
+    % Но, из универсального свойства, множество $S$ находится во взаимнооднозначном соответствии с $\Hom(M \otimes N, P)$. Поэтому имеет место изоморфизм 
+    % \begin{equation}
+    %     \Hom(M \otimes N, P) \simeq \Hom(M, \Hom(N, P)).
+    % \end{equation}
+
+    \begin{Theorem}{\cite{A-M}}
+        Пусть дана точная последовательность 
+        \begin{equation}
+            M' \xrightarrow{f} M \xrightarrow{g} M'' \rightarrow 0,
+        \end{equation}
+        а $N$ --- произвольный $A$-модуль, тогда последовательность 
+        \begin{equation}
+            M' \otimes_A N \xrightarrow{f \otimes 1} M \otimes_A N \xrightarrow{g \otimes 1} M'' \otimes_A N \rightarrow 0
+        \end{equation}
+        (где 1 --- тождественное отображение) точна.
+    \end{Theorem}
+
+    Тензорное произведение не сохраняет точность слева. Например, рассмотрим точную последовательность
+    \begin{equation*}
+        0 \rightarrow \mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z}.
+    \end{equation*}
+    Умножим ее тензорно на $\mathbb{Z}_2$ над $\mathbb{Z}$. Получим
+    \begin{equation} \label{bad_product}
+        0 \rightarrow \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z}_2 \xrightarrow{(\cdot 2) \otimes 1} \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z}_2.
+    \end{equation}
+    Но $\ker((\cdot 2) \otimes 1) = \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z}_2$, так как $2x \otimes y = x \otimes 2y = x \otimes 0 = 0$; отсюда видим, 
+    что последовательность \eqref{bad_product} не является точной.
+
+    \subsection{Периодические произведения}
+
+    \subsubsection{Понятие свободной резольвенты $A$-модуля}
+    Введем понятие свободной резольвенты $A$-модуля $M$. 
+    
+    Пусть $M$ порожден системой образующих $\{x_j \mid j \in I\}$, то есть $M = \left<x_j \right>_A$.
+    Рассмотрим свободный $A$-модуль $F_0 \simeq \bigoplus_{i\in I} A =: A^{(I)}$ и сюръективный гомоморфизм $A$-модулей $\varphi_0 : F_0 \twoheadrightarrow M$. Гомоморфизм
+    $\varphi_0$ определяется как композиция прямой суммы $A$-гомоморфизмов $g_i : A \rightarrow M$, где $\alpha \in A \mapsto \alpha x_i$ с гомоморфизмом суммирования
+    $\Sigma : \oplus_{i \in I}M \rightarrow M$, где $(\dots, m_j, \dots) \mapsto \sum_{j \in I} m_j$. Важно, что при формировании прямой суммы участвуют финитные последовательности.
+    Итак, гомоморфизм $\varphi_0$ определяется коммутативной диаграммой
+
+    $$        
+        \xymatrix{
+            \bigoplus_{j \in I} A \ar[r]^{\sum g_i} \ar[rd]^{\varphi_0}
+            &\bigoplus_{j \in I} M \ar[d]^{\Sigma}\\
+            &M
+        }
+    $$
+
+    Теперь охарактеризуем $\ker \varphi_0$ аналогичным образом: выберем систему образующих $A$-модуля $\ker \varphi_0$, свободный $A$-модуль $F_1$ и отобразим его сюръективно на 
+    $\ker \varphi_0$ с помощью $A$-гомоморфизма  $\varphi_1 : F_1 \twoheadrightarrow \ker \varphi_0$. Снова может случиться так, что $\ker \varphi_1$ нетривиально. Значит, рассмотрим еще один свободный $A$-модуль $F_2$
+    и повторим уже описанные выше действия. 
+
+    Таким образом получим, возможно бесконечную, точную последовательность
+    \begin{equation*}
+        \dots \xrightarrow{\varphi_{i + 1}} F_{i} \xrightarrow{\varphi_{i}} \dots \xrightarrow{\varphi_2} F_1 \xrightarrow{\varphi_1} F_0 \xrightarrow{\varphi_0} M \rightarrow 0.
+    \end{equation*}
+    Уберем из этой последовательности член $M$:
+    \begin{equation}\label{complex}
+        M_* : \dots \xrightarrow{\varphi_{i + 1}'} F_{i} \xrightarrow{\varphi_{i}} \dots \xrightarrow{\varphi_2'} F_1 \xrightarrow{\varphi_1'} F_0 \xrightarrow{\varphi_0'} 0. 
+    \end{equation}
+    Где $\varphi_i' = \varphi_i$ при $i \geqslant 1$, а $\varphi_0$ --- постоянное отображение. Последовательность \eqref{complex} точна во всех членах кроме члена с индексом 0. Однако,
+    она обладает следующим свойством 
+    \begin{equation}\label{complex_prop}
+        \varphi_i' \circ \varphi_{i+1}' = 0\; \text{для всех } i \geqslant 0. 
+    \end{equation}
+    Последовательность $A$-модулей \eqref{complex} в которой выполнено условие \eqref{complex_prop} называется \textit{комплексом} $A$-модулей. Далее такую последовательность
+    будем называть \textit{свободной резольвентой} $A$-модуля $M$.
+
+    Свойство \eqref{complex_prop} в точности означает, что 
+    $$\im\; \varphi_i' \subseteq \ker \varphi_i'$$
+    и позволяет определить фактормодуль 
+    \begin{equation} \label{homology}
+        H_i(M_*) = \frac{\ker \varphi_i'}{\im\;\varphi_{i+1}'}
+    \end{equation}
+    Он носит название модуля \textit{гомологий} комплекса $M_*$ в члене с номером $i$.
+
+    Если $M_*$ --- свободная резольвента $A$-модуля $M$, то $H_0(M_*) \simeq M$, а $H_i(M_*) = 0$, при $i \geqslant 0$.
+
+    % Такую последовательность, или еще комплекс, $M_*$ будем называть свободной резольвентой $A$-модулья $M$. Заметим что  $M \simeq \coker\; \varphi_1$.
+    % $i$-ми гомологиями комплекса $M_*$ называют 
+    % \begin{equation}
+    %     H_i(M_*) = \frac{\ker \varphi_i}{\im\;\varphi_{i+1}}.
+    % \end{equation} 
+
+    \subsubsection{Понятие периодического произведения}
+    Зафиксируем некоторый $A$-модуль $M$ и рассмотрим операцию тензорно умножения $(-\otimes_A M)$ на этот модуль над кольцом $A$. 
+    Мы получим функтор, действующий из категории $A$-модулей в нее же. Рассмотрим $A$-модуль $N$ и фиксируем его свободную резольвенту 
+    \begin{equation*}
+        N_* : \cdots \rightarrow N_i \rightarrow N_{i-1} \rightarrow \cdots \rightarrow N_1 \rightarrow 0.
+    \end{equation*}
+    Умножим ее тензорно на $M$.
+    \begin{equation*}
+        \cdots \rightarrow N_i \otimes_A M \rightarrow N_{i-1} \otimes_A M \rightarrow \cdots \rightarrow N_1 \otimes_A M \rightarrow 0.
+    \end{equation*}
+    Так как тензорное умножение не является точным слева, точность в некоторых членах последовательности пропадет. 
+    Гомологии комплекса $H_i(N_* \otimes_A M)$ назваются \textit{периодическими 
+    произведениями} и обозначаются $\Tor_i^A(N, M)$, а сам $\Tor_i^A(-, M)$ является $i$-м левым производным функтором функтора ($- \otimes_A M$). 
+    В некоторых случаях удается непосредственно вычислить $\Tor_i^A(N, M)$. 
+
+    \subsection{Непосредственное вычисление некоторых тензорных и периодических произведений}
+
+    \begin{Proposal}\label{task1}
+        Пусть $n$, $m$ --- натуральные числа. Тогда  $$\mathbb{Z}_n \otimes_\mathbb{Z} \mathbb{Z}_m \simeq \mathbb{Z}_{(n, m)}.$$
+    \end{Proposal}
+    \begin{Proof}
+        Рассмотрим точную последовательность
+        \begin{equation*}
+            0 \rightarrow \mathbb{Z} \xrightarrow{\cdot m} \mathbb{Z} \rightarrow \mathbb{Z}_m \rightarrow 0
+        \end{equation*}
+        и тензорно умножим ее на $\mathbb{Z}_n$ над $\mathbb{Z}$. Из свойств точности тензорного произведения следующая последовательность 
+        \begin{equation*}
+            \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z}_n \xrightarrow{(\cdot m) \otimes 1} \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z}_n \rightarrow \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n \rightarrow 0
+        \end{equation*}
+        будет точна. Воспользуемся свойством \eqref{ring_mult} и упростим члены в последовательности:
+        \begin{equation*}
+            \mathbb{Z}_n \xrightarrow{\cdot m} \mathbb{Z}_n \rightarrow \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n \rightarrow 0.
+        \end{equation*}
+        Из первой теоремы об изоморфизме $\mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n \simeq \mathbb{Z}_n / \ker(\mathbb{Z}_n \rightarrow \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n)$, а так как последовательность точна
+        $\ker(\mathbb{Z}_n \rightarrow \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n) = \im(\cdot m)$. Образом $\im(\cdot m)$ является ничто иное как $m\mathbb{Z}_n$. 
+        Значит 
+        \begin{equation*}
+            \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n \simeq \mathbb{Z}_n / m\mathbb{Z}_n.
+        \end{equation*}
+        Выясним вид подмодуля $m\mathbb{Z}_n$. Заметим, что $\mathbb{Z}_n = \left<\bar 1\right>$, а  
+        $m\mathbb{Z}_n = \left< \bar m \right> = \left< m \cdot \bar 1\right>$. Вычислим теперь порядок элемента $\bar m$. Воспользуемся следующим утверждением: 
+        
+        \begin{Statement}
+            \cite{Vinberg} Пусть $g \in G$ --- элемент группы $G$ порядка $\ord_G\;g = n$. Тогда $\ord_G(g^k) = n/(k, n)$.
+        \end{Statement}
+        Из него непосредственно вытекает, что $\ord_{\mathbb{Z}_n} \bar m = n / (n, m)$. Значит 
+        \begin{equation} \label{cnt_el}
+            |m\mathbb{Z}_n| = m / (n, m). 
+        \end{equation}
+        Теперь вычислим $\mathbb{Z}_n / m\mathbb{Z}_n$. Так как факторгруппа циклической группы по подгруппе снова циклическая и все группы, участвующие
+        в рассмотрении, конечны, осталось вычислить порядок данной факторгруппы. Из теоремы Лагранжа вытекает, что $|\mathbb{Z}_n| = k|m\mathbb{Z}_n|$, где $k$ --- число смежных классов по
+        подгруппе $m\mathbb{Z}_n$, то есть порядок фактор-группы. Из \eqref{cnt_el} и теоремы Лагранжа вытекает, что 
+        \begin{equation*}
+            |\mathbb{Z}_n / m\mathbb{Z}_n| = (n, m),
+        \end{equation*}
+        а это значит что $\mathbb{Z}_n / m\mathbb{Z}_n \simeq \mathbb{Z}_{(n, m)}$. В итоге получаем, что
+        \begin{equation*}
+            \mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_n \simeq \mathbb{Z}_{(n, m)}.
+        \end{equation*}
+    \end{Proof}
+
+    Из предложения \ref{task1} сразу видно, что при взаимно простых $n$ и $m$ имеем $$\mathbb{Z}_m \otimes_\mathbb{Z} \mathbb{Z}_m = 0.$$ Это значит что тензорное произведение
+    двух нетривиальных $A$-модулей может давать тривиальный модуль.
+
+    \begin{Proposal}
+        Пусть $A$, $B$ --- конечные абелевы группы, и
+        $$
+            A \simeq \mathbb{Z}_{p_1^{k_1}} \oplus \mathbb{Z}_{p_2^{k_2}} \oplus \dots \oplus \mathbb{Z}_{p_m^{k_m}},
+        $$
+        $$
+            B \simeq \mathbb{Z}_{q_1^{l_1}} \oplus \mathbb{Z}_{q_2^{l_2}} \oplus \dots \oplus \mathbb{Z}_{q_s^{l_s}},
+        $$
+        Тогда 
+        $$A \otimes_\ZZ B \simeq \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} \ZZ_{(p_i^{k_i}, q_j^{l_j})}.$$
+    \end{Proposal}
+    \begin{Proof}
+        Воспользуемся свойствами \eqref{prod_distr} и \eqref{ring_mult} тензорного произведения:
+
+        $$
+        A \otimes_\ZZ B \simeq \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} (\ZZ_{p_i^{k_i}} \otimes_\ZZ \ZZ_{q_j^{l_j}}) \simeq 
+            \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} \ZZ_{(p_i^{k_i}, q_j^{l_j})}.
+        $$
+    \end{Proof}
+
+    \begin{Proposal} \label{CalcTor1}
+        \[
+            \Tor_i^\mathbb{Z}(\mathbb{Z}_n, \mathbb{Z}_m) = \left\{ 
+                    \begin{aligned}
+                        \mathbb{Z}_{(n, m)}, &\; i = 0, 1;\\
+                        0, &\;i \geqslant 2.
+                    \end{aligned}
+                \right.
+        \]
+    \end{Proposal}
+    \begin{Proof}
+        Рассмотрим свободную резольвенту $\mathbb{Z}$-модуля $\mathbb{Z}_n$
+        \begin{equation*}
+            C_* : 0 \rightarrow \mathbb{Z} \xrightarrow{\cdot n} \mathbb{Z} \rightarrow 0
+        \end{equation*}
+        и тензорно умножим ее на $\mathbb{Z}_m$ над $\mathbb{Z}$
+        \begin{equation*}
+            0 \rightarrow \mathbb{Z}_m \xrightarrow{\cdot n} \mathbb{Z}_m \rightarrow 0.
+        \end{equation*}
+        Можно сразу заметить, что все  
+        $$
+            \Tor_i^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) = 0 \text{ при $i > 1$.}
+        $$
+        Заметим, что 
+        $$
+            \Tor_0^\ZZ(\ZZ_n, \ZZ_m) \simeq \ZZ_m/n\ZZ_n \simeq \ZZ_{(n, m)}.
+        $$
+        Теперь, вычисляя первый модуль гомологий
+        \begin{equation*}
+            H_1(C_* \otimes_\mathbb{Z} \mathbb{Z}_m) = \ker(\mathbb{Z}_m \xrightarrow{\cdot n} \mathbb{Z}_m) = \{\bar x \in \mathbb{Z}_m \mid n\bar x = 0\}.
+        \end{equation*}
+        Получаем что 
+        $$
+            \Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) = \{\bar x \in \mathbb{Z}_m \mid n\bar x = 0\}.
+        $$
+        Но так как \cite{Maclane}
+        $$
+            \Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) \simeq \Tor_1^\ZZ(\mathbb{Z}_m, \mathbb{Z}_n),
+        $$
+        то хотелось бы найти такой изоморфный ему модуль, чтобы была видна симметрия.
+
+        \begin{Statement} \label{Tor1(Zn,Zm)}
+            $\Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) \simeq \mathbb{Z}_{(n, m)}$.
+        \end{Statement}
+        
+        Докажем, что $\Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) \simeq \left< \bar{q} \right> \subseteq \mathbb{Z}_m$, где  $q = m / (n, m)$.
+        Выберем произвольный представитель класса $\bar q k$ и умножим его на $n$:
+        \begin{equation*}
+            \frac{knm}{(n, m)} = k[n, m],
+        \end{equation*}
+        где $[n, m]$ --- наименьшее общее кратное чисел $n$ и $m$. Имеем, $k[n, m]$ делится на $m$, а следовательно $\bar{q}k \in \Tor_1(\mathbb{Z}_n, \mathbb{Z}_m)$.
+
+        С другой стороны $\forall x \in \Tor_1(\mathbb{Z}_n, \mathbb{Z}_m)$ выполнено $xn \equiv 0 \pmod{m}$. Значит 
+        $$
+            xn = l[n, m] = l\frac{nm}{(n, m)} \Rightarrow x = l\frac{m}{(n, m)} \Rightarrow \bar x \in \left<\bar q\right>.
+        $$
+        Отсюда получаем, что $\Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) \simeq \left< \bar{q} \right> \subseteq \mathbb{Z}_m$.
+        Заметим, что 
+        \begin{equation*}
+            \ord\; \bar q = \ord(1 \cdot \bar q) = n \Bigg / \left( \frac{n}{(n, m)} \cdot 1, \frac{n}{(n, m)}(n, m) \right) = (n, m).
+        \end{equation*}
+        Значит, $\left<\bar q \right> \simeq \mathbb{Z}_{(n, m)}$, а следовательно и $\Tor_1^\ZZ(\mathbb{Z}_n, \mathbb{Z}_m) \simeq \mathbb{Z}_{(n, m)}$.
+    \end{Proof}
+
+    Обобщим предложение \ref{CalcTor1}:
+
+    \begin{Proposal}
+        Пусть $A$, $B$ --- конечно порожденные абелевы группы, и
+        $$
+            A \simeq \mathbb{Z}_{p_1^{k_1}} \oplus \mathbb{Z}_{p_2^{k_2}} \oplus \dots \oplus \mathbb{Z}_{p_m^{k_m}} \oplus \mathbb{Z} \oplus \dots \oplus \mathbb{Z},
+        $$
+        $$
+            B \simeq \mathbb{Z}_{q_1^{l_1}} \oplus \mathbb{Z}_{q_2^{l_2}} \oplus \dots \oplus \mathbb{Z}_{q_s^{l_s}} \oplus \mathbb{Z} \oplus \dots \oplus \mathbb{Z},
+        $$
+        Тогда 
+        $$\Tor_1^\ZZ(A, B) \simeq \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} \ZZ_{(p_i^{k_i}, q_j^{l_j})}.$$
+    \end{Proposal}
+    \begin{Proof}
+        Воспользуемся теоремой о конечно порожденных абелевых группах: представим каждую из них в виде прямой суммы примарных и бесконечных циклических групп \cite{Vinberg}:
+        \begin{gather*}
+            A \simeq \mathbb{Z}_{p_1^{k_1}} \oplus \mathbb{Z}_{p_2^{k_2}} \oplus \dots \oplus \mathbb{Z}_{p_m^{k_m}} \oplus \mathbb{Z} \oplus \dots \oplus \mathbb{Z},\\
+            B \simeq \mathbb{Z}_{q_1^{l_1}} \oplus \mathbb{Z}_{q_2^{l_2}} \oplus \dots \oplus \mathbb{Z}_{q_s^{l_s}} \oplus \mathbb{Z} \oplus \dots \oplus \mathbb{Z}.
+        \end{gather*}
+        Рассмотрим свободную резольвенту для $\mathbb{Z}_{p^k}$ 
+        \begin{equation*}
+            C_* : 0 \rightarrow \mathbb{Z} \xrightarrow{\cdot p^k} \mathbb{Z} \rightarrow 0,
+        \end{equation*}
+        и тензорно умножим ее на некоторую абелеву группу $N$
+        \begin{equation*}
+             0 \rightarrow \mathbb{Z} \otimes_\mathbb{Z} N \xrightarrow{(\cdot p^k) \otimes 1} \mathbb{Z} \otimes_\mathbb{Z} N \rightarrow 0.
+        \end{equation*}
+        Аналогично доказательству предложения \ref{CalcTor1} получаем, что 
+        \begin{equation*}
+            \Tor_1^\mathbb{Z}(\mathbb{Z}_{p^k}, N) = \{n \in N \mid p^kn = 0\}.
+        \end{equation*}
+        Теперь вернемся к исходным группам $A$ и $B$.
+        \begin{equation*}
+            \Tor_1^\mathbb{Z}(A, B) \simeq \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} \Tor_1^\mathbb{Z}(\mathbb{Z}_{p_i^{k_i}}, \mathbb{Z}_{q_j^{l_j}}) \simeq 
+            \bigoplus_{i=1}^{m} \bigoplus_{j=1}^{s} \ZZ_{(p_i^{k_i}, q_j^{l_j})}.
+        \end{equation*}
+        Заметим, что изоморфизм $A \otimes_\ZZ B \simeq \Tor_1^\ZZ(A, B)$ будет существовать, только когда $A$ и $B$ --- конечные абелевы группы. 
+    \end{Proof}

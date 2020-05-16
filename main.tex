@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[russian]{babel}   
+\usepackage[utf8]{inputenc}  
+\usepackage{xypic}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage[left=30mm, top=20mm, right=20mm, bottom=17.5mm, nohead, footskip=10mm]{geometry} % настройки полей документа
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{style}
+\singlespacing
+
+\newcommand{\sectionbreak}{\clearpage}
+
+\newcommand{\tors}[1]{\textup{tors}\left(#1\right)}
+\newcommand{\ox}{\otimes}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\Tor}{\textup{Tor}}
+\newcommand{\Hom}{\textup{Hom}}
+\newcommand{\im}[1]{\textup{im\;}#1}
+\newcommand{\coker}[1]{\textup{coker\;}#1}
+\newcommand{\ord}{\textup{ord}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\nil}[1]{\mf{N}(#1)}
+\newcommand{\jac}[1]{\mf{R}(#1)}
+\newcommand{\spec}[1]{\textup{Spec}(#1)}
+\newcommand{\ann}[1]{\textup{Ann}(#1)}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\bar}[1]{\overline{#1}}
+
+\newcommand{\anonsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+
+\parindent=1.25cm
+% \parskip=0em
+
+\begin{document}
+    \newtheorem{Ex}{Упражнение}[section]
+    \newtheorem{Statement}{Утверждение}[section]
+    \newtheorem{Theorem}{Теорема}[section]
+    \newtheorem{Corollary}[Theorem]{Следствие}
+    \newtheorem{Proposal}{Предложение}[section]
+    \newenvironment{Proof}{\par{\bf \noindent Доказательство.}}{{\hfill$\scriptstyle\blacksquare$\newline}}
+
+    \newcounter{defcnt}[section]
+    \newenvironment{Def}
+    {   
+        \refstepcounter{defcnt}
+        \par{\bf \noindent Определение \thesection .\thedefcnt}
+    }
+    
+    % \input{title}
+
+    % \setcounter{page}{2}
+    % \tableofcontents
+
+    % \anonsection{Введение}
+    % \input{intro}
+
+    % \input{course_paper}
+
+    \input{torsions.tex}
+
+    % \newpage
+    % \anonsection{Заключение}
+    % \input{outro.tex}
+
+    % \newpage
+    % \addcontentsline{toc}{section}{Список литературы}
+    % \begin{thebibliography}{00}
+    %     \bibitem{Eisenbud}
+    %     Айзенбад, Д. Коммутативная алгебра с прицелом на алгебраическую геометрию / Д. Айзенбад; пер. с англ. О.Н. Попова и др. под ред. Е.С. Голода. --- М.: МЦНМО, 2017. --- 752 с.
+    %     \bibitem{A-M}
+    %     Атья, М. Введение в коммутативную алгебру / М. Атья, И. Макдональд; пер. с англ. Ю.И. Манин. --- М.: Издательство <<Мир>>, 1972. --- 158 с.
+    %     \bibitem{Vinberg}
+    %     Винберг, Э. Б. Курс алгебры. --- 3-е изд., дополненное. / Э.Б. Винберг. --- М.: МЦНМО, 2017. --- 592 с.
+    %     \bibitem{Maclane}
+    %     Маклейн, С. Гомология. / С. Маклейн; пер. с англ. М.С. Цаленко под ред. А.Г. Куроша. --- М.: Издательство <<Мир>>, 1966. --- 534 с.
+    % \end{thebibliography}
+\end{document}

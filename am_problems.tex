@@ -1,0 +1,736 @@
+\documentclass[12pt]{article}
+\usepackage[russian]{babel}   
+\usepackage[utf8]{inputenc}  
+\usepackage{xypic}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumerate}
+
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\Tor}{\textup{Tor}}
+\newcommand{\Hom}{\textup{Hom}}
+\newcommand{\im}{\textup{im}}
+\newcommand{\ord}{\textup{ord}}
+\newcommand{\coker}{\textup{coker}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\nil}[1]{\mf{N}(#1)}
+\newcommand{\jac}[1]{\mf{R}(#1)}
+\newcommand{\spec}[1]{\textup{Spec}(#1)}
+\newcommand{\ann}[1]{\textup{Ann}(#1)}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\bar}[1]{\overline{#1}}
+
+\parindent=0px
+\begin{document}
+    \section{Решение упражнений из [А-М]}
+
+    \newtheorem{Ex}{Упражнение}
+    \newtheorem{Statement}{Утверждение}
+    \newenvironment{Proof}{\par\noindent{\bf Доказательство.}}{{\hfill$\scriptstyle\blacksquare$}}
+    
+    \begin{Ex}
+        Доказать следующие утверждения $\forall \mf{a}, \mf{b}, \mf{c}$ идеалов в кольце $A$.\footnote{[А-М] Страница 18, упражнение 1.12.}
+        \begin{enumerate}
+            \item $\mathfrak{a} \subseteq (\mathfrak{a} : \mathfrak{b})$
+            \item $(\mf{a} : \mf{b})\mf{b} \subseteq \mf{a}$
+            \item $((\mf{a} : \mf{b}) : \mf{c}) = (\mf{a} : \mf{bc}) = ((\mf{a} : \mf{c}) : \mf{b})$
+            \item $\left( \bigcap_{i} \mf{a}_i : b \right) = \bigcap_i (\mf{a}_i : \mf{b})$
+            \item $\left( \mf{a} : \sum_i \mf{b}_i \right) = \bigcap_i (\mf{a} : \mf{b}_i)$
+        \end{enumerate}
+    \end{Ex}
+    \begin{Proof}
+        \begin{enumerate}
+            \item Так как $\mf{a}$ -- идеал и $\forall x \in \mf{a}$ справедливо $x\mf{b} \subseteq \mf{a} \Rightarrow x \in (\mf{a} : \mf{b})$.
+            \item $\forall x \in (\mf{a} : \mf{b})$ справедливо, что $x\mf{b} \in a \Rightarrow (\mf{a} : \mf{b})\mf{b} \subseteq \mf{a}$.
+            \item Выберем произвольный $x \in ((\mf{a} : \mf{b}) : \mf{c})$, тогда 
+                  
+                $x \in ((\mf{a} : \mf{b}) : \mf{c})\Leftrightarrow x\mf{c} \subseteq (\mf{a} : \mf{b}) \Leftrightarrow 
+                x\mf{bc} \subseteq \mf{a} \Leftrightarrow x(\mf{bc}) \subseteq \mf{a} \Leftrightarrow x \in (\mf{a} : \mf{bc})$.
+
+                Имеем $((\mf{a} : \mf{b}) : \mf{c}) = (\mf{a} : \mf{bc})$.
+                А так как $(\mf{a} : \mf{bc}) = (\mf{a} : \mf{cb})$, то получаем $((\mf{a} : \mf{b}) : \mf{c}) = ((\mf{a} : \mf{c}) : \mf{b})$.
+            \item $\forall x \in \left(\bigcap_i \mf{a}_i : \mf{b}\right) \Leftrightarrow x\mf{b} \in \bigcap_i \mf{a}_i \Leftrightarrow
+                x\mf{b} \in \mf{a}_i\; \forall{i} \Leftrightarrow x \in (\mf{a}_i : \mf{b})\;\forall{i} \Leftrightarrow
+                x\in~\bigcap_i (\mf{a}_i : \mf{b})$.
+            \item $\forall x \in (\mf{a} : \sum_i \mf{b}_i) \Leftrightarrow x\sum_i{\mf{b}_i} \subseteq \mf{a} \Leftrightarrow
+                \sum_i{x\mf{b}_i} \subseteq \mf{a} \Leftrightarrow x\mf{b}_i \in \mf{a}\;\forall{i} \Leftrightarrow
+                x \in~\bigcap_i(\mf{a} : \mf{b}_i)$.
+        \end{enumerate}
+    \end{Proof}
+
+    \newpage
+    \begin{Ex}
+        Доказать следующие утверждения для $\forall \mf{a}, \mf{b}$ идеалов в кольце $A$.\footnote{[А-М] Страница 19, упражнение 1.13.}
+        \begin{enumerate}
+            \item $\mf{a} \subseteq \sqrt{\mf{a}}$
+            \item $\sqrt{\sqrt{\mf{a}}} = \sqrt{\mf{a}}$
+            \item $\sqrt{\mf{ab}} = \sqrt{\mf{a} \cap \mf{b}} = \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$
+            \item $\sqrt{\mf{a}} = (1) \Leftrightarrow \mf{a} = (1)$
+            \item $\sqrt{\mf{a} + \mf{b}} = \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}}$
+            \item $\mf{p}$ -- простой $\Rightarrow \sqrt{\mf{p}^n} = \sqrt{\mf{p}}$
+        \end{enumerate}
+    \end{Ex}
+
+    \begin{Proof}
+        \begin{enumerate}
+            \item $\forall x \in \mf{a}$, $x^1 \in \mf{a} \Rightarrow x \in \sqrt{\mf{a}}$.
+            \item Докажем $\sqrt{\sqrt{\mf{a}}} \subseteq \sqrt{a}$. 
+            
+            $\forall x \in \sqrt{\sqrt{\mf{a}}} \Rightarrow \exists n > 0 : x^n \in \sqrt{\mf{a}}$
+            $\Rightarrow \exists m > 0 : x^{nm} \in \mf{a} \Rightarrow x \in \sqrt{\mf{a}}$.
+
+            Из пункта 1 данного упражнения вытекает $\sqrt{\mf{a}} \subseteq \sqrt{\sqrt{\mf{a}}}$.
+
+            Таким образом $\sqrt{\sqrt{\mf{a}}} = \sqrt{\mf{a}}$.
+
+            \item Сперва докажем что $\sqrt{\mf{ab}} \subseteq \sqrt{\mf{a} \cap \mf{b}}$.
+            
+                $\forall x \in \sqrt{\mf{ab}} \Rightarrow \exists n > 0 : x^n \in \mf{ab}$. Учтем, что $\mf{ab} \subseteq \mf{a} \cap \mf{b}$.
+                Тогда из того что $x^n \in \mf{ab}$ следует, что $x^n \in \mf{a} \cap \mf{b}$. Значит $x \in \sqrt{\mf{a} \cap \mf{b}}$.
+
+                Теперь докажем, что $\sqrt{\mf{a} \cap \mf{b}} = \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$.
+
+                $\forall x \in \sqrt{\mf{a} \cap \mf{b}} \Leftrightarrow \exists n > 0 :  x^n \in \mf{a} \cap \mf{b} \Leftrightarrow$
+                \newline
+                $\Leftrightarrow x^n \in \mf{a} \wedge x^n \in \mf{b} \Leftrightarrow$
+                $x \in \sqrt{\mf{a}} \wedge x \in \sqrt{\mf{b}} \Leftrightarrow x \in \sqrt{\mf{a}} \cap \sqrt{\mf{b}}$.
+
+                Докажем что $\sqrt{\mf{a} \cap \mf{b}} \subseteq \sqrt{\mf{ab}}$.
+
+                $\forall x \in \sqrt{\mf{a} \cap \mf{b}} \Rightarrow \exists n > 0 : x^n \in \mf{a} \wedge x^n \in \mf{b}$
+                $\Rightarrow x^{2n} \in \mf{ab} \Rightarrow x \in \sqrt{\mf{ab}}$.
+            
+            \item $\mf{a} = (1) \Leftrightarrow 1 \in \mf{a} \Leftrightarrow 1 \in \sqrt{\mf{a}} \Leftrightarrow \sqrt{\mf{a}} = (1)$.
+            \item Докажем $\sqrt{\mf{a} + \mf{b}} \subseteq \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}}$. 
+             
+                $\forall x \in \sqrt{\mf{a} + \mf{b}} \Rightarrow \exists n > 0 : x^n \in \mf{a} + \mf{b}$. 
+                Из $\mf{a} \subseteq \sqrt{\mf{a}}$ следует \newline $x^n \in \sqrt{\mf{a}} + \sqrt{\mf{b}} \Rightarrow x \in \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}} }$.
+
+                Теперь докажем $\sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}} \subseteq \sqrt{\mf{a} + \mf{b}}$.
+
+                $\forall x \in \sqrt{\sqrt{\mf{a}} + \sqrt{\mf{b}}} \Rightarrow \exists n > 0 : x^n \in \sqrt{\mf{a}} + \sqrt{\mf{b}}$. 
+                Значит найдется такие $y \in \sqrt{\mf{a}}$ и $z \in \sqrt{\mf{b}}$ такие что $x^n = y + z$. 
+                
+                Заметим, что $\exists m > 0 : y^m \in \mf{a}$ и $\exists l > 0 : z^l \in \mf{b}$.
+
+                Тогда $x^{n(m + l - 1)} = \sum_{s = 0}^{n(m + l - 1)} C_{n(m + l - 1)}^s y^sz^r$, где $s + r = n(m + l - 1)$. Отсюда 
+                $x^{n(m + l - 1)}  \in \mf{a} + \mf{b} \Rightarrow x \in \sqrt{\mf{a} + \mf{b}}$.
+            \item Докажем $\sqrt{\mf{p}^n} \subseteq \sqrt{\mf{p}}$.
+            
+                $\forall x \in \sqrt{\mf{p}^n} \Rightarrow x^m \in \mf{p}^n$. Заметим $\mf{p}^n \subseteq \mf{p}$. 
+                Отсюда $x^m \in \mf{p} \Rightarrow x \in \sqrt{\mf{p}}$.
+
+                Докажем $\sqrt{\mf{p}} \subseteq \sqrt{\mf{p}^n}$. 
+                
+                Пусть $x \in \sqrt{\mf{p}} \Rightarrow x^m \in \mf{p}$. Отсюда $x \in \mf{p} \Rightarrow x^n \in \mf{p}^n \Rightarrow x \in \sqrt{\mf{p}^n}$.
+        \end{enumerate}
+    \end{Proof}
+    
+    \begin{Ex}
+        Пусть $\mf{a}_1, \mf{a}_2 \subset A$ -- идеалы в кольце $A$, $\mf{b}_1, \mf{b}_2 \subset B$ идеалы в кольце $B$ и 
+        $f : A \rightarrow B$ гомоморфизм колец. Доказать следующие утверждения:
+        
+        \begin{enumerate}
+            \item $(\mf{a}_1 + \mf{a}_2)^e = \mf{a}_1^e + \mf{a}_2^e$
+            \item $(\mf{a}_1 \cap \mf{a}_2)^e \subseteq \mf{a}_1^e \cap \mf{a}_2^e$
+            \item $(\mf{a}_1\mf{a}_2)^e = \mf{a}_1^e\mf{a}_2^e$
+            \item $(\mf{a}_1 : \mf{a}_2)^e \subseteq (\mf{a}_1^e : \mf{a}_2^e)$
+            \item $(\sqrt{\mf{a}})^e \subseteq \sqrt{\mf{a}^e}$
+            \item $(\mf{b}_1 + \mf{b}_2)^c \supseteq \mf{b}_1^c + \mf{b}_2^c$
+            \item $(\mf{b}_1 \cap \mf{b}_2)^c = \mf{b}_1^c \cap \mf{b}_2^c$
+            \item $(\mf{b}_1\mf{b}_2)^c \supseteq \mf{b}_1^c\mf{b}_2^c$
+            \item $(\mf{b}_1 : \mf{b}_2)^c \subseteq (\mf{b}_1^c : \mf{b}_2^c)$
+            \item $(\sqrt{\mf{b}})^c = \sqrt{\mf{b}^c}$
+        \end{enumerate}
+    \end{Ex}
+
+    \begin{Proof}
+        \begin{enumerate}
+            \item $(\mf{a}_1 + \mf{a}_2)^e = Bf(\mf{a}_1 + \mf{a}_2) = Bf(\mf{a}_1) + Bf(\mf{a}_2) = \mf{a}_1^e + \mf{a}_2^e.$
+            \item $x \in \mf{a}_1 \cap \mf{a}_2 \Rightarrow Bf(x) \subseteq \mf{a}_1^e \cap \mf{a}_2^e \Rightarrow (\mf{a}_1 \cap \mf{a}_2) \subseteq (\mf{a}_1 \cap \mf{a}_2)^e.$
+            \item $(\mf{a}_1\mf{a}_2)^e = Bf(\mf{a}_1\mf{a}_2) = Bf(\mf{a}_1)Bf(\mf{a}_2) = \mf{a}_1^e\mf{a}_2^e.$
+            \item Выберем произвольный $y \in (\mf{a}_1 : \mf{a}_2)^e = \{Bf(x) \mid \mf{a}_2x \subseteq \mf{a}_2 \}.$ \newline
+                Следовательно, $\exists x_0 \in (\mf{a}_1 : \mf{a}_2)$ такой что $y \in Bf(x_0).$ 
+                Заметим, $\mf{a}_2^ey \subseteq Bf(\mf{a}_2)Bf(x_0) = Bf(\mf{a}_2x_0)$. \newline
+                Так как $\mf{a}_2x_0 \subseteq \mf{a}_2$, значит $Bf(\mf{a}_2x_0) \subseteq Bf(\mf{a}_1) = \mf{a}_1^e$. 
+                Из $\mf{a}_2^ey \subseteq \mf{a}_1^e$ следует $y \in (\mf{a}_1^e : \mf{a}_2^e).$
+            \item Выберем произвольный $y \in (\sqrt{\mf{a}})^e \Rightarrow y \in Bf(x_0)$ для некоторого $x_0^n \in \mf{a}$.
+                Заметим $y^n \in B^n(f(x_0)^n) = Bf(x_0^n) \subseteq Bf(\mf{a}) = \mf{a}^e$. Отсюда $y \in \sqrt{\mf{a}^e}$.
+            \item $\mf{b}_1^c + \mf{b}_2^c \subseteq (\left(\mf{b}_1^c + \mf{b}_2^c)^e\right)^c = (\mf{b}_1^{ce} + \mf{b}_2^{ce})^c \subseteq (\mf{b}_1 + \mf{b}_2)^c.$
+            \item Выберем произвольный $x \in (\mf{b}_1 \cap \mf{b}_2)^c = f^{-1}(\mf{b}_1 \cap \mf{b}_2)$, что равносильно
+                $$
+                    f(x) \in \mf{b}_1 \cap \mf{b}_2 \Leftrightarrow f(x) \in \mf{b}_1 \wedge f(x) \in \mf{b}_2 \Leftrightarrow x \in f^{-1}(\mf{b}_1) \wedge x \in f^{-1}(\mf{b}_2).
+                $$
+                Отсюда $x \in f^{-1}(\mf{b}_1) \cap f^{-1}(\mf{b}_1) = \mf{b}_1^c \cap \mf{b}_2^c$.
+            \item $\mf{b}_1^c\mf{b}_2^c \subseteq (\mf{b}_1^c\mf{b}_2^c)^{ec} = (\mf{b}_1^{ce}\mf{b}_2^{ce})^c \subseteq (\mf{b}_1\mf{b}_2)^c.$
+            \item Выберем произвольный $y \in (\mf{b}_1 : \mf{b}_2)^c$. Это значит что $y \in f^{-1}(x_0)$, где $x_0\mf{b}_2 \subseteq \mf{b}_1$.
+            
+                Заметим, что
+                $$
+                    f^{-1}(\mf{b}_2)y \subseteq f^{-1}(\mf{b}_2)f^{-1}(x_0) \subseteq f^{-1}(\mf{b}_2x_0) \subseteq f^{-1}(\mf{b}_1).
+                $$
+
+                Отсюда $y \in (\mf{b}_1^c : \mf{b}_2^c)$.
+            \item докажем, что $(\sqrt{\mf{b}})^c \subseteq \sqrt{\mf{b}^c}$. 
+            
+                Выберем произвольный $y \in (\sqrt{\mf{b}})^c = f^{-1}(\sqrt{\mf{b}})$. Это равносильно тому, что
+                $$
+                    \exists n > 0 : y \in f^{-1}(x_0), \text{где } x_0^n \in \mf{b}.
+                $$
+
+                Отсюда 
+
+                $$
+                    y^n \in f^{-1}(x_0^n) \subseteq f^{-1}(\mf{b}) \Rightarrow y \in \sqrt{\mf{b}^c}.
+                $$
+
+                Докажем $(\sqrt{\mf{b}})^c \supseteq \sqrt{\mf{b}^c}$.
+
+                Выберем произвольный $y \in \sqrt{\mf{b}^c}$. Из этого следует $\exists n > 0$ такое, что $y^n \in \mf{b}^c = f^{-1}(\mf{b})$. Тогда имеем
+
+                $$
+                    f(y^n) = \left(f(y)\right)^n \in \mf{b} \Rightarrow f(y) \in \sqrt{\mf{b}} \Rightarrow y \in f^{-1}(\sqrt{\mf{b}}) = (\sqrt{\mf{b}})^c.
+                $$
+        \end{enumerate}
+    \end{Proof}
+
+    \begin{Ex} \label{ex_1}
+        Доказать, что $x \in \nil A \Leftrightarrow 1 + x \in U(A)$, где $x \in A$, $A$ --- кольцо; $\nil A, U(A)$ --- множество нильпотентов и единиц кольца $A$ соответственно.
+    \end{Ex}
+    \begin{Proof}
+
+        Докажем, что $x \in \nil A \Rightarrow 1+x \in U(A)$.
+
+        Пусть $n$ --- такое число, что $x^n = 0$. Тогда
+        $$
+            1 - (-x)^n = 1 = (1 - (-x))(1 + (-x) + \dots + (-x)^{n-1}).
+        $$
+
+        Обозначим $S = (1 + (-x) + \dots + (-x)^{n-1})$. Имеем 
+        $$
+            1 = (1 + x)S \Rightarrow 1 + x \in U(A).
+        $$
+
+        Теперь докажем более общее утверждение: $$x \in \nil A, u_0 \in U(A) \Rightarrow u_0 + x \in U(A).$$
+
+        Умножим $u_0 + x$ на $u_0^{-1}$:
+        $$
+            u_0^{-1}(u_0 + x) = 1 + u_0^{-1}x = 1 + y, \text{где } y := u_0^{-1}x.
+        $$
+        Заметим
+        $$
+            1 = (1 + y)(1 + (-y) + (-y)^2 + \dots + (-y)^{n-1}),
+        $$
+
+        обозначим $S = 1 + (-y) + (-y)^2 + \dots + (-y)^{n-1}$ и умножим на $u_0$. Имеем
+
+        $$
+            u_0 = (u_0 + x)S \Rightarrow u_0 + x \in U(A).
+        $$
+
+        Теперь, полагая $u_0 = 1$, получаем требуемое доказательство.
+    \end{Proof}
+
+    \begin{Ex} \label{ex_2}
+        Пусть $A$ --- некоторое кольцо, а $A[x]$ --- кольцо многочленов от переменной $x$ с коэффициентами из $A$. Пусть
+        $$
+            f = a_0 + a_1x + \dots + a_nx^n \in A[x].
+        $$
+        Доказать следующие утверждения:
+    \begin{enumerate}[(I)]
+            \item $f$ --- единица в $A[x]$ $\Leftrightarrow$ $a_0$ --- единица в $A$, а $a_1, \dots, a_n$ --- нильпотенты.
+            \item $f$ --- нильпотент $\Leftrightarrow$ $a_0, \dots, a_n$ --- нильпотенты.
+            \item $f$ --- делитель нуля $\Leftrightarrow$ существует ненулевой элемент $a \in A$ такой, что $af = 0$.
+            \item Многочлен $f$ называется примитивным, если $(a_0, \dots, a_n) = 1$. Пусть $f, g \in A[x]$. Показать, что примтитвность
+                $fg$ равносильна примтивности $f$ и $g$. 
+        \end{enumerate}
+    \end{Ex}
+
+    \underline{Докажем (I).}
+
+    \begin{Proof}
+
+        $\Leftarrow$: Заметим, если $a \in A$ --- нильпотент, то и $ax^k \in A[x]$ тоже нильпотент. Так же отметим, если $a \in A$ --- елиница, 
+        то и $a \in A[x]$ едница как многочлен нулевой степени.
+        Воспользуемся результатом упражнения \ref{ex_1}. Так как $a_0$ --- елиница, а $\sum_{k = 1}^n a_kx^k$ --- нильпотент (множество всех нильпотентов кольца является идеалом[A-M]), то получаем, что
+        $f$ --- единица как сумма единицы и нильпотента.
+
+        $\Rightarrow$: Докажем следующее 
+        \begin{Statement}
+            Пусть $g = b_0 + b_1x + \dots + b_mx^m$ --- обратный к $f$ многочлен, тогда $a_n^{r + 1}b_{m - r} = 0$.
+        \end{Statement}
+        \begin{Proof}
+            Рассмотрим коэффицианты произвдения $fg$. Коэффциент при $x^k$ обозначим как $[x^k]$:
+            \begin{align*}
+                [x^{n + m}]&=a_nb_m = 0\\
+                [x^{n + m - 1}]&= a_{n - 1}b_m + a_nb_{m - 1} = 0 \\
+                [x^{n + m - 2}]&= a_{n - 2}b_m + a_{n - 1}b_{m - 1} + a_nb_{m - 2} = 0\\
+                \vdots\\
+                [x^2]&= a_0b_2 + a_1b_1 + a_2b_0 = 0\\
+                [x^1]&=a_0b_1 + a_1b_0 = 0 \\
+                [x^0]&=a_0b_0 = 1.
+            \end{align*}
+            $i$-ую сверху строчку умножим на $a_n^i$. Получим:
+            \begin{align*}
+                [x^{n + m}]&=a_nb_m = 0\\
+                [x^{n + m - 1}]a_n&= a_{n - 1}b_ma_n + a_n^2b_{m - 1} = 0 \\
+                [x^{n + m - 2}]a_n^2&= a_{n - 2}b_ma_n^2 + a_{n - 1}b_{m - 1}a_n^2 + a_n^3b_{m - 2} = 0\\
+                \vdots\\
+                [x^2]a_n^{n + m - 2}&= a_0b_2a_n^{n + m - 2} + a_1b_1a_n^{n + m - 2} + a_2b_0a_n^{n + m - 2} = 0\\
+                [x^1]a_n^{n + m - 1}&=a_0b_1a_n^{n + m - 1} + a_1b_0a_n^{n + m - 1} = 0 \\
+                [x^0]a_n^{n + m}&=a_0b_0a_n^{n + m} = 1.
+            \end{align*}
+
+            Из первой строчки следует, что $a_nb_m = 0$. Подставляя это во вторую получает, что $a_n^2b_{m - 1} = 0$. Подставляя эти оба равенства в третью
+            получаем, что $a_n^3b_{m - 2} = 0$ и так далее, по индукции, получаем что $a_n^{r + 1}b_{m - r} = 0$.
+        \end{Proof}
+        
+        Воспользуемся доказанным утверждением при $r = m$: $a_n^{m + 1}b_0 = 0$. Так как $b_0$ --- единица, получаем что $a_n^{m + 1} = 0$, следовательно $a_n$ --- нильпотент.
+
+        Обозначим $\tilde{f} = f - a_nx^n$. Так как $f$ --- единица, а $a_nx^n$ --- нильпотент, то $\tilde{f}$ тоже будет единицей. Теперь повторяя аналогичное доказательство для $\tilde{f}$
+        получим, что $a_{n - 1}$ --- нильпотент и так до тех пор, пока $\deg f > 0$. При $\deg f = 0$ имеем $f = a_0$, откуда сразу получаем что $a_0$ --- единица. 
+    \end{Proof}
+    
+    \underline{Докажем (II).}
+
+    \begin{Proof}
+
+        $\Leftarrow$: Так как $a_k \in A$ --- нильпотенты для всех $k = \overline{0,n}$, то и $a_kx^k \in A[x]$ тоже будут нильпотентами, следовательно и их сумма 
+        $f = \sum_{k=0}^n a_kx^k$ будет нильпотентом.
+
+        $\Rightarrow$: Так как $f$ --- нильпотент, следовательно существует такое $n_0 > 0$, что $f^{n_0} = 0$:
+        $$
+            f^{n_0} = \underbrace{(a_0 + \dots )(a_0 + \dots )\dots (a_0 + \dots )}_{n_0 \text{ скобок}} = a_0^{n_0} + \dots = 0.
+        $$
+
+        Отсюда получаем, что $a_0^{n_0} = 0$, значит $a_0$ --- нильпотент.
+        Обозначим $\tilde{f} = f - a_0$. Так как $f, a_0 \in A[x]$ нильпотенты, следовательно и $\tilde{f}$ тоже будет нильпотентом. Проведем для $\tilde{f}$ аналогичные 
+        действия, по индукции, получим что $a_k$ --- нильпотенты для всех $k = \overline{0, n}$.
+    \end{Proof}
+
+    \underline{Докажем (III).}
+
+    \begin{Proof}
+
+        $\Leftarrow$: Будем смотреть на $a$ как на элемент кольца $A[x]$. Отсюда сразу получаем, что $f$ --- нильпотент.
+
+        $\Rightarrow$: Среди всех многочленов $g$, таких что $fg = 0$ выберем многочлен минимальной степени. Пусть это $g = b_0 + b_1x + \dots + b_mx^m$.
+
+        Докажем следующее
+        \begin{Statement}
+            $a_{n - r}g = 0$  при всех $r = \overline{0, n}$.
+        \end{Statement}
+        \begin{Proof}
+            Приведем индукцию по $r$.
+
+            $r = 0$: $a_ng = 0$, в противном случае степень $m$ не была бы наименьшей и $a_ngf = 0$.
+
+            Пусть при $r = k$ утверждение было доказано. 
+            
+            Докажем его при $r = k + 1$.
+
+            Обозначим $\tilde{f} = f - \sum_{i=0}^{k} a_{n-i}x^{n-i}$. Умножим $\tilde{f}$ на $g$:
+            $$
+                \tilde{f}g = fg - \sum_{i=0}^{k} a_{n-i}gx^{n-i} = 0,
+            $$
+            так как $fg = 0$ и при всех $i = \overline{0, k}$ $a_{n-i}g = 0$. Рассмотрим коэффициенты в произведении $\tilde{f}g$:
+
+            \begin{align*}
+                [x^0] &= a_0b_0 = 0\\
+                [x^1] &= a_0b_1 + a_1b_0 = 0\\
+                \vdots\\
+                [x^{n - k - 1}] &= a_{n - k - 1}b_0 = 0.
+            \end{align*}
+
+            Откуда получаем, что $a_{n - k - 1}g = 0$, иначе степень $m$ не была бы наименьшей и $a_{n-k-1}gf = 0$. 
+        \end{Proof}
+
+        Для всех $i = \overline{0, n}$ имеем $a_ig = 0$, откуда следует $a_ib_m = 0$, следовательно, $b_mf = 0$. Искомый $a$ положим равынм $b_m$.
+    \end{Proof}
+
+    \underline{Докажем (IV).}
+
+    \begin{Proof}
+
+        Пусть $f = a_0 + a_1x + \dots + a_nx^n$, $g = b_0 + b_1x + \dots + b_mx^m$.
+
+        $\Rightarrow$: Предположим, что $fg$ примитивен, но $f$ не является примитивным, то есть $\exists d \neq 1, 0$ такой, что $ d \mid a_i$ при всех $i = \overline{0, n}$.
+        Рассмотрим коэффициенты произвдения $fg$:
+        \begin{align*}
+            [x^0] &= c_0 = a_0b_0\\
+            [x^1] &= c_1 = a_0b_1 + a_1b_0 \\
+            \vdots\\
+            [x^{n + m - 1}] &= c_{n + m-1} = a_{n-1}b_m + a_nb_{m-1}\\
+            [x^{n + m}] &= c_{n + m} = a_nb_m.
+        \end{align*}
+
+        Так как $d$ делит все $a_i$, следовательно, $d$ будет делить все $c_j$, следовательно, многочлен $fg$ уже не будет примитивным. Значит предположение было неверно и $f$ является примитивным.
+        Аналогично доказывается примитивность $g$.
+
+        $\Leftarrow$: Предположим, что $f$, $g$ примитивны, а $fg$ не является примитивным. Пусть $fg$ имеет следующий вид
+        $$
+            fg = \sum_{j = 0}^{n + m} c_jx^j.
+        $$
+
+        Многочлен $fg$ не примитивен, значит $\exists \mf{p}$ --- простой идеал, такой что $c_j \in \mf{p}$ для всех $j = \overline{0, n+m}$. 
+        \begin{align*}
+            [x^0] &= c_0 = a_0b_0 \in \mf{p}\\
+            [x^1] &= c_1 = a_0b_1 + a_1b_0 \in \mf{p} \\
+            \vdots\\
+            [x^{n + m - 1}] &= c_{n + m-1} = a_{n-1}b_m + a_nb_{m-1} \in \mf{p}\\
+            [x^{n + m}] &= c_{n + m} = a_nb_m \in \mf{p}.
+        \end{align*}
+        
+        Пусть, для определенности, $a_0 \in \mf{p} \Rightarrow a_1b_0 \in \mf{p} \Rightarrow a_1 \in \mf{p} \Rightarrow \dots \Rightarrow a_n \in \mf{p}$. Следовательно, многочлен 
+        $f$ не является примитивным.
+    \end{Proof}
+
+    \begin{Ex}
+        Доказать, что в кольце $A[x]$ радикал Джекобсона совпадает с нильрадикалом.
+    \end{Ex}
+    \begin{Proof}
+
+        Докажем $\nil{A[x]} \subseteq \jac{A[x]}$.
+
+        Выберем произвольные $f, g \in \nil{A[x]}$. Так как нильрадикал является идеалом, следовательно $fg \in \nil{A[x]}$. Из упражнения \ref{ex_1} следует, что $1 - fg \in U(A[x])$,
+        значит, из предложения 1.9[А-М] $f \in \jac{A[x]}$.
+
+        Докажем $\jac{A[x]} \subseteq \nil{A[x]}$
+
+        Выберем произвольный $f \in \jac{A[x]}$. Из предлжения 1.9[А-М] следует, что для всех $g \in A[x]$ выполнено $1 - fg \in U(A[x])$. Положим $g = x$. То есть $1 - xf \in U(A[x])$. Пусть
+        многочлен $f$ имеет следующий вид:
+        $$
+            f = a_0 + a_1x + \dots + a_nx^n,
+        $$
+        тогда $1 - xf$ будет иметь вид:
+        $$
+            1 - xf = 1 - (a_0x + a_1x^2 + \dots + a_nx^{n + 1}).
+        $$
+
+        Воспользовавшись упражнением \ref{ex_1} получаем, что $a_0x + a_1x^2 + \dots + a_nx^{n + 1}$ --- нильпотент. 
+        Из упражнения \ref{ex_2} пункта II вытекает, что $a_i \in \nil{A[x]}$ для $i = \overline{1, n}$. 
+        Снова воспользовавшись результатом упражнения \ref{ex_2} пункт II получаем, что $f$ --- нильпотент, то есть $f \in \nil{A[x]}$.
+
+        Таким образом $\nil{A[x]} = \jac{A[x]}$.
+    \end{Proof}
+
+    \begin{Ex}
+        Пусть $A$ --- некоторое кольцо, $A[[x]]$ --- кольцо формальных степенных рядов $f = \sum_{n=0}^\infty a_nx^n$ с коэффициентами в $A$. Доказать следующие 
+        утверждения:
+        \begin{enumerate}[(I)]
+            \item $f$ --- единица в $A[[x]]$ $\Leftrightarrow$ $a_0$ --- единица в $A$.
+            \item Если $f \in \nil{A[[x]]}$ $\Rightarrow$ $a_n \in \nil{A}$ при всех $n \geqslant 0$.
+            \item $f \in \jac{A[[x]]}$ $\Leftrightarrow$ $a_0 \in \jac{A}$
+        \end{enumerate}
+    \end{Ex}
+    \newpage
+    \underline{Докажем I.}
+    \begin{Proof}
+        
+        $\Rightarrow$: Так как $f \in U(A[[x]])$ значит $\exists g \in A[[x]]$ такой, что $fg = 1$. Выпишем несколько первых коэффициентов произведения:
+        \begin{align*}
+            [x^0] &= a_0b_0 = 1\\
+            [x^1] &= a_0b_1 + a_1b_0 = 0\\
+            [x^2] &= a_0b_2 + a_1b_1 + a_2b_0 = 0\\
+            \vdots\\
+            [x^m] &= \sum_{i + j = m}a_ib_j\\
+            \vdots
+        \end{align*}
+        Из $a_0b_0 = 1$  сразу следует, что $a_0 \in U(A)$.
+
+        $\Leftarrow$: Пусть $a_0 \in U(A)$. Построим фоормальный степенной ряд $g$ такой, что $fg = 1$. Пусть $g$ имеет вид
+        $$ 
+            g = \sum_{n=0}^\infty b_nx^n.
+        $$
+
+        Рассмотрим коэффициенты произведения $fg$:
+
+        \begin{align*}
+            [x^0] &= a_0b_0 = 1 \Rightarrow b_0 = a_0^{-1}\\
+            [x^1] &= a_0b_1 + a_1b_0 = 0 \Rightarrow b_1 = a_0^{-1}(-a_1b_0)\\
+            [x^2] &= a_0b_2 + a_1b_1 + a_2b_0 = 0 \Rightarrow b_2 = a_0^{-1}(-a_1b_1 - a_2b_0)\\
+            \vdots\\
+            [x^m] &= \sum_{i + j = m}a_ib_j = 0 \Rightarrow b_m = a_0^{-1}\left(-\sum_{i = 1}^{m} a_ib_{m-i}\right)\\
+            \vdots
+        \end{align*}
+
+        Таким образом, для любого $m$ за конечное число шагов мы сможем получить коэффциент $b_m$ формального степенного ряда $g$. 
+    \end{Proof}
+
+    \newpage
+    \underline{Докажем (II).}
+
+    \begin{Proof}
+        
+        Проведем доказательство аналогичное доказатльству упражнения \ref{ex_2} пункт II. Так как $f$ --- нильпотент, следовательно найдется такое 
+        натуральное число $n_0$, что $f^{n_0} = 0$. Имеем 
+        $$
+            f^{n_0} = \underbrace{(a_0 + \dots )(a_0 + \dots )\dots (a_0 + \dots )}_{n_0 \text{ скобок}} = a_0^{n_0} + \dots = 0,
+        $$
+        откуда следует $a_0^{n_0} = 0$. Выполним замену $\tilde{f} = f - a_0$. $\tilde{f}$ снова будет нильпотентом, значит $\exists n_1 > 0 : \tilde{f}^{n_1} = 0$. Имеем
+        $$
+            \tilde{f}^{n_1} = \underbrace{(a_1x + \dots )(a_1x + \dots )\dots (a_1x + \dots )}_{n_1 \text{ скобок}} = (a_1x)^{n_1} + \dots = 0,
+        $$
+        откуда получаем $a_1^{n_1} = 0$, снова замени $\tilde{\tilde{f}} = \tilde{f} - a_1x$. Для $\tilde{\tilde{f}}$ снова проведем аналогичные рассуждения. 
+        Таким образом, за конечное число шагов, получим последовательно $a_0$ --- нильпотент, $a_1$ --- нильпотент и так далее.
+    \end{Proof}
+
+    \underline{Докажем III.}
+
+    \begin{Proof}
+
+        Из предложения 1.9[А-М] $f \in \jac{A[[x]]}$ $\Leftrightarrow$ $1 - fg \in U(A[[x]])$ при всех $g \in A[[x]]$. Пусть $f$ и $g$ имеют следующий вид соответственно
+        \begin{align*}
+            f = \sum_{n=0}^\infty a_nx^n,\\
+            g = \sum_{n=0}^\infty b_nx^n.
+        \end{align*}
+
+        Тогда условие $1 - fg \in U(A[[x]])$ запишется следующим образом:
+        \begin{equation} \label{jac_proof}
+            1 - fg = (1 - a_0b_0) + (a_0b_1 + a_1b_0)x + (a_0b_2 + a_1b_1 + a_2b_0)x^2 + \dots \in U(A[[x]]).
+        \end{equation}
+        Воспользовавшись пунктом I данного упражнения получим \linebreak $1 - a_0b_0 \in U(A)$. Так как $g$ выбирался произвольно, следовательно $b_0$ --- произвольный элемент кольца $A$.
+        Откуда вытекает, что $a_0 \in \jac{A}$.
+
+        С другой стороны, если $a_0 \in \jac{A}$ следует, что при всех $b_0$ будет выполнено $1 - a_0b_0 \in U(A)$, значит ряд \eqref{jac_proof} 
+        будет обратимым при всех $b_n$, $n \geqslant 0$, то есть при любых $g \in A[[x]]$. Отсюда получаем, что $f \in \jac{A[[x]]}$.
+    \end{Proof}
+
+    \begin{Ex} \label{closed_set_prop}
+        Пусть $A$ --- некоторое кольцо, $X$ --- множество всех его простых идеалов. Для вского подмножества $E \subset A$ обозначим $V(E)$ множество всех простых идеалов, содержащих 
+        $E$. Доказать следующие утверждения:
+        \begin{enumerate}[(I)]
+            \item Если $\mf{a}$ --- идеал, порожденный $E$, то $V(E) = V(\mf{a}) = V(\sqrt{\mf{a}})$.
+            \item $V(0) = X$, $V(1) = \emptyset$.
+            \item Пусть $(E_i)_{i \in I}$ --- любое семейство подмножеств $A$. Тогда 
+                $$
+                    V\left(\bigcup_{i \in I} E_i\right) = \bigcap_{i \in I} V(E_i).
+                $$
+            \item $V(\mf{a} \cap \mf{b}) = V(\mf{ab}) = V(\mf{a}) \cup V(\mf{b})$ для любых идеалов $\mf{a}, \mf{b}$ в $A$.
+        \end{enumerate}
+    \end{Ex}
+
+    \underline{Докажем I}
+    \begin{Proof}
+        \begin{enumerate}
+            \item Доказательство $V(E) = V(\mf{a})$
+            
+                Идеал $\mf{a}$ порожден множеством $E$ означает, что $\mf{a}$ имеет вид 
+                $$
+                    \mf{a} = \left\{\sum_i a_ix_i \mid a_i \in A, x_i \in E\right\},
+                $$
+                причем все суммы конечные.
+
+                Покажем $V(E) \subseteq V(\mf{a})$,
+
+                Выберем произвольный простой идеал $\mf{p} \in V(E)$. Для всех $x \in E$ будет выполнено $x \in \mf{p}$, следовательно, любая $A$-линейная комбинация 
+                $$
+                    \sum_{i = 1}^n a_ix_i \in \mf{p},
+                $$
+                где $a_i \in A$, $x_i \in E$, откуда получаем $\mf{a} \subseteq \mf{p}$, следовательно $\mf{p} \in V(\mf{a})$.
+        
+                Покажем $V(\mf{a}) \subseteq V(E)$.
+        
+                Выберем произвольный $x \in E$. Очевидно $x \in \mf{a}$. Так как для всех $\mf{p} \in V(\mf{a})$ выполнено $\mf{a} \subseteq \mf{p}$, следовательно
+                $x \in \mf{p}$. В силу произвольности выбора $x$ получаем, что $E \subseteq \mf{p}$, откуда $\mf{p} \in V(E)$.
+            \item Доказательство $V(\mf{a}) = V(\sqrt{\mf{a}})$.
+
+                Пусть $x \in \sqrt{\mf{a}}$ --- произвольный элемент $\sqrt{\mf{a}}$. Это означает, что \linebreak $\exists n > 0$ такое, что $x^n \in \mf{a}$. 
+                Теперь выберем произвольный простой идеал $\mf{p} \in V(\mf{a})$. По определению, выполнено $\mf{a} \subseteq \mf{p}$. Значит $x^n \in \mf{p}$, а следовательно и
+                $x \in \mf{p}$. В силу произвольности выбора $x$ получаем $\mf{p} \in V(\sqrt{\mf{a}})$. Таким образом, было доказано $V(\mf{a}) \subseteq V(\sqrt{\mf{a}})$. 
+                
+                Так как $\mf{a} \subseteq \sqrt{\mf{a}}$, следовательно $\forall \mf{p} \in V(\sqrt{\mf{a}})$ будет выполнено 
+                $$
+                    \mf{a} \subseteq \sqrt{\mf{a}} \subseteq \mf{p},
+                $$
+                значит $\mf{a} \subseteq \mf{p}$, откуда $V(\sqrt{\mf{a}}) \subseteq V(\mf{a})$.
+        \end{enumerate}
+    \end{Proof}
+
+    \underline{Докажем II}.
+    \begin{Proof}
+
+        Так как $\forall \mf{p} \in X$ справедливо $0 \in \mf{p}$, следовательно $V(0) = X$.
+
+        Так как $A = (1)$ и не существует такого простого идеала $\mf{p}$, что выполнено $(1) \subset \mf{p}$, то $V(1) = \emptyset$.
+    \end{Proof}
+
+    \underline{Докажем III}
+    \begin{Proof}
+        
+        Покажем что $V\left(\bigcup_{i \in I} E_i\right) \subseteq \bigcap_{i \in I} V(E_i)$.
+
+        Выберем произвольный $\mf{p} \in V\left(\bigcup_{i \in I} E_i\right)$. По определению $\bigcup_{i \in I} E_i \subseteq \mf{p}$, что равносильно 
+        $E_i \subseteq \mf{p}$ для всех $i \in I$, откуда следует $\mf{p} \in \bigcap_{i \in I} V(E_i)$.
+
+        Для доказательства $V\left(\bigcup_{i \in I} E_i\right) \supseteq \bigcap_{i \in I} V(E_i)$ достаточно провести рассуждения выше в обратном порядке.
+    \end{Proof}
+
+    \underline{Докажем IV}
+    \begin{Proof}
+        
+        Воспользовавшись свойствами радикалов сразу получаем
+        $$
+            V(\mf{a} \cap \mf{b}) = V\left(\sqrt{\mf{a} \cap \mf{b}}\right) = V\left(\sqrt{\mf{ab}}\right) = V(\mf{ab}).
+        $$
+
+        Осталось доказать $V(\mf{ab}) = V(\mf{a}) \cup V(\mf{b})$.
+
+        Покажем $V(\mf{ab}) \subseteq V(\mf{a}) \cup V(\mf{b})$.
+
+        Выберем произвольный $\mf{p} \in V(\mf{ab})$. По определению $\mf{ab} \subseteq \mf{p}$. Это означает, что $\forall x \in \mf{a}$, $\forall y \in \mf{b}$
+        справедливо $xy \in \mf{p}$. Пусть существует некоторый $x_0 \in \mf{a}$ и $x_0 \not \in \mf{p}$. Однако при всех $y \in \mf{b}\;x_0y \in \mf{p}$.
+        Из определения простого идеала получаем $y \in \mf{p}$, то есть $\mf{b} \subseteq \mf{p}$, или, иными словами, \linebreak $\mf{p} \in V(\mf{a}) \cup V(\mf{b})$.
+
+        Покажем $V(\mf{ab}) \supseteq V(\mf{a}) \cup V(\mf{b})$.
+
+        Пусть $\mf{p} \in V(\mf{a}) \cup V(\mf{b})$ и, для определенности, $\mf{b} \subseteq \mf{p}$, тогда $\forall x \in \mf{a}$ справедливо $x\mf{b} \subseteq \mf{p}$. Следовательно 
+        и $\mf{ab} \subseteq \mf{p}$, то есть $\mf{p} \in V(\mf{ab})$.
+    \end{Proof}
+
+    \begin{Ex}
+        Для вского элемнта $f \in A$ обозначим через $X_f$ дополнение к $V(f)$ в $X = \spec A$. Множества $X_f$ открыты. Доказать что они образуют базу в топологии Зарисского и обладают
+        следующими свойствами:
+        \begin{enumerate}[(I)]
+            \item $X_f \cap X_g = X_{fg}$.
+            \item $X_f = \emptyset \Leftrightarrow f$ --- нильпотент.
+            \item $X_f = X \Leftrightarrow f$ --- единица.
+            \item $X_f = X_g \Leftrightarrow \sqrt{(f)} = \sqrt{(g)}$.
+            \item $X$ --- квазикомпактно (т.е. у всякого открытого покрытия $X$ есть конечное подпокрытие).
+            \item Более общо, $X_f$ --- квазикомпактны.
+            \item Открытое подмножество в $X$ квазикомпактно тогда и только тогда, когда оно является конечным объединением множеств вида $X_f$.
+        \end{enumerate}
+    \end{Ex}
+    Здесь под $\bar Q$, где $Q \subset X$ будем понимать дополнение к множеству $Q$.
+
+    Докажем что $X_f$ образуют базу в топологии Зарисского.
+    \begin{Proof}
+        Выберем произвольное множество $E \subset A$. Ему будет соответствовать некоторое открытое множество $\bar{V(E)} = Y$. Тогда
+        $$
+            Y = \bar{V\left( \bigcup_{f \in E} \{f\} \right)} = \bar{\bigcap_{f \in E} V(f)} = \bigcup_{f \in E} \bar{V(f)} = \bigcup_{f \in E} X_f.
+        $$
+    \end{Proof}
+
+    \underline{Докажем I.}
+    \begin{Proof}
+        Воспользуемся свойствами замкнутых множеств в топологии Зарисского из упражнения \ref{closed_set_prop}.
+        $$
+            X_f \cap X_g = \bar{V(f)} \cap \bar{V(g)} = \bar{V(f) \cup V(g)} = \bar{V(fg)} = X_{fg}.
+        $$
+    \end{Proof}
+
+    \underline{Докажем II.}
+    \begin{Proof}
+        $X_f = \emptyset \Leftrightarrow V(f) = X$, то есть для любого простого идеала $\mf{p}$ выполнено $f \in \mf{p}$ или, другими словами, 
+        $$
+            f \in \bigcap_{\mf{p} \text{ --- прост}} \mf{p} = \nil{A},
+        $$
+        то есть $f$ --- нильпотент.
+    \end{Proof}
+
+    \underline{Докажем III.}
+    \begin{Proof}
+        $X_f = X \Leftrightarrow V(f) = \emptyset$, то есть $f$ не принадлежит ни одному простому идеалу, в том числе ни одному максимальному, значит $f$ --- единица.
+
+        С другой стороны, если бы $f$ не был единицей, то он содержался бы в некотором максимальном идеале $\mf{m}$, а значит $V(f) \neq \emptyset$.
+    \end{Proof}
+
+    \underline{Докажем IV.}
+    \begin{Proof}
+
+        $\Leftarrow$: Если $\sqrt{(f)} = \sqrt{(g)}$, то и $V(f) = V(g)$ (из свойств замкнутых множеств, упражнение \ref{closed_set_prop}). Откуда сразу получаем $X_f = X_g$.
+
+        $\Rightarrow$: По определениею $V(g) = \{\mf{p} \mid \mf{p} \text{ --- прост в $A$} \wedge (g) \subseteq \mf{p}\}$. Так как \linebreak $X_f = X_g$, то и $V(\sqrt{(f)}) = V(\sqrt{(g)})$.
+        Тогда по свойствам замкнутых множеств (упражнение \ref{closed_set_prop}) имеем:
+        $$
+            \sqrt{(f)} = \bigcap_{\mf{p} : (f) \subseteq \mf{p}} \mf{p} = \bigcap_{\mf{p} \in V\left(\sqrt{(f)}\right)} \mf{p} 
+            = \bigcap_{\mf{p} \in V\left(\sqrt{(g)}\right)} \mf{p} = \bigcap_{\mf{p} : (g) \subseteq \mf{p}} \mf{p} = \sqrt{(g)}.
+        $$
+    \end{Proof}
+
+    \underline{Докажем V.}
+    \begin{Proof}
+        Так как $\{X_f\}$ --- база топологии, то можно рассматривать покрытия главными открытыми множествами $X_{f_i}$, где $i \in I$. Так как $X = \bigcup_{i \in I} X_{f_i}$, то
+        $$
+            \emptyset = \bigcap_{i \in I} V(f_i) = V\left(\bigcup_{i \in I}\{f_i\}\right) = V(\left<f_i \right>_{i \in I}).
+        $$
+        Откуда получаем, что $A$-линейная оболочка $\left<f_i \right>_{i \in I} = (1)$, то есть существует такое конечное множество $J$, что 
+        $$
+            \sum_{j \in J} g_jf_j = 1,
+        $$
+        где $g_j$ некоторые элемнты кольца $A$. Следовательно, $A$-линейная оболочка элементов $\left<f_j\right>$, $j \in J$ дает кольцо $A$. Тогда
+        $$
+            \emptyset = V(\left<f_j\right>) = \bigcap_{j \in J} V(f_j),
+        $$
+        из чего следует
+        $$
+            X = \bigcup_{j \in J} X_{f_j}.
+        $$
+    \end{Proof}
+
+    \underline{Докажем VI.}
+    \begin{Proof}
+        
+        Рассмотрим некоторое покрытие главными открытыми множествами: $X_f \subset \bigcup_{i \in I} X_{f_i}$. Перейдем к дополнениям:
+        $$
+            V(f) \supset \bigcap_{i \in I} V(f_i) = V(\left<f_i\right>_{i \in I}).
+        $$
+
+        Из доказательства пункта IV следует $\sqrt{(f)} \subset \sqrt{\left<f_i\right>_{i \in I}}$. Откуда 
+        $$
+            \exists k > 0 : f^k = \sum_{j = 1}^n f_jg_j,
+        $$
+        где $g_j \in A$. Или, иначе, $f^k \in \left<f_j\right>_{j = \overline{1, n}}$. Так как $V(f^k) = V(f)$ имеем:
+        $$
+            V(f) \supset V(\left<f_j\right>_{j = \overline{1, n}}) = \bigcap_{j = 1}^n V(f_j),
+        $$
+        переходя к дополнениям, получаем 
+        $$
+            X_f \subset \bigcup_{j = 1}^n X_{f_j}.
+        $$
+    \end{Proof}
+
+    \underline{Докажем VII.}
+    \begin{Proof}
+        Пусть $Y$ --- открытое множество.
+
+        $\Leftarrow$: Пусть $Y = \bigcup_{j = 1}^n X_{f_j} \subset \bigcup_{i \in I} X_i$. Следовательно, при всех $j$ \linebreak
+        $X_{f_j} \subset \bigcup_{i \in I}X_i$. Так как $X_{f_j}$ квазикомпактно, то найдутся такие $i_k$ и $n_j$, что 
+        \begin{equation} \label{sets_coverage}
+            X_{f_j} \subset \bigcup_{k = 1}^{n_j} X_{i_k}.
+        \end{equation}
+
+        Теперь объединяя выражения вида \eqref{sets_coverage} по $j = \bar{1, n}$ получаем:
+        $$
+            Y \subset \bigcup_{j = 1}^n \bigcup_{k = 1}^{n_j} X_{i_k}.
+        $$
+        Таким образом, множество $Y$ --- квазикомпактно.
+
+        $\Rightarrow$: Так как $\{X_f\}$ --- база топологии, то можно предстваить $Y$ в виде $Y = \bigcup_{i \in I} X_{f_i}$. Так как $Y$ --- квазикомпактно, значит среди $X_{f_i}$ можно выделить конечное число
+         $X_{f_{i_j}}$, что $Y = \bigcup_{j = 1}^n X_{f_{i_j}}$.
+    \end{Proof}
+
+    \begin{Ex}
+        Пусть $N, M$ --- $A$-модули. Доказать следующие утверждения:
+        \begin{enumerate}[(I)]
+            \item $\ann{M + N} = \ann{M} \cap \ann{M}$.
+            \item $(N : M) = \ann{(N + M) / N}$.
+        \end{enumerate}
+    \end{Ex}
+
+    \underline{Докажем I.}
+    \begin{Proof}
+        Выберем произвольный $x \in \ann{M + N}$. По определению, $x(M + N) = 0$, следовательно $xN + xM = 0$. Так как $xN \cup xM \subseteq xN + xM = 0$, значит
+        $xN = xM = 0$, то есть $x \in \ann{M} \cap \ann{N}$.
+
+        Пусть теперь $x \in \ann{M} \cap \ann{N}$ это значит что $xM = xN = 0$, откуда $x(M + N) = 0$, следовательно $x \in \ann{M + N}$.
+    \end{Proof}
+
+    \underline{Докажем II.}
+    \begin{Proof}
+        Пусть $x \in \ann{(N + M) / N}$. По определению $$x((N + M) / N) = \bar{0},$$ что равносильно $x(y + N) \subseteq N$ при всех $y = m + n$, где $m \in M, n \in N$. 
+        Подставим выражение для $y$.
+        $$x(m + n + N) \subseteq N \Leftrightarrow xm + N \subseteq N, \text{при всех $m \in M$.}$$ 
+        Откуда получаем, что $xM \subseteq N$, по определению $x \in (N : M)$.
+    \end{Proof}
+\end{document}
