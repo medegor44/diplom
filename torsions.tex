@@ -71,7 +71,7 @@
             \bigoplus_{s \geq 0}{\left(I^s \ox_A I\right)}.
     \end{equation*}
 
-    \begin{Proposal}
+    \begin{Proposal} \label{torsIdentity}
         Пусть $\{M_j | j \in J\}$ -- семейство $A$-модулей. Кольцо $A$ -- целостное. Тогда
         \begin{equation*}
             \tors{\bigoplus_{j \in J} M_j} = \bigoplus_{j \in J} \tors{M_j}.
@@ -104,3 +104,81 @@
         что справедливо для всех $l = \bar{1,k}$. Тем самым мы показали, что $at = 0$. Значит 
         $t \in \tors{\bigoplus_{j \in J} M_j}$.
     \end{Proof}
+
+    Теперь, воспольовавшись предложением \ref{torsIdentity}, можно записать седующее:
+    \begin{equation*}
+        \tors{\bigoplus_{s \geq 0} \left( I^s \ox_A I \right)} = 
+        \bigoplus_{s \geq 0}\tors{ I^s \ox_A I }.
+    \end{equation*}
+    Таким образом, исходная задача свелась к вычислению подмодуля кручения $\tors{ I^s \ox_A I }$ 
+    $A$-модуля $I^s \ox_A I$.
+    \begin{Theorem}
+        Пусть образующие иделала $I = (x, y)$ алгебраически независимы. 
+        Тогда $\tors{I^s \ox_A I}$ описывается следующим образом:
+        \begin{equation*}
+            \tors{I^s \ox_A I} = \left< x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y |
+             n = \bar{1, s-1}\right>_A
+        \end{equation*}
+    \end{Theorem}
+    \begin{Proof}
+        Так как идеалы $I^s$ и $I$ являются конечнопорожденными $A$-модулями, то, воспользовавшись свойством 
+        тензорного произведения \textbf{[Ссылка на это свойство]}, имеем
+        \begin{equation*}
+            I^s \ox_A I = \left< x^ny^{s - n} \ox x, x^ny^{s - n} \ox y | n = \bar{0, s} \right>_A.
+        \end{equation*}
+        
+        Пусть $\mu : I^s \ox_A I \rightarrow I^{s + 1}$ -- гомоморфизм, который действует на образующих
+        следующим образом: $x^ny^{s - n} \ox x \mapsto x^{n + 1}y^{s - n}$, 
+        $x^ny^{s - n} \ox y \mapsto x^ny^{s - n + 1}$.
+        Тогда, $\ker \mu = \tors{I^s \ox_A I}$. Очевидно, что этот гомоморфизм сюръективен. Тогда,
+        согласно теореме о гомоморфизме, $I^{s + 1} \simeq (I^s \ox_A I) / \ker \mu$. Так как кольцо
+        $A$ целостное, то $I^{s + 1}$ не имеет подмодуля кручения, следовательно, 
+        $\tors{I^s \ox_A I} \subset \ker \mu$.
+
+        Чтобы показать обратное включение, вычислим $\ker \mu$. Пусть $z \in I^s \ox_A I$. Тогда $z$
+        имеет вид
+        \begin{eqnarray*}
+            z = a_0(x^s \ox x) &+& a_1(x^{s - 1}y \ox x) + \dots + a_s(y^s \ox x) + \\
+                               &+& b_1(x^{s} \ox y) + \dots + b_s(xy^{s - 1} \ox y) + 
+                               b_{s + 1}(y^s \ox y),\\
+                               \text{где $a_i, b_i \in A$.}
+        \end{eqnarray*}
+        $\mu(z)$ будет иметь следующий вид:
+        \begin{equation*}
+            \mu(z) = a_0x^{s + 1} + (a_1 + b_1)x^sy + \dots + (a_s + b_s)xy^{s} + b_{s + 1}y^{s + 1}.
+        \end{equation*}
+        Приравняв $\mu(z) = 0$ и воспользовавшись тем фактом, что $x, y$ алгебраически независимы,
+        мы получим условие на коэффициенты:
+        \begin{equation*}
+            \begin{cases}
+                a_0 &= 0\\
+                a_1 + b_1 &= 0\\
+                \dots \\
+                a_s + b_s &= 0\\
+                b_{s + 1} &= 0.
+            \end{cases}
+        \end{equation*}
+        Таким образом, $a_0 = b_{s + 1} = 0$, $a_i = -b_i$, $i = \bar{1, s}$ и 
+        \begin{equation*}
+            \ker \mu = \left< x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y |
+            n = \bar{1, s-1}\right>_A.
+        \end{equation*}
+         
+        Покажем, что образующая $\ker \mu$ вида $x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y$
+        является элементом кручения. Рассмотрим выражение 
+        $xy(x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y)$ и преобразуем его:
+        \begin{multline*}
+            xy(x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y) = \\
+            x(x^ny^{s - n}) \ox xy - y(x^{n + 1}y^{s - n - 1}) \ox xy = \\
+            x^{n + 1}y^{s - n} \ox xy - x^{n + 1}y^{s - n} \ox xy = 0.
+        \end{multline*}
+        Действительно, каждая образующая $\ker \mu$ является элементом кручения. Тем самым мы показали,
+        что $\ker \mu \subset \tors{I^s \ox_A I}$.
+
+        Таким образом,  мы показали, что $\tors{I^s \ox_A I} = \ker \mu $ и имеет место равенство
+        \begin{equation*}
+            \tors{I^s \ox_A I} = \left< x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y |
+            n = \bar{1, s-1}\right>_A.
+        \end{equation*}
+    \end{Proof}
+
