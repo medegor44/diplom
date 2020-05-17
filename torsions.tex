@@ -115,7 +115,7 @@
     \end{equation*}
     Таким образом, исходная задача свелась к вычислению подмодуля кручения $\tors{ I^s \ox_A I }$ 
     $A$-модуля $I^s \ox_A I$.
-    \begin{Theorem}
+    \begin{Theorem} \label{tors_simple}
         Пусть образующие иделала $I = (x, y)$ алгебраически независимы. 
         Тогда $\tors{I^s \ox_A I}$ описывается следующим образом:
         \begin{equation*}
@@ -185,3 +185,68 @@
         \end{equation*}
     \end{Proof}
 
+    Результат данной теоремы можно обобщить следующим образом.
+    \begin{Theorem}
+        Пусть образующие идеала $I = (x, y)$ алгебраически независимы. Тогда подмодуль кручения
+        $\tors{I^s \ox_A I^r}$ описывается следующим образом:
+        \begin{equation*}
+            \tors{I^s \ox_A I^r} = 
+                \left\{ \sum_{\substack{0 \le n \le s \\ 0 \le m \le r}}a_{nm}x^ny^{s - n} 
+                    \ox x^my^{r - m}  \right\}, 
+        \end{equation*}
+        где коэффициенты $a_{ij}$ удовлетворяют соотношению 
+        $$\sum_{i + j = n + m} a_{ij} = 0\;\text{для всех n, m}.$$
+    \end{Theorem}
+    \begin{Proof}
+        Доказательство проводится по схеме, аналогичной доказательству теоремы \ref{tors_simple}.
+        Модуль $I^s \ox_A I^r$ имеет вид
+        \begin{equation*}
+            I^s \ox_A I^r = \left< x^ny^{s - n} \ox x^my^{r - m} | 
+                n = \bar{0, s}, m = \bar{0, m} \right>_A.
+        \end{equation*}
+        Рассмотрим гомоморфизм $\mu : I^s \ox_A I^r \rightarrow I^{s + r}$, который действует на 
+        образующих как $x^ny^{s - n} \ox x^my^{r - m} \mapsto x^{n + m}y^{s + r - n - m}$. 
+        Докажем, что $\ker \mu = \tors{I^s \ox_A I^r}$. Очевидно, что $\mu$ сюръективен и, 
+        воспользовавшись теоремой о гомоморфизме мы можем записать 
+        $I^{s + r} \simeq (I^s \ox_A I^r) / \ker \mu$. Так как кольцо $A$ целостное, то $I^{s + r}$
+        является модулем без кручений из чего следует, что $\tors{I^s \ox I^r} \subset \ker \mu$.
+        
+        Покажем обратное включение. Для этого вычислим $\ker \mu$. Любой элемент $z \in I^s \ox_A I^r$
+        записывается в виде линейной комбинации образующих модуля
+        \begin{equation*}
+            z = \sum_{\substack{0 \le n \le s \\ 0 \le m \le r}}a_{nm}x^ny^{s - n} \ox x^my^{r - m},
+        \end{equation*} 
+        где $a_{nm} \in A$.
+        Вычислив $\mu(z)$ получим следующее
+        \begin{equation*}
+            \mu(z) = \sum_{\substack{0 \le n \le s \\ 0 \le m \le r}}a_{nm}x^{n + m}y^{s + r - n - m}.
+        \end{equation*}
+        Сгруппируем слагаемые с одинаковыми степенями $x$ и тогда полученное выражение запишется в виде
+        \begin{equation*}
+            \mu(z) = \sum_{k = 0}^{s + r}\left( \sum_{i + j = k} a_{ij} \right)x^ky^{s + r - k}.
+        \end{equation*}
+
+        Так как образующие алгебраически независимы, то из равенства $\mu(z) = 0$ следует, что
+        \begin{equation*}
+            \sum_{i + j = k} a_{ij} = 0.
+        \end{equation*}
+        С учетом полученного соотношения, элементы ядра имеют вид
+        \begin{equation*}
+            z = \sum_{k=0}^{s + r} \sum_{n = 0}^{\min(s, k)} a_{nk-n}x^ny^{s - n} \ox x^{k - n}y^{r - k + n}.
+        \end{equation*}
+        Покажем, что $z \in \tors{I^s \ox_A I^r}$. Действительно, зафиксируем $k$, $n \leq \min(s, k)$.
+        Рассмотрим произвольную образующую $x^ny^{s - n} \ox x^{k - n}y^{r - k + n}$ и умножим на 
+        $x^ry^r$. Имеем
+        \begin{multline*}
+            x^ry^r(x^ny^{s - n} \ox x^{k - n}y^{r - k + n}) = \\
+            x^{k - n}y^{r - (k - n)}x^ny^{s - n} \ox x^{r - (k - n)}y^{k - n}x^{k - n}y^{r - k + n} = \\
+            x^ky^{r + s - k} \ox x^ry^r.
+        \end{multline*}
+        При фиксированном $k$ мы получили сумму следующего вида
+        \begin{equation*}
+            x^ry^r\sum_{n = 0}^{\min(s, k)} a_{nk-n}x^ny^{s - n} \ox x^{k - n}y^{r - k + n} =
+            \left(\sum_{n = 0}^{\min(s, k)}a_{nk-n}\right)x^ky^{r + s - k} \ox x^ry^r = 0,
+        \end{equation*}
+        где последнее равенство следует из условия, наложенного на коэффициенты $a_{ij}$. Данное равенство выполнено при всех $k = \bar{0, s + r}$.
+        Таким образом, мы доказали, что $\ker \mu \subset \tors{I^s \ox_A I^r}$.
+    \end{Proof}
