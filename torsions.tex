@@ -15,23 +15,23 @@
     Алгебра $\widetilde{A}$ получается при этом следующим образом: 
     $\widetilde{A} = \bigoplus_{s \geq 0} (I[t] + (t))^s / (t^{s + 1})$, где $I \subset A$ -- 
     ненулевой собственный
-    идеал, $t$ -- элемент, трансцендентный над кольцом $A$;
+    идеал, $t$ -- элемент, трансцендентный над кольцом $A$.
 
     Рассмотрим коммутативное ассоциативное нетерово целостное кольцо $A$ с единицей. 
     
     \begin{Def}
-        Пусть $I \subset A$ идеал. Алгеброй раздутия идеала $I$ назовем выражение 
-        $\widehat{A} := \bigoplus_{s \geq 0} I^s$.
+        Пусть $I \subset A$ идеал. \textit{Алгеброй раздутия} идеала $I$ назовем выражение 
+        $$\widehat{A} := \bigoplus_{s \geq 0} I^s.$$
     \end{Def}
 
     \begin{Def}
-        Пусть $M$ -- произвольный $A$-модуль. Подмодулем кручения $\tors{M}$ называется множество
+        Пусть $M$ -- произвольный $A$-модуль. \textit{Подмодулем кручения} $\tors{M}$ называется множество
         \begin{equation*}
             \tors{M} = \left\{x \in M | \exists a \in A\setminus \{0\}, ax = 0 \right\}.
         \end{equation*}
     \end{Def}
     \begin{Def}
-        Будем говорить, что $A$-модуль $M$ является модулем без кручения, если $\tors{M} = 0$.
+        Будем говорить, что $A$-модуль $M$ является \textit{модулем без кручения}, если $\tors{M} = 0$.
     \end{Def}
 
     Пусть $M$ -- $A$-модуль без кручения. Поскольку тензорное произведение не является точным слева, 
@@ -59,7 +59,7 @@
             I^{r + 1} = \left\{ b_0a_0y^{r + 1} + (b_1a_0 + b_0a_1)xy^{r} + \dots + 
                 (b_1a_{r - 1} + b_0a_{r})x^ry + b_1a_rx^{r + 1} | a_n, b_m \in A \right\}
         \end{equation*}
-        Таким образом,
+        Таким образом, в силу произвольности коэффициентов $a_i, b_j$,
         \begin{equation*}
             I^{r + 1} = (x^{r + 1}, x^ry, \dots, xy^r, y^{r + 1}),
         \end{equation*}
@@ -67,7 +67,7 @@
     \end{Proof}
 
     Так как тензорное произведение дистрибутивно относительно прямой суммы 
-    \textbf{[сослаться на соответствующую главу]}, то справедлива цепочка равенств:
+    \textbf{[сослаться на соответствующее свойство]}, то справедлива цепочка равенств:
 
     \begin{equation*}
         \widehat{A} \ox_A I = \left(\bigoplus_{s \geq 0}{I^s}\right) \ox_A I = 
@@ -99,12 +99,13 @@
         -- все элементы $t$, отличные от нуля. Как отмечалось ранее, их будет конечное число. По определению, 
         найдутся  $a_{i_1}, a_{i_2}, \dots, a_{i_k}$ все отличные от нуля и такие, 
         что $a_{i_1}t_{i_1} = a_{i_2}t_{i_2} = \dots = a_{i_k}t_{i_k} = 0$. Обозначим 
-        $a := a_{i_1}a_{i_2}\dots a_{i_k}$. Так как кольцо целостное, то ни при каких $a_{i_l}$ их
-        произведение не будет равно нулю. Тогда
+        $a := a_{i_1}a_{i_2}\dots a_{i_k}$. Так как кольцо $A$ целостное, то ни при каких отличных от нуля 
+        $a_{i_l}$ их произведение не будет равно нулю. Тогда
         \begin{equation*}
             at_{i_l} = (a_{i_1}\dots a_{i_{l-1}}a_{i_{l + 1}}\dots a_{i_k})a_{i_l}t_{i_l} = 0,
         \end{equation*}
-        что справедливо для всех $l = \bar{1,k}$. Тем самым мы показали, что $at = 0$. Значит 
+        что справедливо для всех $l = \bar{1,k}$. Тем самым мы показали, 
+        что существует такое $a \in A \setminus\{0\}$, что $at = 0$. Значит 
         $t \in \tors{\bigoplus_{j \in J} M_j}$.
     \end{Proof}
 
@@ -120,7 +121,7 @@
         Тогда $\tors{I^s \ox_A I}$ описывается следующим образом:
         \begin{equation*}
             \tors{I^s \ox_A I} = \left< x^ny^{s - n} \ox x - x^{n + 1}y^{s - n - 1} \ox y |
-             n = \bar{1, s-1}\right>_A
+             n = \bar{1, s-1}\right>_A.
         \end{equation*}
     \end{Theorem}
     \begin{Proof}
@@ -143,10 +144,9 @@
         \begin{eqnarray*}
             z = a_0(x^s \ox x) &+& a_1(x^{s - 1}y \ox x) + \dots + a_s(y^s \ox x) + \\
                                &+& b_1(x^{s} \ox y) + \dots + b_s(xy^{s - 1} \ox y) + 
-                               b_{s + 1}(y^s \ox y),\\
-                               \text{где $a_i, b_i \in A$.}
+                               b_{s + 1}(y^s \ox y),
         \end{eqnarray*}
-        $\mu(z)$ будет иметь следующий вид:
+        где $a_i, b_i \in A$. $\mu(z)$ будет иметь следующий вид:
         \begin{equation*}
             \mu(z) = a_0x^{s + 1} + (a_1 + b_1)x^sy + \dots + (a_s + b_s)xy^{s} + b_{s + 1}y^{s + 1}.
         \end{equation*}
@@ -235,7 +235,7 @@
             z = \sum_{k=0}^{s + r} \sum_{n = 0}^{\min(s, k)} a_{nk-n}x^ny^{s - n} \ox x^{k - n}y^{r - k + n}.
         \end{equation*}
         Покажем, что $z \in \tors{I^s \ox_A I^r}$. Действительно, зафиксируем $k$, $n \leq \min(s, k)$.
-        Рассмотрим произвольную образующую $x^ny^{s - n} \ox x^{k - n}y^{r - k + n}$ и умножим на 
+        Рассмотрим образующую $x^ny^{s - n} \ox x^{k - n}y^{r - k + n}$ и умножим на 
         $x^ry^r$. Имеем
         \begin{multline*}
             x^ry^r(x^ny^{s - n} \ox x^{k - n}y^{r - k + n}) = \\
@@ -265,21 +265,21 @@
     \begin{equation*}
         \widetilde{A} := \bigoplus_{s \geq 0}{(I[t] + (t))^s / (t^{s + 1})},
     \end{equation*}
-    где $t$ -- элемент, трансцендентный над $A$. Сразу отметим, что алгебра $\widetilde{A}$ является
-    $A$-алгеброй без кручения, однако если рассмотривать $\widetilde{A}$ как алгебру над 
+    где $t$ -- элемент, трансцендентный над $A$. Отметим, что алгебра $\widetilde{A}$ является
+    $A$-алгеброй без кручения, однако, если рассмотривать $\widetilde{A}$ как алгебру над 
     $\widetilde{A}$, то возникают элементы кручения, например, $(0, t, 0, \dots)$. Далее будем 
     работать с $\widetilde{A}$ как с $A$-алгеброй.
 
     Обозначим $s$-ое слагаемое в прямой сумме как $I^s_t := (I[t] + (t))^s / (t^{s + 1})$.
     Сформулируем вспомогательную теорему
     \begin{Lemma}
-        \begin{equation*}
+        \begin{equation} \label{sl}
             I^s_t = \left< 1  \right>_{I^s} + 
                     \left< t \right>_{I^{s-1}} + 
                     \dots +
                     \left< t^{s-1} \right>_{I} + 
                     \left< t^s \right>_A.
-        \end{equation*}
+        \end{equation}
     \end{Lemma}
     \begin{Proof}
         Сразу отметим, что при вычислении $I^s_t$ будем рассматривать многочлены степени не больше $s$,
@@ -287,7 +287,7 @@
         \begin{equation*}
             \prod_{n = 1}^s a_{n0} + (a_{n1} + b_n)t + a_{n2}t^2 + \dots + a_{ns}t^s.
         \end{equation*}
-        Выясним, к какой степени идеала принадлежат коэффициенты при $t^k$, $0 \leq k \leq s$.
+        Выясним, к каким степеням идеала $I$ принадлежат коэффициенты при $t^k$, $0 \leq k \leq s$.
         Рассмотрим слагаемые в коэффициенте при $t^k$, которые имеют вид
         \begin{equation*}
             [t^k] = b_{j_1}b_{j_2}\dots  b_{j_k}a_{j_{k+1}0}\dots a_{j_s0},
@@ -296,7 +296,7 @@
         $\{j_1, \dots, j_s\} = \{1, \dots, s\}$. Очевидно, что это слагаемое принадлежит $I^{s - k}$,
         при этом взять в произведение большее число множителей, необязательно принадлежащих идеалу $I$ 
         нельзя, так как мы ограничены степеню $k$. Поэтому
-        $I^{s - k}$ является наименьшей степенью идеала, к которой могут принадлежать слагаемые при $t^k$.
+        $I^{s - k}$ является наименьшей степенью идеала, к которой могут принадлежать слагаемые в коэффициенте при $t^k$.
         Однако, отметим, что для любой степени идеала $I^r$, где $r \geq s - k$ найдется такое слагаемое 
         в коэффициенте при $t^k$, что оно принадлежит $I^r$, например, пусть $r = l + (s - k)$
         \begin{equation*}
@@ -321,5 +321,57 @@
                     \left< t^{s-1} \right>_{I} + 
                     \left< t^s \right>_A.
         \end{equation*}
+    \end{Proof}
 
+    Заметим, что сумма \eqref{sl} является прямой, так как $I^s_t$ -- подмодуль $A$-модуля $A[t]$.
+    Теперь, зная строение $A$-модуля $I^s_t$, можно сформулировать теорему
+    \begin{Theorem} \label{tors_hard}
+        Пусть $J \subset A$ -- идеал в $A$, тогда
+        \begin{equation*}
+            \tors{I^s_t \ox_A J} = t^0\tors{I^s \ox_A J} + t^1\tors{I^{s-1}\ox_A J} + \dots + t^{s - 1}\tors{I \ox_A J}.
+        \end{equation*}
+        В частности,
+        \begin{equation*}
+            \tors{I^s_t \ox_A I} = t^0\tors{I^s \ox_A I} + t^1\tors{I^{s-1}\ox_A I} + \dots + t^{s - 1}\tors{I \ox_A I}.
+        \end{equation*}
+    \end{Theorem}
+    \begin{Proof}
+        Так как тензорное произведение дистрибутивно относительно прямой суммы и в силу теоремы 
+        \ref{torsIdentity} можно записать 
+        \begin{multline*}
+            \tors{I^s_t \ox_A J} =  \tors{\left< t^0 \right>_{I^s} \ox_A J} + 
+            \tors{\left< t^1 \right>_{I^{s-1}} \ox_A J} + \dots \\+
+            \tors{\left< t^{s - 1} \right>_{I^1} \ox_A J} + 
+            \tors{\left< t^{s} \right>_{A} \ox_A J}.
+        \end{multline*}
+        Так как $t$ -- элемент трансцендентный над $A$, то его не аннулирует никакой многочлен с
+        коэффициентами из $A$. Значит он не даст вклада в кручения и его можно вынести за знак $\tors{\cdot}$.
+        Таким образом имеем
+        \begin{multline*}
+            \tors{I^s_t \ox_A J} =  t^0\tors{\left< 1 \right>_{I^s} \ox_A J} + 
+            t^1 \tors{\left< 1\right>_{I^{s-1}} \ox_A J} + \dots \\+
+            t^{s - 1}\tors{\left< 1 \right>_{I^1} \ox_A J} + 
+            t^{s}\tors{\left< 1 \right>_{A} \ox_A J}.
+        \end{multline*}
+        Но $\left< 1 \right>_{I^k}$, очевидно, является самим идеалом $I^k$. Таким образом, имеем 
+        \begin{equation*}
+            \tors{I^s_t \ox_A J} = t^0\tors{I^s \ox_A J} + t^1\tors{I^{s-1}\ox_A J} + \dots + t^{s - 1}\tors{I \ox_A J}.
+        \end{equation*}
+    \end{Proof}
+    Задача свелась к вычислению $\tors{I^s \ox J}$. Пусть $J = I$, тогда справделива следующая 
+
+    \begin{Theorem}
+        Пусть образующие идеала $I$ алгебраически независимы, тогда кручения $A$-модуля $I^s_t \ox_A I$ дается суммой своих подмодулей:
+        \begin{equation*}
+            \begin{split}
+                t^0\left<x^{s-1}y \ox x - x^s\ox y, x^{s-2}y^2\ox x - x^{s-1}y\ox y, \dots , y^s \ox x - xy^{s - 1} \ox y\right>_A + \\
+                t^1\left<x^{s-2}y \ox x - x^{s-1}\ox y, x^{s-3}y^2\ox x - x^{s-2}y\ox y, \dots , y^{s-1} \ox x - xy^{s - 2} \ox y\right>_A + \\
+                \dots + \\
+                t^{s-1}\left<x\ox y - y\ox x\right>_A.
+            \end{split}
+        \end{equation*}
+    \end{Theorem}
+    \begin{Proof}
+        Воспользуемся теоремой \ref{tors_hard} и для каждого $\tors{I^s \ox_A I}$ применим теорему
+        \ref{tors_simple}.
     \end{Proof}
