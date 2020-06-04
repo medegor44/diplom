@@ -10,6 +10,7 @@
 \usepackage{indentfirst}
 \usepackage{setspace}
 \usepackage{style}
+\usepackage{lastpage}
 \singlespacing
 
 \newcommand{\sectionbreak}{\clearpage}
@@ -56,32 +57,41 @@
         \par{\bf \noindent Определение \thesection .\thedefcnt}
     }
     
-    % \input{title}
+    \input{title}
 
-    % \setcounter{page}{2}
-    % \tableofcontents
+    \setcounter{page}{2}
+
+    \input{abstract}
+
+    \newpage
+
+    \tableofcontents
 
     % \anonsection{Введение}
     % \input{intro}
 
-    % \input{course_paper}
+    \input{course_paper}
 
     \input{torsions.tex}
 
-    % \newpage
-    % \anonsection{Заключение}
-    % \input{outro.tex}
+    \newpage
+    \anonsection{Заключение}
+    \input{outro.tex}
 
-    % \newpage
-    % \addcontentsline{toc}{section}{Список литературы}
-    % \begin{thebibliography}{00}
-    %     \bibitem{Eisenbud}
-    %     Айзенбад, Д. Коммутативная алгебра с прицелом на алгебраическую геометрию / Д. Айзенбад; пер. с англ. О.Н. Попова и др. под ред. Е.С. Голода. --- М.: МЦНМО, 2017. --- 752 с.
-    %     \bibitem{A-M}
-    %     Атья, М. Введение в коммутативную алгебру / М. Атья, И. Макдональд; пер. с англ. Ю.И. Манин. --- М.: Издательство <<Мир>>, 1972. --- 158 с.
-    %     \bibitem{Vinberg}
-    %     Винберг, Э. Б. Курс алгебры. --- 3-е изд., дополненное. / Э.Б. Винберг. --- М.: МЦНМО, 2017. --- 592 с.
-    %     \bibitem{Maclane}
-    %     Маклейн, С. Гомология. / С. Маклейн; пер. с англ. М.С. Цаленко под ред. А.Г. Куроша. --- М.: Издательство <<Мир>>, 1966. --- 534 с.
-    % \end{thebibliography}
+    \newpage
+    \addcontentsline{toc}{section}{Список литературы}
+    \begin{thebibliography}{00}
+        \bibitem{Eisenbud}
+        Айзенбад, Д. Коммутативная алгебра с прицелом на алгебраическую геометрию / Д. Айзенбад; пер. с англ. О.Н. Попова и др. под ред. Е.С. Голода. --- М.: МЦНМО, 2017. --- 752 с.
+        \bibitem{A-M}
+        Атья, М. Введение в коммутативную алгебру / М. Атья, И. Макдональд; пер. с англ. Ю.И. Манин. --- М.: Издательство <<Мир>>, 1972. --- 158 с.
+        \bibitem{Vinberg}
+        Винберг, Э. Б. Курс алгебры. --- 3-е изд., дополненное. / Э.Б. Винберг. --- М.: МЦНМО, 2017. --- 592 с.
+        \bibitem{Zulanke}
+        Зуланке, Р. Алгебра и геометрия: В 3-х т. --- Т.2.: Модули и алгебры / Р. Зуланке, А.Л. Онищик --- М.: МЦНМО, 2008. --- 336 с.: ил.
+        \bibitem{Maclane}
+        Маклейн, С. Гомология. / С. Маклейн; пер. с англ. М.С. Цаленко под ред. А.Г. Куроша. --- М.: Издательство <<Мир>>, 1966. --- 534 с.
+        \bibitem{Timofeeva}
+        Тимофеева, Н.В.  “Модули допустимых пар и модули Гизекера–Маруямы”, Матем. сб., 210:5 (2019),  109–134.
+    \end{thebibliography}
 \end{document}
