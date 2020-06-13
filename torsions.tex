@@ -447,3 +447,68 @@
             \left< t^s \right>_A.
         \end{equation*}
     \end{Proof}
+
+    Рассмотрим следующую задачу. Описать кручения $\hat A$-модуля $M \ox_A \widehat{A}$, если 
+    он включается в короткую точную последовательность вида
+    \begin{equation*}
+        0 \rightarrow I_1 \xrightarrow{i} M \xrightarrow{\epsilon} I_2 \rightarrow 0,
+    \end{equation*}
+    где $I_1, I_2 \subset A$ --- идеалы в кольце $A$. 
+
+    Обозначим $\widehat{M} := M \ox_A \widehat{A}$. Так как тензорное умножение не точно слева, то
+    имеем последовательность вида
+    \begin{equation*}
+        \hat I_1 \xrightarrow{\hat i} \hat M \xrightarrow{\hat \epsilon} \hat I_2 \rightarrow 0,
+    \end{equation*}
+    в которой $\hat i := i \ox 1$, $\hat \epsilon := \epsilon \ox 1$. Пусть $\tau := \ker \hat i$. Тогда
+    получим точную последовательность 
+    \begin{equation*}
+        0 \rightarrow \tau \rightarrow \hat I_1 \xrightarrow{\hat i} \hat M \xrightarrow{\hat \epsilon} \hat I_2 \rightarrow 0.
+    \end{equation*}
+    Справедливы вложения
+    $$   
+        \xymatrix{
+            0 \ar[r] 
+            &\tau \ar[r] 
+            &\hat I_1 \ar[r]^{\hat i} 
+            &\hat M \ar[r]^{\hat \epsilon} 
+            &I_2 \ar[r] 
+            &0\\
+            0 \ar[r] 
+            & \Tors{\hat A}{\tau} \ar[r] \ar@{^{(}->}[u]
+            & \Tors{\hat A}{\hat I_1} \ar[r]^{\hat i'} \ar@{^{(}->}[u]
+            & \Tors{\hat A}{\hat M} \ar[r]^{\hat \epsilon'} \ar@{^{(}->}[u]
+            & \Tors{\hat A}{I_2} \ar[r] \ar@{^{(}->}[u]
+            &0
+        }
+    $$
+    где гомоморфизмы в нижней строке получены путем ограничения гомоморфизмов верхней строки на соответствующие множества. 
+    Разложим гомоморфизм $\hat i'$ в композицию сюръективного и инъективного морфизмов и рассмотрим нижнюю строку
+    $$   
+        \xymatrix{
+            0 \ar[r] 
+            & \Tors{\hat A}{\tau} \ar[r] 
+            & \Tors{\hat A}{\hat I_1} \ar[r]^{\hat i'} \ar@{>>}[rd]
+            & \Tors{\hat A}{\hat M} \ar[r]^{\hat \epsilon'} 
+            & \Tors{\hat A}{\hat I_2} \ar[r] 
+            &0
+            \\
+            &
+            &
+            &\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \ar@{^{(}->}[u] 
+        }
+    $$
+    Заметим, что $\hat A$-модули $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}}$ и $\Tors{\hat A}{\hat I_2}$
+    $\hat A$-конечно порождены. Поэтому мы можем воспользоваться предложением 4 $\S 4$ гл. 1 книги 
+    \textbf{[источник]}, которое утверждает, что расширение последовательности 
+    \begin{equation*}
+        0 \rightarrow \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \rightarrow \Tors{\hat A}{\hat M} \xrightarrow{\hat \epsilon'} \Tors{\hat A}{\hat I_2} \rightarrow 0
+    \end{equation*}
+    порождено образами порождающих ядра и прообразами порождающих коядря последовательности. 
+    Пусть $\hat I_2 = \left< \bar{z_1}, \bar{z_2}, \dots , \bar{z_m} \right>_{\hat A}$, $z_i \in \Tors{\hat A}{\hat M$} 
+    --- произвольно выбранный проообраз $\bar{z_i}$, тогда
+    \begin{equation*}
+        \Tors{\hat A}{\hat M}= \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} + \left< z_1, z_2, \dots , z_m \right>_{\hat A}.
+    \end{equation*}
+
+
