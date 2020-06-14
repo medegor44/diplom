@@ -390,7 +390,8 @@
         \ref{tors_simple}.
     \end{Proof}
 
-    Как было отмечено ранее, $\widetilde{A}$ является алгеброй с кручением как алгебра над $\widetilde{A}$. 
+    Как было отмечено ранее, $\widetilde{A}$ является алгеброй с кручением как алгебра над $\widetilde{A}$
+    с покомпонентным умножением. 
     Выясним, какой вид имеет $\Tors{\widetilde{A}}{\widetilde{A}}$. Заметим следующее
     \begin{equation*}
         \Tors{\widetilde{A}}{\widetilde{A}} = \Tors{\bigoplus I^s_t}{\bigoplus I^s_t}  = \bigoplus{\Tors{I^s_t}{I^s_t}},
@@ -453,7 +454,7 @@
     \begin{equation*}
         0 \rightarrow I_1 \xrightarrow{i} M \xrightarrow{\epsilon} I_2 \rightarrow 0,
     \end{equation*}
-    где $I_1, I_2 \subset A$ --- идеалы в кольце $A$. 
+    где $I_1, I_2 \subset A$ --- идеалы в кольце $A$, $A$ --- целостное, нетерово. 
 
     Обозначим $\widehat{M} := M \ox_A \widehat{A}$. Так как тензорное умножение не точно слева, то
     имеем последовательность вида
@@ -472,7 +473,7 @@
             &\tau \ar[r] 
             &\hat I_1 \ar[r]^{\hat i} 
             &\hat M \ar[r]^{\hat \epsilon} 
-            &I_2 \ar[r] 
+            &\hat I_2 \ar[r] 
             &0\\
             0 \ar[r] 
             & \Tors{\hat A}{\tau} \ar[r] \ar@{^{(}->}[u]
@@ -498,17 +499,111 @@
             &\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \ar@{^{(}->}[u] 
         }
     $$
-    Заметим, что $\hat A$-модули $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}}$ и $\Tors{\hat A}{\hat I_2}$
-    $\hat A$-конечно порождены. Поэтому мы можем воспользоваться предложением 4 $\S 4$ гл. 1 книги 
+    Отметим, что $\hat I_1, \hat I_2$ конечно порождены, как $\hat A$-модули, поэтому $\Tors{\hat A}{\hat I_2}$
+    конечно порожден как подмодуль нетерового модуля, $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}}$
+    конечно порожден как образ конечно порожденного модуля.
+    Поэтому мы можем воспользоваться предложением 4 $\S 4$ гл. 1 книги 
     \textbf{[источник]}, которое утверждает, что расширение последовательности 
     \begin{equation*}
-        0 \rightarrow \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \rightarrow \Tors{\hat A}{\hat M} \xrightarrow{\hat \epsilon'} \Tors{\hat A}{\hat I_2} \rightarrow 0
+        0 \rightarrow \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \rightarrow 
+        \Tors{\hat A}{\hat M} \xrightarrow{\hat \epsilon'} \Tors{\hat A}{\hat I_2} \rightarrow 0
     \end{equation*}
     порождено образами порождающих ядра и прообразами порождающих коядря последовательности. 
     Пусть $\hat I_2 = \left< \bar{z_1}, \bar{z_2}, \dots , \bar{z_m} \right>_{\hat A}$, $z_i \in \Tors{\hat A}{\hat M$} 
-    --- произвольно выбранный проообраз $\bar{z_i}$, тогда
+    --- произвольно выбранный проообраз $\bar{z_i}$ $(i =\bar{1, m})$ и 
+    $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} = \left< x_1, x_2, \dots, x_n\right>_{\hat A}$,
+    $\bar{x_j}$ --- образ $x_j$ в $\Tors{\hat A}{\hat M}$ $(j=\bar{1, n})$,  тогда
     \begin{equation*}
-        \Tors{\hat A}{\hat M}= \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} + \left< z_1, z_2, \dots , z_m \right>_{\hat A}.
+        \Tors{\hat A}{\hat M}= \left< \bar x_1, \bar x_2, \dots , \bar x_n \right>_{\hat A} + 
+        \left< z_1, z_2, \dots , z_m \right>_{\hat A}.
     \end{equation*}
 
-
+    Теперь выясним как охаракетризовать кручения произвольного $\hat A$-модуля \\$M \ox_A \hat A$, при 
+    условии что $M$ --- нетеров $A$-модуль. Для этого нам потребуются известные утверждения:
+    \begin{Theorem} \label{Mvee1}
+        $M^{\vee} := \Hom_A(M, A)$ --- модуль без кручения.
+    \end{Theorem}
+    \begin{Theorem} \label{Mveevee}
+        Если $M$ --- модуль без кручения, то гомоморфизм $M \rightarrow M^{\vee \vee}$ инъективен.
+    \end{Theorem}
+    Пусть $m \in M^{\vee} \setminus 0$. Рассмотрим гомоморфизм $A \rightarrow M^\vee$, $\alpha \mapsto \alpha m$.
+    Заметим, что этот гомоморфизм инъективен, так как в противном случае $m$ являлся бы элементом 
+    кручения, что невозможно по теореме \ref{Mvee1}. Имеем точную тройку $A$-модулей:
+    \begin{equation*}
+        0 \rightarrow A \rightarrow M^\vee \rightarrow N \rightarrow 0.
+    \end{equation*}
+    Перейдя от нее к двойственной получим последовательность, неточную справа
+    \begin{equation*}
+        0 \rightarrow N^\vee \rightarrow M^{\vee \vee} \rightarrow A.
+    \end{equation*}
+    Разложим гомоморфизм $M^{\vee \vee} \rightarrow A$ в композицию сюръективного и инъективного 
+    гомоморфизмов
+    \begin{equation*}
+        \xymatrix{
+            0 \ar[r]
+            &N^\vee \ar[r] 
+            &M^{\vee \vee} \ar[r] \ar@{>>}[d]
+            &A \ar[r]
+            &\dots \\
+            &
+            &
+            M^{\vee \vee} / N^\vee \ar@{^{(}->}[ru]
+        }
+    \end{equation*}
+    Так как $ M^{\vee \vee} / N^\vee$ обладает вложением в $A$ как $A$-модуль, то имеет место 
+    изоморфизм  $ M^{\vee \vee} / N^\vee \simeq J \subset A$ --- некоторый идеал в кольце $A$. Таким 
+    образом имеем новую точную тройку
+    \begin{equation*}
+        0 \rightarrow N^\vee \rightarrow M^{\vee \vee} \rightarrow J \rightarrow 0.
+    \end{equation*}
+    Воспользовавшись теоремой \ref{Mveevee} имеем вложение
+    \begin{equation*}
+        \xymatrix{
+            0 \ar[r]
+            &N^\vee \ar[r] 
+            &M^{\vee \vee} \ar[r] 
+            &J \ar[r]
+            &0\\
+            &
+            &M \ar@{^{(}->}[u]
+        }
+    \end{equation*}
+    Обозначим $M_1 := \ker(M \rightarrow J_1)$, $J_1 := \im(M \hookrightarrow M^{\vee \vee} \rightarrow J)$ --- 
+    идеал в $A$, при этом выполнены вложения $J_1 \subset J \subset A$. 
+    Имеем диаграмму с точными строками
+    \begin{equation*}
+        \xymatrix{
+            0 \ar[r]
+            &N^\vee \ar[r] 
+            &M^{\vee \vee} \ar[r] 
+            &J \ar[r]
+            &0\\
+            0 \ar[r]
+            &M_1 \ar@{^{(}->}[u]\ar[r]
+            &M \ar@{^{(}->}[u]\ar[r]
+            &J_1 \ar@{^{(}->}[u]\ar[r]
+            &0
+        }
+    \end{equation*}
+    Таким образом, $M_1 \subset M$, $M$ --- нетеров, следовательно, $M_1$ тоже нетеров. Повторим эти же
+    действия для $M_1$, потом для $M_2$ и так далее. Имеем убывающую фильтрацию
+    \begin{equation} \label{subsets}
+        \dots \subset M_2 \subset M_1 \subset M.
+    \end{equation}
+    Так как нетеров модуль необязательно артинов, то эта последовательность может быть бесконечной, покажем 
+    что это не так и цепочка будет обрываться. Перейдем к локализации в нулевом идеале кольца $A$. 
+    $A \hookrightarrow A_0 := Q(A)$ --- поле частных кольца $A$.
+    По свойству точности локализации имеем точную тройку $A_0$-векторных пространств
+    \begin{equation*}
+        0 \rightarrow (M_{i+1})_0 \rightarrow (M_i)_0 \rightarrow (J_{i + 1})_0 \rightarrow 0.
+    \end{equation*}
+    Так как $(J_{i + 1})_0 \simeq A_0$, то из свойсва аддитивности $A_0$-размерности имеют место равенства
+    \begin{equation*}
+        \dim_{A_0} (M_i)_0 - \dim_{A_0}A_0 = \dim_{A_0} (M_i)_0 - 1 = \dim_{A_0}(M_{i+1})_0.
+    \end{equation*}
+    Таким образом, последовательность \eqref{subsets} действительно обрывается и базой будет являться 
+    случай, в котором имеем точную тройку вида
+    \begin{equation*}
+        0 \rightarrow I_1 \rightarrow M_n \rightarrow I_2 \rightarrow 0, 
+    \end{equation*}
+    который был разобран выше.
