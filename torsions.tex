@@ -26,10 +26,11 @@
         на элементы кольца $\widehat{A}$ наследуются с операций кольца $A$.
     \end{Def}
     Кольцо $\widehat{A}$ градуировано, то есть, если $x \in I^s, y \in I^t$, то $xy \in I^{s + t}$.
+    Также отметим, следующее: если кольцо $A$ --- целостное, то и кольцо $\hat A$ тоже будет целостным.
 
     \begin{Def}
         Пусть $M$ -- произвольный $A$-модуль, $A$ --- целостное кольцо. 
-        \textit{Подмодулем кручения} $\tors{M}$ называется множество
+        \textit{Кручением} $\tors{M}$ называется множество
         \begin{equation*}
             \Tors{A}{M} = \left\{x \in M | \exists a \in A\setminus 0 : ax = 0 \right\}.
         \end{equation*}
@@ -50,7 +51,7 @@
     Решается следующая частная задача: описать подмодуль кручения $\tors{\widehat{A} \ox_A I}$ 
     $A$-модуля $\widehat{A} \ox_A I$.
 
-    Пусть, для простоты, идеал $I = (x, y)$ порожден элементами $x, y \in A$. Выясним как устроены
+    Пусть, для простоты, идеал $I = (x, y)$ порожден элементами $x, y \in A$. Выясним, как устроены
     его степени. 
 
     \begin{Theorem}
@@ -91,7 +92,7 @@
     \end{Proposal}
     \begin{Proof}
         Покажем, что $\tors{\bigoplus_{j \in J} M_j} \subset \bigoplus_{j \in J} \tors{M_j}$. 
-        Пусть \\ $t \in \tors{\bigoplus_{j \in J} M_j}$. По определению, существует такое 
+        Пусть \linebreak $t \in \tors{\bigoplus_{j \in J} M_j}$. По определению, существует такое 
         $a \in A \setminus 0$, что $at = 0$. Заметим, что $t = (t_0, t_1, \dots, t_j, \dots)$, где 
         только конечное число компонент $t_j$ отлично от нуля. Так как умножение на элементы прямой 
         суммы производится покомпонентно, то 
@@ -103,7 +104,7 @@
             at_1 = at_0 = \dots = at_j = \dots = 0
         \end{equation*}
         и $t_0 \in \tors{M_0}$, $t_1 \in \tors{M_1}$, \dots, $t_j \in \tors{M_j}$, \dots . 
-        Таким образом,\\ $t \in \bigoplus_{j \in J} \tors{M_j}$. Теперь докажем обратное включение.
+        Таким образом,\linebreak $t \in \bigoplus_{j \in J} \tors{M_j}$. Теперь докажем обратное включение.
         Пусть $t \in \bigoplus_{j \in J} \tors{M_j}$. Пусть $t_{i_1}, t_{i_2}, \dots, t_{i_k}$ 
         -- все компоненты $t$, отличные от нуля. Как отмечалось ранее, их будет конечное число. По определению, 
         найдутся  $a_{i_1}, a_{i_2}, \dots, a_{i_k} \in A$ все отличные от нуля и такие, 
@@ -123,7 +124,7 @@
         \tors{\bigoplus_{s \geq 0} \left( I^s \ox_A I \right)} = 
         \bigoplus_{s \geq 0}\tors{ I^s \ox_A I }.
     \end{equation*}
-    Таким образом, исходная задача свелась к вычислению подмодуля кручения \\$\tors{ I^s \ox_A I }$ 
+    Таким образом, исходная задача свелась к вычислению подмодуля кручения \linebreak$\tors{ I^s \ox_A I }$ 
     $A$-модуля $I^s \ox_A I$.
     \begin{Theorem} \label{tors_simple}
         Пусть образующие иделала $I = (x, y)$ алгебраически независимы. 
@@ -148,7 +149,7 @@
         $A$ целостное, то $I^{s + 1}$ не имеет подмодуля кручения, следовательно, 
         $\tors{I^s \ox_A I} \subset \ker \mu$.
 
-        Чтобы показать обратное включение, вычислим $\ker \mu$. Пусть $z \in I^s \ox_A I$, $z$
+        Чтобы показать обратное включение, вычислим $\ker \mu$. Пусть $z \in I^s \ox_A I$, тогда $z$
         имеет вид
         \begin{eqnarray*}
             z = a_0(x^s \ox x) &+& a_1(x^{s - 1}y \ox x) + \dots + a_s(y^s \ox x) + \\
@@ -163,10 +164,10 @@
         мы получим условия на коэффициенты:
         \begin{equation*}
             \begin{cases}
-                a_0 &= 0\\
-                a_1 + b_1 &= 0\\
+                a_0 &= 0,\\
+                a_1 + b_1 &= 0,\\
                 \dots \\
-                a_s + b_s &= 0\\
+                a_s + b_s &= 0,\\
                 b_{s + 1} &= 0.
             \end{cases}
         \end{equation*}
@@ -226,7 +227,7 @@
             z = \sum_{\substack{0 \le n \le s \\ 0 \le m \le r}}a_{nm}x^ny^{s - n} \ox x^my^{r - m},
         \end{equation*} 
         где $a_{nm} \in A$.
-        Вычислив $\mu(z)$ получим следующее
+        Вычислив $\mu(z)$, получим следующее
         \begin{equation*}
             \mu(z) = \sum_{\substack{0 \le n \le s \\ 0 \le m \le r}}a_{nm}x^{n + m}y^{s + r - n - m}.
         \end{equation*}
@@ -274,8 +275,9 @@
     \begin{equation*}
         \widetilde{A} := \bigoplus_{s \geq 0}{(I[t] + (t))^s / (t^{s + 1})},
     \end{equation*}
-    где $t$ -- элемент, трансцендентный над $A$. Отметим, что алгебра $\widetilde{A}$ является
-    $A$-алгеброй без кручения, однако, если рассмотривать $\widetilde{A}$ как алгебру над 
+    где $t$ -- элемент, трансцендентный над $A$, а умножение определяется покомпонентно. 
+    Отметим, что алгебра $\widetilde{A}$ является
+    $A$-алгеброй без кручения, однако, если рассматривать $\widetilde{A}$ как алгебру над 
     $\widetilde{A}$, то возникают элементы кручения, например, $(0, t, 0, \dots)$. Далее будем 
     работать с $\widetilde{A}$ как с $A$-алгеброй.
 
@@ -317,7 +319,7 @@
             a_{11}a_{21}\dots a_{l1}b_{l + 1}\dots b_k a_{k + 1, 0}\dots a_{s0} \in I^r.
         \end{equation*}
 
-        Так как все коэффициенты были произвольные, то имеет место разложение $I^s_t$, как $A$-модуля, 
+        Так как все коэффициенты были произвольные, то имеет место разложение $I^s_t$ как $A$-модуля 
         в сумму своих $A$-подмодулей
         \begin{equation*}
             I^s_t = \left< 1, t, \dots, t^s \right>_{I^s} + 
@@ -375,11 +377,11 @@
     Задача свелась к вычислению $\tors{I^s \ox J}$. Пусть $J = I$, тогда справедлива следующая 
 
     \begin{Theorem}
-        Пусть образующие идеала $I$ алгебраически независимы, тогда кручения $A$-модуля $I^s_t \ox_A I$ дается суммой своих подмодулей:
+        Пусть образующие идеала $I$ алгебраически независимы, тогда кручение $A$-модуля $I^s_t \ox_A I$ дается суммой своих подмодулей:
         \begin{equation*}
             \begin{split}
-                t^0\left<x^{s-1}y \ox x - x^s\ox y, x^{s-2}y^2\ox x - x^{s-1}y\ox y, \dots , y^s \ox x - xy^{s - 1} \ox y\right>_A + \\
-                t^1\left<x^{s-2}y \ox x - x^{s-1}\ox y, x^{s-3}y^2\ox x - x^{s-2}y\ox y, \dots , y^{s-1} \ox x - xy^{s - 2} \ox y\right>_A + \\
+                \tors{I^s_t \ox_A I} = \left<x^{s-1}y \ox x - x^s\ox y, x^{s-2}y^2\ox x - x^{s-1}y\ox y, \dots , y^s \ox x - xy^{s - 1} \ox y\right>_A + \\
+                t\left<x^{s-2}y \ox x - x^{s-1}\ox y, x^{s-3}y^2\ox x - x^{s-2}y\ox y, \dots , y^{s-1} \ox x - xy^{s - 2} \ox y\right>_A + \\
                 \dots + \\
                 t^{s-1}\left<x\ox y - y\ox x\right>_A.
             \end{split}
@@ -449,7 +451,7 @@
         \end{equation*}
     \end{Proof}
 
-    Рассмотрим следующую задачу. Описать кручения $\hat A$-модуля $M \ox_A \widehat{A}$, если 
+    Рассмотрим следующую задачу. Описать кручение $\hat A$-модуля $M \ox_A \widehat{A}$, если 
     он включается в короткую точную последовательность вида
     \begin{equation*}
         0 \rightarrow I_1 \xrightarrow{i} M \xrightarrow{\epsilon} I_2 \rightarrow 0,
@@ -499,12 +501,12 @@
             &\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \ar@{^{(}->}[u] 
         }
     $$
-    Отметим, что $\hat I_1, \hat I_2$ конечно порождены, согласно предложению 2.17 книги \textbf{[ссылка Атья]}, 
+    Отметим, что $\hat I_1, \hat I_2$ конечно порождены, согласно предложению 2.17 книги \cite{A-M}, 
     как $\hat A$-модули, поэтому $\Tors{\hat A}{\hat I_2}$
-    конечно порожден как подмодуль нетерового модуля, $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}}$
+    конечно порожден как подмодуль нетерова модуля, $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}}$
     конечно порожден как образ конечно порожденного модуля.
     Поэтому мы можем воспользоваться предложением 4 $\S 4$ гл. 1 книги 
-    \textbf{[ссылка Зуланке]}, которое утверждает, что расширение последовательности 
+    \cite{Zulanke}, которое утверждает, что расширение последовательности 
     \begin{equation*}
         0 \rightarrow \frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} \rightarrow 
         \Tors{\hat A}{\hat M} \xrightarrow{\hat \epsilon'} \Tors{\hat A}{\hat I_2} \rightarrow 0
@@ -514,19 +516,31 @@
     --- произвольно выбранный проообраз $\bar{z_i}$ $(i =\bar{1, m})$ и 
     $\frac{\Tors{\hat A}{\hat I_1}}{\Tors{\hat A}{\tau}} = \left< x_1, x_2, \dots, x_n\right>_{\hat A}$,
     $\bar{x_j}$ --- образ $x_j$ в $\Tors{\hat A}{\hat M}$ $(j=\bar{1, n})$,  тогда
-    \begin{equation*}
+    \begin{equation} \label{torsHatM}
         \Tors{\hat A}{\hat M}= \left< \bar x_1, \bar x_2, \dots , \bar x_n \right>_{\hat A} + 
         \left< z_1, z_2, \dots , z_m \right>_{\hat A}.
-    \end{equation*}
+    \end{equation}
 
-    Теперь выясним как охаракетризовать кручения произвольного $\hat A$-модуля \\$M \ox_A \hat A$, при 
-    условии что $M$ --- нетеров $A$-модуль. Для этого нам потребуются известные утверждения:
+    Теперь выясним как охаракетризовать кручения произвольного $\hat A$-модуля \linebreak $M \ox_A \hat A$, при 
+    условии что $M$ --- нетеров $A$-модуль. Для этого нам потребуется утверждение:
     \begin{Theorem} \label{Mvee1}
         $M^{\vee} := \Hom_A(M, A)$ --- модуль без кручения.
     \end{Theorem}
-    \begin{Theorem} \label{Mveevee}
-        Если $M$ --- модуль без кручения, то гомоморфизм $M \rightarrow M^{\vee \vee}$ инъективен.
-    \end{Theorem}
+    \begin{Proof}
+        Известно, что любой конечно порожденный модуль является образом свободного модуля подходящего
+        ранга \cite{Zulanke}, то есть точна тройка
+        \begin{equation*}
+            0 \rightarrow K \rightarrow A^n \rightarrow M \rightarrow 0,
+        \end{equation*}
+        где $K = \ker(A^n \rightarrow M)$.
+        Перейдем от нее к двойственной. Получим последовательность
+        \begin{equation*}
+            0 \rightarrow M^\vee \rightarrow A^n \rightarrow \dots
+        \end{equation*}
+        Так как $A$ --- целостное, то $A^n$ --- модуль без кручения, 
+        $M^\vee$ обладает вложением в $A^n$, следовательно, $M^\vee$ тоже модуль без кручения.
+    \end{Proof}
+
     Пусть $m \in M^{\vee} \setminus 0$. Рассмотрим гомоморфизм $A \rightarrow M^\vee$, $\alpha \mapsto \alpha m$.
     Заметим, что этот гомоморфизм инъективен, так как в противном случае $m$ являлся бы элементом 
     кручения, что невозможно по теореме \ref{Mvee1}. Имеем точную тройку $A$-модулей:
@@ -557,7 +571,9 @@
     \begin{equation*}
         0 \rightarrow N^\vee \rightarrow M^{\vee \vee} \rightarrow J \rightarrow 0.
     \end{equation*}
-    Воспользовавшись теоремой \ref{Mveevee} имеет место вложение
+    Поскольку $M$ --- $A$-модуль без кручения, то имеет место вложение \linebreak
+    $ M \lhook\joinrel\xrightarrow{\epsilon} M^{\vee \vee} : s \mapsto \epsilon_s$, где $\epsilon_s : t \mapsto t(s)$, 
+    включаемое в диаграмму
     \begin{equation*}
         \xymatrix{
             0 \ar[r]
@@ -592,14 +608,14 @@
         \dots \subset M_2 \subset M_1 \subset M.
     \end{equation}
     Так как нетеров модуль необязательно артинов, то эта последовательность может быть бесконечной. Покажем 
-    что это не так и цепочка будет обрываться. Перейдем к локализации в нулевом идеале кольца $A$. 
+    что в нашем случае это не так и цепочка будет обрываться. Перейдем к локализации в нулевом идеале кольца $A$. 
     $A \hookrightarrow A_0 =: Q(A)$ --- поле частных кольца $A$.
     По свойству точности локализации имеем точную тройку $A_0$-векторных пространств
     \begin{equation*}
         0 \rightarrow (M_{i+1})_0 \rightarrow (M_i)_0 \rightarrow (J_{i + 1})_0 \rightarrow 0.
     \end{equation*}
     Так как $(J_{i + 1})_0 \simeq A_0$, то из свойсва аддитивности $A_0$-размерности (Предложение 2.11 книги 
-    \textbf{[ссылка Атья]}) имеют место равенства
+    \cite{A-M}) имеют место равенства
     \begin{equation*}
         \dim_{A_0} (M_i)_0 - \dim_{A_0}A_0 = \dim_{A_0} (M_i)_0 - 1 = \dim_{A_0}(M_{i+1})_0.
     \end{equation*}
@@ -609,3 +625,10 @@
         0 \rightarrow I_1 \rightarrow M_n \rightarrow I_2 \rightarrow 0, 
     \end{equation*}
     в которой для $A$-модуля $M_n$ уже можем вычислить кручения $\hat A$-модуля $\hat M_n$.
+
+    Далее можно действовать индуктивно, где для шага индукции имеем точную тройку 
+    \begin{equation*}
+        0 \rightarrow M_{i-1} \rightarrow M_i \rightarrow I_{n - i + 1} \rightarrow 0,
+    \end{equation*}
+    которая позволяет вычислить $\Tors{\hat A}{\hat M_i}$, используя $\Tors{\hat A}{\hat M_{i-1}}$ и
+    $\Tors{\hat A}{\hat I_{n - i + 1}}$ по формулам, аналогичным \eqref{torsHatM}.
